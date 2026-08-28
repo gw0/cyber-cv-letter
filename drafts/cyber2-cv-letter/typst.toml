@@ -1,0 +1,13 @@
+[package]
+name = "cyber-cv-letter"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["gw0"]
+license = "AGPL-3.0-or-later"
+description = "Single-column, ATS-friendly, visually distinctive CV & cover letter template (terminal/hacker motif)."
+repository = ""
+keywords = ["cv", "resume", "cover-letter", "ats"]
+compiler = "0.14.0"
+
+# Bundled font files under fonts/ keep their own upstream SIL OFL license
+# notices; they are not relicensed by this package's MIT license.

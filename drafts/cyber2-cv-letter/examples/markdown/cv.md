@@ -1,0 +1,124 @@
+---
+name: Sarah Connor
+tagline: AI Security Engineer · Adversarial ML & Red Teaming
+email: sarah.connor@ena.one
+phone: +1 555 0142
+location: Austin, TX
+links: [ena.one, github.com/sconnor, linkedin.com/in/sarahconnor]
+paper: a4
+accent: green
+accent-scope: full
+font-chrome: IBM Plex Mono
+font-body: IBM Plex Sans
+icons: false
+logos: false
+master: false
+---
+
+# SUMMARY
+
+Security engineer specializing in adversarial robustness and red-teaming of
+production ML/LLM systems. 8+ years across offensive security and applied
+ML, with a focus on prompt-injection defense, model-extraction resistance,
+and secure MLOps pipelines.
+
+# EXPERIENCE
+
+## Senior AI Security Engineer | Jun 2023 – Present
+
+*![](examples/markdown/logos/cyberdyne.png) Cyberdyne Systems | Austin, TX*
+
+Leading red-team engagements against internal LLM-powered products before
+launch.
+
+- Built an automated prompt-injection fuzzing harness that surfaced 40+
+  high-severity jailbreaks across 6 production LLM features prior to
+  release.
+  > Custom mutation engine over a 12k-seed corpus, wired into the
+  release-gate CI job; findings triaged weekly with the app-sec team.
+- Led adversarial robustness reviews for a fraud-detection model serving
+  2M inference requests/day, reducing evasion success rate from 18% to
+  under 2%.
+  > Combined gradient-based attack simulation with a red-team-authored
+  adversarial test suite; findings drove a retraining cycle with hardened
+  features.
+- Designed and shipped a model-extraction detection pipeline (query-pattern
+  anomaly scoring) now running across all customer-facing inference
+  endpoints.
+
+`Python · PyTorch · Burp Suite · Kubernetes · OPA/Gatekeeper`
+
+## Security Engineer, Applied ML | Aug 2020 – May 2023
+
+*![](examples/markdown/logos/skynet.png) Skynet Analytics | Remote*
+
+Owned the security review process for the ML platform team's model
+deployment pipeline.
+
+- Authored the org's first threat model for LLM-integrated services,
+  adopted as the standard review template company-wide.
+- Cut mean time to patch critical model-serving CVEs from 21 days to 4 by
+  embedding security gating directly into the MLOps CI/CD pipeline.
+- Ran quarterly red-team exercises against internal chatbots, discovering
+  data-exfiltration paths later closed via output filtering and scoped
+  tool permissions.
+
+`Terraform · AWS · MLflow · Semgrep · Snyk`
+
+## Penetration Tester | Jul 2017 – Jul 2020
+
+*Omni Consumer Security | Detroit, MI*
+
+Generalist offensive security consultant across web, network, and cloud
+engagements.
+
+- Delivered 60+ client penetration tests across web apps, APIs, and
+  AWS/Azure environments; consistently ranked top performer for report
+  quality.
+- Built an internal Burp Suite extension for automated JWT-tampering
+  tests, adopted team-wide and cutting manual testing time by 30%.
+
+`Burp Suite · Nmap · Metasploit · AWS · Azure`
+
+# PROJECTS
+
+## promptfirewall | github.com/sconnor/promptfirewall
+
+*Open source | Remote*
+
+Model-agnostic prompt-injection classifier (400+ GitHub stars), used as a
+pre-filter in three published LLM security tools.
+
+# SKILLS
+
+Security
+: Adversarial ML · Red teaming · Threat modeling · Penetration testing
+
+ML/AI
+: LLMs · PyTorch · Prompt injection defense · Model extraction resistance
+
+Infra
+: Kubernetes · Terraform · AWS · CI/CD security gating
+
+Practice
+: Secure MLOps · Vulnerability research · Incident response
+
+# EDUCATION
+
+## M.S. Computer Science, Security concentration | 2017
+
+*University of Texas at Austin | Austin, TX*
+
+## B.S. Computer Engineering | 2015
+
+*Georgia Institute of Technology | Atlanta, GA*
+
+# CERTIFICATIONS
+
+## OSCP (Offensive Security Certified Professional) | 2019
+
+*Offensive Security | Online*
+
+## GIAC Certified Incident Handler (GCIH) | 2021
+
+*GIAC | Online*

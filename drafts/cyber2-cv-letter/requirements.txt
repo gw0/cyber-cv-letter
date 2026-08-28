@@ -1,0 +1,9 @@
+# Pinned per mvp spec §12/§9.4 — treat any upgrade as a change requiring a
+# full re-verification pass (build all examples + scripts/ats_check.py --all).
+# The Typst compiler itself is a separately-downloaded CLI binary (see
+# README Quickstart) — Pandoc's --pdf-engine=typst shells out to a real
+# binary, never a Python module, so the `typst` PyPI package (Python
+# bindings only) isn't needed here.
+pypandoc_binary==1.17   # bundles pandoc 3.9
+pypdf==6.16.2
+pymupdf==1.28.2

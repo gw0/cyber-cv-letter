@@ -1,0 +1,10 @@
+from: markdown-blank_before_blockquote
+to: typst
+standalone: true
+template: template/cv.typ
+pdf-engine: typst
+pdf-engine-opts:
+  - --font-path
+  - fonts
+  - --pdf-standard
+  - ua-1
