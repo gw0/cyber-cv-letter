@@ -80,8 +80,12 @@ _Nova Systems Analytics | San Diego, CA_
 
 = Education
 
-MS Computer Science, University of California, San Diego — 2019
+== MS Computer Science | 2019
+
+_University of California, San Diego_
 
 = Certifications
 
-OSCP — Offensive Security Certified Professional, 2022
+== OSCP | 2022
+
+_Offensive Security Certified Professional_

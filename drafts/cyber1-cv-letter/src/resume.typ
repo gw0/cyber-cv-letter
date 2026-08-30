@@ -33,7 +33,11 @@
   let tf = resolve-font(font, weight: type-scale.tagline.weight)
   let cf = resolve-font(header-font, weight: type-scale.contact.weight)
 
-  block(above: 0pt, below: 0pt, {
+  // below: space-header-to-section (not a following v()) so this gap
+  // collapses with whatever comes next like every other seam in the
+  // document, instead of adding to it — see the spacing-convention note in
+  // tokens.typ.
+  block(above: 0pt, below: space-header-to-section, {
     // Line 1 — name, always first (design-cyber §6.3's hardest rule).
     text(font: nf.family, weight: nf.weight, size: type-scale.name.size, tracking: 0.04em, fill: fg)[#upper(author.name)]
     if show-marks {
@@ -43,7 +47,7 @@
 
     // Line 2 — tagline.
     if "tagline" in author {
-      v(space-header-line)
+      linebreak()
       text(font: tf.family, weight: tf.weight, size: type-scale.tagline.size, fill: muted)[#author.tagline]
     }
 
@@ -62,7 +66,7 @@
       contact-items.push(if show-icons { icon-image("phone", "phone") + h(3pt) + node } else { node })
     }
     if contact-items.len() > 0 {
-      v(space-header-line)
+      linebreak()
       text(font: cf.family, weight: cf.weight, size: type-scale.contact.size, fill: fg)[
         #contact-items.join([ #h(1pt)·#h(1pt) ])
       ]
@@ -70,7 +74,7 @@
 
     // Line 4 — links, bare (no scheme), hyperlinked.
     if "links" in author and author.links.len() > 0 {
-      v(space-header-line)
+      linebreak()
       let link-items = author.links.map(url => {
         let kind = if "github.com" in url { "github.com" } else if "linkedin.com" in url { "linkedin.com" } else { "link" }
         let node = link("https://" + url)[#url]
@@ -159,6 +163,5 @@
   show terms.item: markup.skills-row-rule(font, header-font, accent-list)
 
   header-block(author, accent-list.at(0), font, header-font, show-icons, show-marks)
-  v(space-header-to-section)
   markup.render-body(body, font: font, header-font: header-font, show-logos: show-logos, accent-list: accent-list)
 }

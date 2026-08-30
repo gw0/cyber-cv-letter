@@ -52,22 +52,61 @@
 // `em`-relative so spacing scales with local text size, expressed through
 // this small set of named, reused tokens rather than per-call-site literals.
 //
-// modern-cv's own magnitudes (bullet 0.65em, entry 1em, section 1.25em,
-// rule-to-entry 0.75em, header-to-section 1.75em) were originally scaled
-// down to ~65% to fight an oversized par leading (1.35em) that ate the
-// one-page budget. With leading fixed (resume.typ), that budget goes back
-// into space-entry/space-section instead — still below modern-cv's own
-// magnitudes, keeping the bullet < entry < section < header-to-section
-// ordering intact.
+// Convention for every block-level spacing call site (markup.typ, resume.typ,
+// letter.typ): declare a gap as `below:` on the element that owns it, and
+// leave `above: 0pt`, so the rendered gap has one source of truth. `above:`
+// is set to a nonzero token only where a show rule genuinely cannot know
+// what preceded it — Typst show rules have no sibling lookahead (see the
+// comment atop markup.typ), so e.g. the tech-line rule can't tell whether a
+// bullet list, a paragraph, or a bare entry header came before it. In those
+// cases `above:` is a deliberate floor: Typst collapses adjacent block
+// spacing to `max(prev.below, next.above)`, so the nonzero `above` guarantees
+// a minimum gap regardless of which element actually precedes it. Never use
+// a bare `v()` to bridge two blocks — unlike block `above`/`below`, `v()` is
+// an additive spacer that does not participate in that collapse, which is
+// exactly the kind of same-looking-but-different-behaviour seam that's hard
+// to reason about (see resume.typ's header-block for the pattern to follow
+// instead).
+//
+// design-cyber §4.4 specifies the scale as multiples of one *fixed*,
+// absolute grid unit `u = 4pt` — entry 2u, rule-to-entry 1.5u, section 3u,
+// header-to-section 4u. `u` is not derived from space-bullet: space-bullet
+// is deliberately held at modern-cv's own 0.65em (~6.8pt at body size)
+// rather than the spec's literal 0.5u (2pt), to match the 0.65em par
+// leading set in resume.typ — a narrow, unrelated fix so bullet-to-bullet
+// spacing doesn't read tighter than the gap between wrapped lines within
+// one bullet. Deriving `u` from that already-inflated value and then
+// multiplying it by 2x/1.5x/3x/4x compounds the inflation across the whole
+// scale (tried and rendered far too large — see git history).
+//
+// Anchoring `u` at its own literal 4pt instead (tried next) rendered the
+// opposite problem: the entry-to-entry gap read as too tight against the
+// tech-line/bullet content above it — the spec's absolute pt values assume
+// a tighter, print-shop-dense grid than this document's own type scale
+// actually sits on. Split the difference: `u' = 6.4pt` (1.6x the literal
+// unit — chosen by rendering and comparing against space-bullet until the
+// entry break reads as a clear, distinct pause rather than either a
+// same-weight continuation or an oversized void), converted to em at the
+// 10.5pt body-size context it's read against (same technique already used
+// below for space-header-line, itself exactly 1u at the *literal* 4pt).
+// Previously (see git history) these were compressed to ~65% of modern-cv's
+// own magnitudes to fit a one-page budget; that constraint no longer
+// applies, so the scale here is the spec's own ratios at this rescaled
+// unit instead.
 
-#let space-bullet = 0.423em
-#let space-meta = 0.6em
-#let space-entry = 0.9em
-#let space-section = 1.05em
-#let space-rule-to-entry = 0.488em
-#let space-header-to-section = 1.137em
+#let space-bullet = 0.65em
+#let space-entry = 1.219em
+#let space-section = 1.3em
+#let space-rule-to-entry = 0.65em
+#let space-header-to-section = 1.7em
 #let space-letter-paragraph = 1.5em
-#let space-header-line = 0.35em
+// Entry title↔org/location stack gap (markup.typ's header-stack) — the
+// identity block's own name/tagline/contact/links lines no longer use this
+// token; they sit in one paragraph joined by linebreak() so they inherit
+// the document's own par leading directly (see header-block in resume.typ),
+// rather than going through a second, separately-tuned constant that has
+// to be kept in sync with it by hand.
+#let space-header-line = 0.65em
 #let body-indent = 0.65em
 
 // Company logo cell (render-entry, markup.typ): landscape, matching a
@@ -151,14 +190,14 @@
 
 #let type-scale = (
   name: (weight: "bold", size: 20pt),
-  tagline: (weight: "regular", size: 11pt),
+  tagline: (weight: "regular", size: 10.5pt),
   contact: (weight: "regular", size: 9pt),
-  section-header: (weight: "bold", size: 11pt),
+  section-header: (weight: "bold", size: 14pt),
   job-title: (weight: "semibold", size: 12pt),
   org-location: (weight: "regular", size: 10.5pt),
-  dates: (weight: "regular", size: 9.5pt),
+  dates: (weight: "regular", size: 9pt),
   body: (weight: "regular", size: 10.5pt),
   tech-line: (weight: "regular", size: 9pt),
-  skills-label: (weight: "medium", size: 9.5pt),
+  skills-label: (weight: "medium", size: 9pt),
   footer: (weight: "regular", size: 8pt),
 )

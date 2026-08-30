@@ -4,9 +4,7 @@ A terminal/hacker-themed CV and cover-letter template, built to satisfy two read
 once: a naive ATS text extractor and a human reviewer giving page one about six
 seconds. Two authoring workflows — direct [Typst](https://typst.app) and
 Markdown+[Pandoc](https://pandoc.org) — both compile to PDF through the same show-rule
-mechanism, so they can't drift apart. Full spec: `specs/20260828-mvp.md` (supersedes
-`specs/20260821-design-cyber.md` and `specs/20260821-rev-modern-cv.md`, both still
-useful background).
+mechanism (`src/markup.typ`), so they can't drift apart.
 
 ## Quick start
 
@@ -31,6 +29,32 @@ them), install with `PIP_CERT=/etc/ssl/certs/ca-certificates.crt` and
 `SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt` set, and pass
 `--use-deprecated=legacy-certs` to `pip install`.
 
+## Content model
+
+Both workflows author the same document shape; `examples/typst/cv.typ` and
+`examples/markdown/cv.md` are the canonical reference. A few rules aren't
+obvious from the examples alone:
+
+- **Section headings** (`# ...`) must come from a closed vocabulary checked
+  at compile time (`src/markup.typ`): `Summary`/`Professional Summary`,
+  `Experience`/`Work Experience`/`Professional Experience`,
+  `Projects`/`Personal Projects`/`Open Source Projects`,
+  `Skills`/`Technical Skills`, `Education`, `Certifications`,
+  `Publications`, `Languages`. Anything else fails the build with an
+  `assert` error rather than rendering wrong — the fix is to rename the
+  heading or add the new name to `section-vocabulary` deliberately.
+- **An entry** is a `## Title | Date` heading immediately followed by an
+  italic `Org | Location` line (optionally wrapping a logo image, e.g.
+  `_[![](logos/x.png)] Cyberdyne Systems | Los Angeles, CA_`). The pairing
+  is positional — the meta line has to come right after its heading, with
+  nothing in between.
+- **Skills** are a definition list (Markdown `Term\n: description`, Typst
+  `/ Term: description`), rendered as one label+value line, never a table.
+- A paragraph made of nothing but inline code (`` `PyTorch · vLLM · Triton` ``)
+  renders as a muted tech-stack line under the entry it follows.
+- The letter (`cv-letter`) takes a required `date` and has no section
+  vocabulary or entry pairing — its body is plain paragraphs.
+
 ## Rendered examples
 
 Three CV builds per workflow are checked into git next to their sources — chosen
@@ -50,8 +74,8 @@ table below — but isn't committed as a separate file.
 ## Seeing the logo and icon features
 
 Company logos on Experience entries and contact-line icons are real but **off by
-default** (safest, most conventional path — decision 13 in the spec).
-`cv-friggeri.pdf` above already shows both; to render them in isolation:
+default** (safest, most conventional path). `cv-friggeri.pdf` above already
+shows both; to render them in isolation:
 
 ```sh
 typst compile --font-path fonts --pdf-standard ua-1 \
@@ -70,7 +94,7 @@ No content edit either way.
 
 ## One-flag variant surface
 
-Every combination below is a flag, never a content edit (spec §9.3):
+Every combination below is a flag, never a content edit:
 
 | Flag | Values | Direct Typst | Markdown+Pandoc |
 |---|---|---|---|
@@ -82,6 +106,10 @@ Every combination below is a flag, never a content edit (spec §9.3):
 | Icons | `true` \| `false` | `--input show-icons=true` | `-V show-icons=true` |
 | Footer | `true` \| `false` | `--input show-footer=true` | `-V show-footer=true` |
 
+`font`, `header-font`, and `margins` are also `cv-resume`/`cv-letter`
+parameters, but aren't wired to a CLI flag in the examples above — change
+them by editing the `.typ` source or `src/pandoc/*.typ` template directly.
+
 ## Package layout
 
 ```
@@ -89,13 +117,13 @@ lib.typ                  — package entrypoint (cv-resume, cv-letter)
 src/
   tokens.typ              — palette, spacing scale, type scale, font-weight resolution
   marks.typ                — drawn chevron / block cursor / rule primitives
-  markup.typ               — the entry-rendering mechanism (§11) — shared by both workflows
+  markup.typ               — the entry-rendering mechanism — shared by both workflows
   resume.typ                — cv-resume(), shared header/footer components
   letter.typ                 — cv-letter()
   pandoc/template.typ         — CV pandoc --template target
   pandoc/letter-template.typ   — cover-letter pandoc --template target
-fonts/IBM-Plex-{Mono,Sans}/     — default chrome/body families (SIL OFL)
-fonts/{Roboto,SourceSansPro}/    — alternate families (existing, kept)
+fonts/IBM-Plex-{Mono,Sans}/     — default chrome/body families (SIL OFL, used by default)
+fonts/{Roboto,SourceSansPro}/    — alternate families, not used by default
 icons/fontawesome/                — optional contact-line icons
 examples/typst/{cv,letter}.typ      — Sarah Connor example, direct Typst
 examples/markdown/{cv,letter}.md     — same content, Markdown+Pandoc
@@ -105,32 +133,28 @@ tests/extraction/                      — pypdf/pymupdf-based extraction verifi
 scripts/check_contrast.py               — WCAG contrast verification for every palette token
 ```
 
-## Deliberate deviations from the spec worth flagging
+## Implementation notes
 
-- **PDF/UA-1 is enforced at compile time everywhere** (`--pdf-standard ua-1` on
-  every Makefile target), not just "targeted by construction." The MVP spec's
-  original decision 8 was "no alt text on the logo image, by explicit
-  instruction" — but Typst's `--pdf-standard ua-1` hard-fails on any image
-  missing alt text, so shipping that decision literally would mean the
-  `show-logos: true` build could never compile under the strict flag. Per an
-  explicit override during implementation, the logo's `image()` call now
-  carries `alt: <company name>` (derived from the same "Org | Location" text
-  already on the line, not hand-authored), and every build — not just the
-  default — compiles under the full standard.
+- **PDF/UA-1 is enforced at compile time on every build**
+  (`--pdf-standard ua-1` on every Makefile target). Typst hard-fails on any
+  image missing alt text under that flag, so the logo's `image()` call
+  always carries `alt: <company name>`, derived from the same "Org |
+  Location" text already on the line.
 - The direct-Typst logo image path is root-relative
-  (`/examples/typst/logos/cyberdyne.png`), not relative to the `.typ` file it's
-  written in. `markup.typ` rebuilds the `image()` call (to attach alt text) from
-  a different file, and a path relative to the *original* file wouldn't resolve
-  from there.
+  (`/examples/typst/logos/cyberdyne.png`), not relative to the `.typ` file
+  it's written in — `markup.typ` rebuilds the `image()` call (to attach alt
+  text) from a different file, and a path relative to the *original* file
+  wouldn't resolve from there.
 - The contact-line icon paths in `resume.typ` are plain relative paths
-  (`../icons/fontawesome/...`), not root-relative. A root-relative path resolves
-  against different roots in the two workflows (project root for direct Typst's
-  `--root .`, OS root for Pandoc's required `--root /`), so it can only work
-  under one of them at a time; a path relative to `resume.typ`'s own on-disk
-  location works under both.
+  (`../icons/fontawesome/...`), not root-relative. A root-relative path
+  resolves against different roots in the two workflows (project root for
+  direct Typst's `--root .`, OS root for Pandoc's required `--root /`), so
+  it can only work under one of them at a time; a path relative to
+  `resume.typ`'s own on-disk location works under both.
 
-## Known limitations (deferred, not forgotten — see spec §1)
+## Known limitations
 
-veraPDF validation, upload to independent ATS simulators, and a screen-reader
-read-through are all out of scope for this MVP and listed as explicit follow-ups
-in the spec, not silently dropped.
+veraPDF validation, upload to independent ATS simulators, and a
+screen-reader read-through haven't been done — PDF/UA-1 is targeted by
+construction (compile-time enforcement above) rather than independently
+verified against the full standard.

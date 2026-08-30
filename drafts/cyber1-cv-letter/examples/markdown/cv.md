@@ -65,8 +65,12 @@ Infra
 
 # Education
 
-MS Computer Science, University of California, San Diego — 2019
+## MS Computer Science | 2019
+
+*University of California, San Diego*
 
 # Certifications
 
-OSCP — Offensive Security Certified Professional, 2022
+## OSCP | 2022
+
+*Offensive Security Certified Professional*

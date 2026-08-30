@@ -12,4 +12,4 @@ keywords = ["cv", "resume", "cover-letter", "ats"]
 
 [template]
 path = "examples/typst"
-entrypoint = "sarah-connor-cv.typ"
+entrypoint = "cv.typ"

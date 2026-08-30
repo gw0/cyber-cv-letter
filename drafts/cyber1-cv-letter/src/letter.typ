@@ -43,7 +43,6 @@
   set par(justify: false, leading: 1.35em, spacing: space-letter-paragraph)
 
   header-block(author, accent-list.at(0), font, header-font, false, show-marks)
-  v(space-header-to-section)
 
   // Date line, marked with the drawn prompt chevron — the letter's one
   // header-like line (design-cyber Appendix A).

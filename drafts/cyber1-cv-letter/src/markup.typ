@@ -180,23 +180,41 @@
 // followed it — the org/location line below. With `show-logos: true` and a
 // meta-line present, both lines are stacked in a column next to one shared,
 // vertically-centred logo cell instead of the meta line getting its own.
-#let render-entry(title-node, meta-node, font, header-font, show-logos, accent-list) = {
+//
+// Both the logo and non-logo paths share one `header-stack`/`above:`/
+// `below:` treatment so "title↔meta" and "meta→first bullet/paragraph" are
+// each a single deterministic value regardless of which path renders them,
+// rather than two branches quietly drifting apart (previously: the logo
+// path used space-bullet*0.5 for title↔meta while the non-logo path used
+// space-meta for the same relationship).
+//
+// `is-first` selects the block's `above:` — the section rule→first-entry
+// gap (space-rule-to-entry) is meant to read smaller than the entry→entry
+// gap (space-entry); using space-entry unconditionally previously made
+// that distinction disappear, since it dominates space-rule-to-entry under
+// Typst's max()-based block-spacing collapse.
+//
+// `breakable: false` keeps a title from separating from its own meta line
+// (or a logo from its text) across a page break, now that output may span
+// multiple pages.
+#let render-entry(title-node, meta-node, font, header-font, show-logos, accent-list, is-first: false) = {
+  let above = if is-first { space-rule-to-entry } else { space-entry }
   let title-line = entry-title-line(title-node, font, header-font)
 
   if meta-node == none {
-    block(above: space-entry, below: 0pt, title-line)
+    block(above: above, below: space-bullet, breakable: false, title-line)
   } else {
     let meta = entry-meta-parts(meta-node, font)
+    let header-stack = stack(dir: ttb, spacing: space-header-line, title-line, meta.line)
     if show-logos {
-      block(above: space-entry, below: space-meta,
+      block(above: above, below: space-bullet, breakable: false,
         grid(columns: (logo-width, 1fr), column-gutter: 4mm, align: (horizon + center, top),
           logo-cell(meta.logo, meta.org, accent-list),
-          stack(dir: ttb, spacing: 0pt, title-line, v(space-bullet * 0.5), meta.line),
+          header-stack,
         )
       )
     } else {
-      block(above: space-entry, below: 0pt, title-line)
-      block(above: space-meta, below: space-meta, meta.line)
+      block(above: above, below: space-bullet, breakable: false, header-stack)
     }
   }
 }
@@ -210,9 +228,14 @@
   let kids = body.children
   let n = kids.len()
   let i = 0
+  let is-first-entry = false
   while i < n {
     let k = kids.at(i)
-    if k.func() == heading and k.at("depth") == 2 {
+    if k.func() == heading and k.at("depth") == 1 {
+      is-first-entry = true
+      k
+      i += 1
+    } else if k.func() == heading and k.at("depth") == 2 {
       let title-node = k
       i += 1
       while i < n and kids.at(i).func() not in (emph, heading) {
@@ -220,7 +243,8 @@
       }
       let meta-node = if i < n and kids.at(i).func() == emph { kids.at(i) } else { none }
       if meta-node != none { i += 1 }
-      render-entry(title-node, meta-node, font, header-font, show-logos, accent-list)
+      render-entry(title-node, meta-node, font, header-font, show-logos, accent-list, is-first: is-first-entry)
+      is-first-entry = false
     } else {
       k
       i += 1
