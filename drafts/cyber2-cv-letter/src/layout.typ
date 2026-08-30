@@ -340,7 +340,7 @@
   }
 
   if tech != none {
-    block(above: spacing-to-tech-line, below: 0pt, inset: (left: 11pt))[
+    block(above: spacing-to-tech-line, below: 0pt, inset: (left: inset-tech-line))[
       #set text(font: font-chrome, size: size-tech, fill: muted)
       #tech.text
     ]
@@ -368,7 +368,7 @@
   // workflow parity).
   let label = flatten-text(term-node).trim()
   let padded = label + " " * calc.max(2, pad-to - label.len() + 2)
-  block(above: 0pt, below: spacing-bullet-to-bullet)[
+  block(above: 0pt, below: spacing-skills-row-to-row)[
     #set text(font: font-chrome, size: size-skills-label, weight: "medium", fill: color)
     #padded
     #set text(font: font-body, size: size-body, weight: "regular", fill: fg)
@@ -382,17 +382,17 @@
 
 #let render-header(name, tagline, email, phone, location, links, font-chrome, font-body, color, icons) = {
   block(above: 0pt, below: spacing-section-to-section)[
-    #block(above: 0pt, below: 0.3em)[
+    #block(above: 0pt, below: spacing-header-internal)[
       #set text(font: font-chrome, size: size-name, weight: "bold", tracking: 0.04em, fill: fg)
       #upper(name)
       #h(0.15em)
       #box(baseline: 0.05em)[#draw-cursor(color)]
     ]
-    #block(above: 0pt, below: 0.4em)[
+    #block(above: 0pt, below: spacing-header-internal)[
       #set text(font: font-body, size: size-tagline, fill: muted)
       #tagline
     ]
-    #block(above: 0pt, below: if links.len() > 0 { 0.4em } else { spacing-header-to-rule })[
+    #block(above: 0pt, below: if links.len() > 0 { spacing-header-internal } else { spacing-header-to-rule })[
       #set text(font: font-chrome, size: size-contact, fill: fg)
       #let contact-parts = (
         (icons.at("email", default: none), email, "mailto:" + email),

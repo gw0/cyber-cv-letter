@@ -18,7 +18,7 @@
 // NOTE: this file is a Pandoc template, not plain Typst — Pandoc replaces
 // any "dollar-name-dollar" token anywhere in the file, comments included,
 // so none may appear outside the substitution block below.
-#import "@local/hacker-cv:0.1.0": cv
+#import "@local/cyber-cv-letter:0.1.0": cv
 
 #show: cv.with(
   name: [$name$],

@@ -5,7 +5,7 @@
 // literal "dollar-name-dollar" token may appear in this file outside the
 // substitution block below (Pandoc replaces those everywhere, comments
 // included).
-#import "@local/hacker-cv:0.1.0": cover-letter
+#import "@local/cyber-cv-letter:0.1.0": cover-letter
 
 #show: cover-letter.with(
   name: [$name$],

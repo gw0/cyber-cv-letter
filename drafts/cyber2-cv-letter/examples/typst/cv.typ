@@ -4,7 +4,7 @@
 // The one native-Typst adaptation: blockquote master-comments are written
 // as `#quote[...]` (Typst has no `>` blockquote syntax of its own).
 
-#import "@local/hacker-cv:0.1.0": cv
+#import "@local/cyber-cv-letter:0.1.0": cv
 
 #show: cv.with(
   name: "Sarah Connor",
@@ -90,9 +90,9 @@ engagements.
 
 = PROJECTS
 
-== promptfirewall | github.com/sconnor/promptfirewall
+== promptfirewall
 
-_Open source | Remote_
+_Open source | github.com/sconnor/promptfirewall_
 
 Model-agnostic prompt-injection classifier (400+ GitHub stars), used as a
 pre-filter in three published LLM security tools.

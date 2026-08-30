@@ -1,7 +1,7 @@
 // Hand-authored Typst source for Sarah Connor's cover letter — default
 // theme, matching examples/typst/cv.typ.
 
-#import "@local/hacker-cv:0.1.0": cover-letter
+#import "@local/cyber-cv-letter:0.1.0": cover-letter
 
 #show: cover-letter.with(
   name: "Sarah Connor",

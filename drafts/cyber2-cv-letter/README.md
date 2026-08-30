@@ -1,9 +1,9 @@
 # cyber-cv-letter
 
 A single-column, ATS-friendly, visually distinctive Typst package for
-software-engineering CVs and cover letters. Implements the visual design
-system in `specs/20260821-design-cyber.md` and the structural contract in
-`specs/20260828-mvp.md`.
+software-engineering CVs and cover letters. Write content once, as plain
+Markdown or hand-authored Typst, and get a PDF that's both machine-readable
+and good-looking.
 
 Every design decision here is judged against two readers at once:
 
@@ -30,8 +30,8 @@ ln -s "$(.venv/bin/python3 -c 'import pypandoc; print(pypandoc.get_pandoc_path()
 # The Typst *compiler* is a separate CLI download — Pandoc's
 # --pdf-engine=typst shells out to a real binary, never a Python module,
 # so the pip `typst` package (Python bindings only) isn't installed here.
-# Pinned per mvp spec §12/§9.4 — treat an upgrade as a change requiring a
-# full re-verification pass.
+# Version is pinned (matches typst.toml's `compiler` field) — treat an
+# upgrade as a change requiring a full re-verification pass.
 curl -sSL -o /tmp/typst.tar.xz \
   https://github.com/typst/typst/releases/download/v0.15.1/typst-x86_64-unknown-linux-musl.tar.xz
 tar -xf /tmp/typst.tar.xz -C /tmp
@@ -41,10 +41,10 @@ chmod +x .venv/bin/typst
 # https://github.com/typst/typst/releases/tag/v0.15.1 instead.)
 
 # Register this repo as a local Typst package, so both the hand-authored
-# .typ examples and template/*.typ can `#import "@local/hacker-cv:0.1.0"`
+# .typ examples and template/*.typ can `#import "@local/cyber-cv-letter:0.1.0"`
 # instead of a fragile "/lib.typ" path (see "Why a local package" below):
-mkdir -p ~/.local/share/typst/packages/local/hacker-cv
-ln -s "$PWD" ~/.local/share/typst/packages/local/hacker-cv/0.1.0
+mkdir -p ~/.local/share/typst/packages/local/cyber-cv-letter
+ln -s "$PWD" ~/.local/share/typst/packages/local/cyber-cv-letter/0.1.0
 # (macOS: ~/Library/Application Support/typst/packages/local/...; Windows:
 # %APPDATA%\typst\packages\local\...; see Typst's own package docs.)
 
@@ -95,26 +95,22 @@ fallback.
 
 ## Why a local package
 
-Pandoc, when using `--pdf-engine=typst`, generates the substituted Typst
-source into a temp file and invokes `typst compile` on it directly — the
-compiled entry file's real location is Pandoc's choice, not
-`template/cv.typ`'s own path. A plain relative import (`"lib.typ"`) would
-resolve against wherever that temp file happens to sit, not this repo. A
-package-absolute import (`@local/hacker-cv:0.1.0`) sidesteps this
-entirely: `src/*.typ` resolves its own absolute paths (e.g.
-`icons.typ`'s icon files) against the *package's* root regardless of
-where the compiled entry file physically ends up, with no `--root` flag
-needed anywhere.
+Pandoc's `--pdf-engine=typst` compiles a temp file at a location Pandoc
+chooses, not `template/cv.typ`'s own path — a relative import like
+`"lib.typ"` would resolve against that temp location, not this repo.
+Importing via `@local/cyber-cv-letter:0.1.0` instead resolves against the
+package root no matter where the compiled entry file ends up, with no
+`--root` flag needed.
 
 ## Package structure
 
 ```
-typst.toml              package manifest (MIT; bundled fonts keep their own SIL OFL notices)
+typst.toml              package manifest (AGPL; bundled fonts keep their own SIL OFL notices)
 lib.typ                 single entrypoint, re-exports cv() and cover-letter()
 
 src/
   theme.typ             design tokens: palette, accent presets, spacing/type scale, page geometry
-  fonts.typ             font-chrome / font-body pass-through (see §8 below)
+  fonts.typ             font-chrome / font-body pass-through (see Configuration below)
   layout.typ            page setup, header block, section/entry rendering engine
   letter.typ            cover-letter template
   icons.typ             icon loading + filename-derived alt text
@@ -131,7 +127,7 @@ template/
 fonts/IBMPlexMono/, fonts/IBMPlexSans/    default font-chrome / font-body (downloaded, SIL OFL)
 fonts/SourceSansPro/, fonts/Roboto/       alternate families, already bundled
 
-icons/fontawesome/       contact-field icons, renamed to semantic keys (email.png, phone.png, ...)
+icons/FontAwesome/       contact-field icons, renamed to semantic keys (email.png, phone.png, ...)
 
 examples/
   typst/                 hand-authored .typ content — cv.typ (+ cv.pdf, cv-plain.pdf),
@@ -168,7 +164,8 @@ Typst workflow and the Markdown-via-Pandoc workflow:
 | Trailing inline-code paragraph | Per-role tech line |
 | Definition list (`Term` / `: values`) | Skills row — one line, never a table |
 
-Full contract: `specs/20260828-mvp.md` §5.
+Parsing/rendering logic lives in `src/layout.typ`; the closed section
+vocabulary is enforced there and checked by `scripts/ats_check.py`.
 
 Logo image references in Markdown content are written **repo-root-relative,
 without a leading slash** (e.g. `![](examples/markdown/logos/cyberdyne.png)`,
@@ -212,24 +209,19 @@ to the Markdown front-matter value. `plain` (`variant=plain`, also
 `sys.inputs`) strips accent/motifs to black text and plain rules —
 identical structure and content, never a separate content fork.
 
+Identity fields (`name`, `tagline`, `email`, ...) are passed into
+`cv()`/`cover-letter()` as Typst content (`[$email$]`), not quoted strings,
+so Pandoc's markup-escaping of special characters (`@ # _ * ...`) survives
+correctly — the library flattens them back to plain text internally
+(`flatten-text()` in `src/layout.typ`).
+
 ## Verification
 
-- `.venv/bin/python3 scripts/ats_check.py --all` — linear reading order, closed-vocabulary
-  section names each on their own line, intact contact strings, no
-  private-use-area/replacement glyphs, no banned decorative characters.
-- Cross-workflow parity: `examples/typst/cv.pdf` and
-  `examples/markdown/cv.pdf` extract to byte-identical text (verified) and
-  are visually indistinguishable.
-- Identity fields (`name`/`tagline`/`email`/`phone`/`location`) containing
-  `@`, `&`, `+`, `,` render with no stray backslashes in the
-  Markdown-sourced outputs — verified by spot-checking extracted text.
-  These fields are passed to `cv()`/`cover-letter()` as Typst content
-  (`[$email$]`) rather than a quoted string: Pandoc's typst writer escapes
-  Typst-special characters (`@ # _ * ...`) when rendering text as markup,
-  and that escaping is only meaningful in markup, not inside a quoted
-  string literal's more limited escape grammar. The library flattens
-  these back to plain text internally (`flatten-text()`), so hand-authored
-  `.typ` callers passing plain strings are unaffected.
+`.venv/bin/python3 scripts/ats_check.py --all` extracts each `examples/*/cv*.pdf`
+with two independent libraries (pypdf, pymupdf) and checks: linear reading
+order, closed-vocabulary section names each on their own line, intact
+contact strings, no private-use-area/replacement glyphs, no banned
+decorative characters in the extracted text.
 
 ## Known limitations
 
@@ -242,3 +234,10 @@ identical structure and content, never a separate content fork.
   writer.
 - `accent` as an arbitrary custom hex list (beyond the built-in `friggeri`
   rotation) is supported by `theme.typ` but not exercised by an example.
+
+## Design notes
+
+`specs/` holds the design rationale and requirements history behind the
+choices above (why the closed section vocabulary, why artifacts for
+decoration, etc.) — background reading, not documentation of current
+behavior; read the code for that.

@@ -3,7 +3,7 @@
 // Convention: icons/<set>/<semantic-name>.png. Alt text is the filename
 // without extension, i.e. the semantic key itself.
 
-#let icon-set = "/icons/fontawesome"
+#let icon-set = "/icons/FontAwesome"
 
 // Boxed so the image flows inline with surrounding text instead of
 // forcing a block-level line of its own.

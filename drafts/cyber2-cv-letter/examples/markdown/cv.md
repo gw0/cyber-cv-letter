@@ -82,9 +82,9 @@ engagements.
 
 # PROJECTS
 
-## promptfirewall | github.com/sconnor/promptfirewall
+## promptfirewall
 
-*Open source | Remote*
+*Open source | github.com/sconnor/promptfirewall*
 
 Model-agnostic prompt-injection classifier (400+ GitHub stars), used as a
 pre-filter in three published LLM security tools.

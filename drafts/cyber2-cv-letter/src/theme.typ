@@ -70,33 +70,47 @@
 // specs/20260821-rev-modern-cv.md §2.2 (`resume-entry` 1em/0.65em,
 // `resume-item` 0.5em, `justified-header` 0.7em, skill-item 0.65em), then
 // visually tuned to fix the fused title/meta/tagline/first-bullet read
-// and the section rule's cramped hand-tuned offset.
+// and the section rule's cramped hand-tuned offset. `title-to-meta` and
+// `skills-row-to-row` were later folded onto the same tight-tier value as
+// `header-internal`/`bullet-to-bullet` (0.4em) — same visual role (lines
+// within one grouped unit); they'd drifted to their own one-off values
+// (0.35em, 0.2em — the latter read as rows nearly touching) for no reason
+// tied to the content they space. Raising `skills-row-to-row` the full
+// distance needed page 1 to gain back a few points of room, so
+// `rule-to-content` (below) also dropped 0.7em -> 0.6em: it fires once per
+// section (5x on the example CV), so a small uniform trim there funds the
+// fix without being individually noticeable anywhere it's used.
 #let spacing-header-to-rule = 0.6em
 #let spacing-section-header-to-rule = 0.4em
-#let spacing-rule-to-content = 0.7em
-#let spacing-title-to-meta = 0.35em
-#let spacing-meta-to-tagline = 0.35em
-#let spacing-tagline-to-bullets = 0.4em
+#let spacing-rule-to-content = 0.6em
+#let spacing-title-to-meta = 0.4em
+#let spacing-meta-to-tagline = 0.65em
+#let spacing-tagline-to-bullets = 0.75em
 #let spacing-bullet-to-bullet = 0.4em
 #let spacing-bullet-to-comment = 0.3em
 #let spacing-to-tech-line = 0.7em
 #let spacing-entry-to-entry = 1.1em
 #let spacing-section-to-section = 1.6em
 #let spacing-letter-paragraph = 1.4em
+// Formalizes gaps that were implicit magic numbers before design-cyber.md
+// §4.4's revision: 3 hardcoded values inside the header block collapse to
+// one named gap, and skills rows get their own gap distinct from bullets.
+#let spacing-header-internal = 0.4em
+#let spacing-skills-row-to-row = 0.4em
 
 // ---- Type scale (mvp spec §4.2) ----
 // Sizes/weights are read directly at each call site in layout.typ; recorded
 // here as named constants so the numbers live in one place.
 #let size-name = 20pt
-#let size-tagline = 11pt
+#let size-tagline = 10.5pt
 #let size-contact = 9pt
-#let size-section-header = 11pt
-#let size-entry-title = 11pt
+#let size-section-header = 14pt
+#let size-entry-title = 12pt
 #let size-meta = 10.5pt
 #let size-body = 10.5pt
 #let size-tech = 9pt
 #let size-comment = 9.5pt
-#let size-skills-label = 9.5pt
+#let size-skills-label = 9pt
 #let size-footer = 8pt
 #let size-entry-date = 9pt
 
@@ -104,6 +118,14 @@
 #let width-entry-logo-box = 14pt
 #let width-entry-logo-gutter = 18pt // box + gap reserved before entry text
 #let height-entry-logo-box = 11pt
+
+// Tech line indent (design-cyber.md §6.5), so its left edge lines up with
+// bullet text rather than the bullet marker. §6.5 documents this as 11pt,
+// matching modern-cv's CSS `ul.bul` padding-left — but Typst's own default
+// list hanging indent (unset here, so `list`'s built-in default) measures
+// 9.4pt from the margin in the rendered PDF, not 11pt. Matched to that
+// measured value rather than the spec's borrowed CSS figure.
+#let inset-tech-line = 9.4pt
 
 // ---- Page geometry (mvp spec §4.4) ----
 #let page-geometry = (
