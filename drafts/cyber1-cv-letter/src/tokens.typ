@@ -47,10 +47,7 @@
 // only the first 3 letters, rest in `fg` (design-cyber §6.4, §4.6).
 #let accent-scope-values = ("full", "first3")
 
-// ---- Spacing scale (design-cyber §4.4, adapted from modern-cv's em-based
-// rhythm — spec/20260821-rev-modern-cv.md §2.2, §7.4 R4.1) -----------------
-// `em`-relative so spacing scales with local text size, expressed through
-// this small set of named, reused tokens rather than per-call-site literals.
+// ---- Spacing scale (design-cyber §4.4) -----------------------------------
 //
 // Convention for every block-level spacing call site (markup.typ, resume.typ,
 // letter.typ): declare a gap as `below:` on the element that owns it, and
@@ -68,46 +65,98 @@
 // to reason about (see resume.typ's header-block for the pattern to follow
 // instead).
 //
-// design-cyber §4.4 specifies the scale as multiples of one *fixed*,
-// absolute grid unit `u = 4pt` — entry 2u, rule-to-entry 1.5u, section 3u,
-// header-to-section 4u. `u` is not derived from space-bullet: space-bullet
-// is deliberately held at modern-cv's own 0.65em (~6.8pt at body size)
-// rather than the spec's literal 0.5u (2pt), to match the 0.65em par
-// leading set in resume.typ — a narrow, unrelated fix so bullet-to-bullet
-// spacing doesn't read tighter than the gap between wrapped lines within
-// one bullet. Deriving `u` from that already-inflated value and then
-// multiplying it by 2x/1.5x/3x/4x compounds the inflation across the whole
-// scale (tried and rendered far too large — see git history).
+// Single base unit `u`. Every gap below is a literal `N * u`, absolute
+// (`pt`), not `em` — `em` resolves against whichever text context happens
+// to be ambient at the call site (design-cyber gives the same reason for
+// keeping the type scale in `pt` rather than `em`). Two call sites in
+// particular (`body-indent` in resume.typ's list and markup.typ's tech-line
+// pad) must resolve to the *identical* physical length to stay visually
+// aligned; `em` only guaranteed that by coincidence of both currently
+// sitting under the same 10.5pt ambient context, not by construction.
 //
-// Anchoring `u` at its own literal 4pt instead (tried next) rendered the
-// opposite problem: the entry-to-entry gap read as too tight against the
-// tech-line/bullet content above it — the spec's absolute pt values assume
-// a tighter, print-shop-dense grid than this document's own type scale
-// actually sits on. Split the difference: `u' = 6.4pt` (1.6x the literal
-// unit — chosen by rendering and comparing against space-bullet until the
-// entry break reads as a clear, distinct pause rather than either a
-// same-weight continuation or an oversized void), converted to em at the
-// 10.5pt body-size context it's read against (same technique already used
-// below for space-header-line, itself exactly 1u at the *literal* 4pt).
-// Previously (see git history) these were compressed to ~65% of modern-cv's
-// own magnitudes to fit a one-page budget; that constraint no longer
-// applies, so the scale here is the spec's own ratios at this rescaled
-// unit instead.
+// `u` itself is the one tunable knob if the rendered rhythm ever needs
+// retuning — retune this single value, never the individual multiples
+// (that's what produced the previous, incoherent per-token drift; see git
+// history). Determined empirically, not from the spec's literal 4pt: tried
+// 4pt and 5pt first, and at both `space-bullet` (1u) rendered smaller than
+// the fixed 0.65em wrapped-line leading inside a bullet, so two bullets sat
+// closer together than two wrapped lines of the *same* bullet — a real
+// cramped signal, not a tuning preference. 6.4pt is the smallest value
+// where `space-bullet` clears that leading again, and it also happens to
+// match this document's previously-approved density.
+#let u = 6.4pt
 
-#let space-bullet = 0.65em
-#let space-entry = 1.219em
-#let space-section = 1.3em
-#let space-rule-to-entry = 0.65em
-#let space-header-to-section = 1.7em
-#let space-letter-paragraph = 1.5em
-// Entry title↔org/location stack gap (markup.typ's header-stack) — the
-// identity block's own name/tagline/contact/links lines no longer use this
-// token; they sit in one paragraph joined by linebreak() so they inherit
-// the document's own par leading directly (see header-block in resume.typ),
-// rather than going through a second, separately-tuned constant that has
-// to be kept in sync with it by hand.
-#let space-header-line = 0.65em
-#let body-indent = 0.65em
+// design-cyber §4.4 names these as 0.5u/2u/3u/1.5u/4u at the spec's own
+// literal 4pt `u` — but that ratio table was never actually the basis for
+// this document's previously-approved density (see git history: every
+// value below except space-entry was tuned independently, ignoring the
+// ratio table it claimed to follow). Re-deriving the *exact* spec ratios
+// at this rescaled `u` regresses the rendered CV from 2 pages to 1 —
+// verified by rendering — because `space-paragraph` in particular is the
+// most-repeated call site and the spec's 0.5u undershoots this document's
+// previously-tuned bullet spacing by more than half. The multipliers below
+// are instead chosen by rendering and comparing against the previously
+// committed PDFs until the page count and rhythm matched again — `u`
+// itself came out the same (space-entry was already exactly 2u at 6.4pt;
+// see below), but the *other* multipliers had to move off the spec's own
+// ratios to land back on the density this document was actually tuned to.
+// Shared value for two relationships: the ambient bare-paragraph default
+// (resume.typ's `set par(spacing:)`, e.g. SUMMARY's intro paragraph or an
+// entry's intro paragraph → its first bullet — this is also what sets the
+// gap *around* a whole bullet list, above its first item and below its
+// last, since Typst's `list` has no separate above/below of its own and
+// falls back to ambient `par.spacing`), and an entry's meta-block → its
+// content, paragraph or bullets (markup.typ's render-entry `below:` and
+// tech-line-rule's `above:`/`below:`) — reusing one token rather than
+// adding a second, separately-tuned constant for what is visually the same
+// "ordinary paragraph gap" relationship.
+#let space-paragraph = 1.25 * u
+// Spacing *between* bullets within one list (resume.typ's `set
+// list(spacing:)`) — deliberately its own token, not space-paragraph, so the
+// list's own item-to-item rhythm can be tuned independently of the
+// surrounding-paragraph gap that wraps the whole list (verified via
+// Typst's actual behaviour: `list.spacing` and ambient `par.spacing` are
+// already two independent knobs; this just stops them being pinned to the
+// same value by accident). Floor is 1u, not lower: same "must clear the
+// wrapped-line leading" rule that originally set `u` itself (see above) —
+// two bullets sitting closer together than two wrapped lines of the *same*
+// bullet is a cramped signal, not a tuning preference. At the current
+// leading (resume.typ, 0.6em × 10.5pt body = 6.3pt), 1u (6.4pt) is the
+// smallest grid value that still clears it; 0.75u (4.8pt) does not.
+#let space-bullet = 1 * u
+#let space-entry = 2 * u
+// Gap between the content preceding a rule (section-heading text,
+// header-block's line stack) and the rule itself (markup.typ's
+// section-heading-rule, resume.typ's header-block) — not the gap after the
+// rule, which is space-entry / space-header-to-section depending on side.
+#let space-section-to-rule = 1.25 * u
+// Gap between a section-heading rule and whatever follows it (SUMMARY's
+// paragraph, EXPERIENCE's first entry, SKILLS's first row) — the
+// section-rule analogue of space-entry/space-paragraph for entry-internal
+// gaps. Set as the rule's own `below:`, with the following element's
+// `above:` pinned to 0pt so this is the gap's only source (see the
+// block-spacing-collapse note atop this file).
+#let space-rule-to-content = 0.625 * u
+// Space above any section header (design-cyber §4.4) — used uniformly by
+// every section heading, including the first: header-block's own `below`
+// on the identity block resolves to this same token, so "gap above a
+// section header" is one relationship regardless of position, not two that
+// happen to collapse to the same value only for the first section.
+#let space-header-to-section = 3 * u
+// "Header block internal lines" (design-cyber §4.4) — entry title↔org/location
+// stack gap (markup.typ's header-stack), and also every adjacent line pair
+// in the identity block (resume.typ's header-block) — the same relationship
+// one level up, reusing this token rather than a second, separately-tuned
+// constant that has to be kept in sync with it by hand.
+#let space-header-line = 1 * u
+// Not in design-cyber §4.4's table (letter-only). Matches the reference
+// HTML's own between-paragraph gap (2.5u) rather than an unrelated constant.
+#let space-letter-paragraph = 2.5 * u
+// List/tech-line horizontal indent (design-cyber §4.4 doesn't name this one
+// either) — snapped onto the same `u` grid for the same reason as the
+// vertical tokens above, and to the same 1u multiplier as the other
+// previously-"0.65em" group above (see the note by space-bullet).
+#let body-indent = 1 * u
 
 // Company logo cell (render-entry, markup.typ): landscape, matching a
 // typical wordmark's aspect ratio rather than a portrait headshot's — sized

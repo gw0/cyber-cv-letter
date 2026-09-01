@@ -131,6 +131,7 @@ examples/{typst,markdown}/*.pdf       — checked-in rendered examples: cv, cv-p
                                          cv-friggeri, letter (see above)
 tests/extraction/                      — pypdf/pymupdf-based extraction verification
 scripts/check_contrast.py               — WCAG contrast verification for every palette token
+scripts/check_spacing.py                — verifies every spacing/indent token is a literal N * u
 ```
 
 ## Implementation notes

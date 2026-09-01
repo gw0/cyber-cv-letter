@@ -43,6 +43,12 @@ scoring path to run inline with inference rather than as a post-hoc batch job.
 
 - Built a red-team harness that found 12 prompt-injection classes missed by the prior
   eval suite, raising the pre-release catch rate from 61% to 94%.
+
+#quote(block: true)[
+  Custom mutation-based fuzzer seeded from a 12k-prompt corpus, wired into
+  the pre-release CI gate; findings triaged weekly with the app-sec team.
+]
+
 - Led migration of the model-serving detection pipeline to a streaming architecture,
   cutting p99 alert latency from 4.2s to 380ms.
 - Mentored two junior engineers on adversarial evaluation methodology; both now own
@@ -82,7 +88,7 @@ _Nova Systems Analytics | San Diego, CA_
 
 == MS Computer Science | 2019
 
-_University of California, San Diego_
+_University of California | San Diego, US_
 
 = Certifications
 

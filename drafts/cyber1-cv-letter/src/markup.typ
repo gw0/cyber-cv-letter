@@ -147,7 +147,7 @@
     .sum(default: "")
   let (org, location) = split-last-pipe(rest-text)
   let bf = resolve-font(font, weight: type-scale.org-location.weight)
-  let line = text(font: bf.family, weight: bf.weight, size: type-scale.org-location.size, fill: fg, {
+  let line = text(font: bf.family, weight: bf.weight, size: type-scale.org-location.size, fill: fg, style: "italic", {
     if location == none {
       org
     } else {
@@ -188,33 +188,31 @@
 // path used space-bullet*0.5 for title↔meta while the non-logo path used
 // space-meta for the same relationship).
 //
-// `is-first` selects the block's `above:` — the section rule→first-entry
-// gap (space-rule-to-entry) is meant to read smaller than the entry→entry
-// gap (space-entry); using space-entry unconditionally previously made
-// that distinction disappear, since it dominates space-rule-to-entry under
-// Typst's max()-based block-spacing collapse.
+// `above` is supplied by the caller (render-body) — 0pt immediately after a
+// section rule (so the rule's own `below: space-rule-to-content` is the
+// gap's only source), space-entry otherwise. render-body is the only place
+// that knows which case applies; this function just takes the value.
 //
 // `breakable: false` keeps a title from separating from its own meta line
 // (or a logo from its text) across a page break, now that output may span
 // multiple pages.
-#let render-entry(title-node, meta-node, font, header-font, show-logos, accent-list, is-first: false) = {
-  let above = if is-first { space-rule-to-entry } else { space-entry }
+#let render-entry(title-node, meta-node, font, header-font, show-logos, accent-list, above) = {
   let title-line = entry-title-line(title-node, font, header-font)
 
   if meta-node == none {
-    block(above: above, below: space-bullet, breakable: false, title-line)
+    block(above: above, below: space-paragraph, breakable: false, title-line)
   } else {
     let meta = entry-meta-parts(meta-node, font)
     let header-stack = stack(dir: ttb, spacing: space-header-line, title-line, meta.line)
     if show-logos {
-      block(above: above, below: space-bullet, breakable: false,
+      block(above: above, below: space-paragraph, breakable: false,
         grid(columns: (logo-width, 1fr), column-gutter: 4mm, align: (horizon + center, top),
           logo-cell(meta.logo, meta.org, accent-list),
           header-stack,
         )
       )
     } else {
-      block(above: above, below: space-bullet, breakable: false, header-stack)
+      block(above: above, below: space-paragraph, breakable: false, header-stack)
     }
   }
 }
@@ -228,12 +226,67 @@
   let kids = body.children
   let n = kids.len()
   let i = 0
-  let is-first-entry = false
+  // Set on a depth-1 (section) heading, consumed by whatever is rendered
+  // next — that "next thing" sits right after section-heading-rule's own
+  // `below: space-rule-to-content`, so it must contribute 0pt above of its
+  // own, or the collapse's max() would let its ambient/default above win
+  // instead of the rule's below (see tokens.typ's space-rule-to-content).
+  let is-first-after-rule = false
   while i < n {
     let k = kids.at(i)
     if k.func() == heading and k.at("depth") == 1 {
-      is-first-entry = true
+      is-first-after-rule = true
       k
+      i += 1
+    } else if k.func() == parbreak {
+      // A source-level blank line between a section heading and whatever
+      // follows it (design-cyber's Markdown-shaped authoring convention —
+      // every example CV has one) becomes a literal `parbreak` node here,
+      // since Typst's raw content sequence carries it as its own element.
+      // Left un-skipped, this was landing in the catch-all branch below
+      // *first*, consuming `is-first-after-rule` on a zero-content
+      // parbreak instead of the real next element — verified via a
+      // `k.func()` dump on the actual SUMMARY body that it really is
+      // `parbreak`, not `text`, at that position. That let the genuine
+      // next element (the SUMMARY paragraph, or the first EXPERIENCE
+      // heading) fall through with its own ambient `above` un-zeroed,
+      // *adding* to `space-rule-to-content` rather than collapsing with
+      // it — the actual source of the "gap didn't shrink" symptom this
+      // was diagnosed from, not the `context`-nesting issue this file's
+      // other comments describe (a real, separate, smaller effect, but
+      // not the dominant one). Dropping the parbreak outright rather than
+      // emitting it is safe: the block wrapping below already establishes
+      // its own layout boundary, so the parbreak contributes nothing by
+      // being emitted.
+      i += 1
+    } else if repr(k.func()) == "space" and is-first-after-rule {
+      // `space`'s element function has no public global binding (unlike
+      // text/parbreak/heading/emph above) — comparing via `repr()` against
+      // its printed name is the only way to match it from here.
+      //
+      // Pandoc's Typst writer never emits a blank-line parbreak between a
+      // heading and what follows it (verified: `pandoc --to=typst` on
+      // "# Heading\n\nParagraph" produces `= Heading\n<heading>\nParagraph`
+      // — a label line, not a blank line). Typst's own parser turns each of
+      // the two single newlines around that label line (one after the
+      // heading, one after the label) into a `space` content node, and the
+      // label itself vanishes into them rather than appearing as a node of
+      // its own — so a section or entry heading from the Markdown+Pandoc
+      // workflow is followed by two `space` siblings, not one `parbreak`,
+      // before the real content. Left unhandled, this is the exact same bug
+      // as the parbreak case above (verified via the same k.func() dump,
+      // run against Pandoc's actual output for this document): the first
+      // stray `space` node falls into the catch-all branch below and
+      // consumes `is-first-after-rule` on itself instead of on the real
+      // paragraph/entry/skills-row that follows.
+      //
+      // This skip is gated on `is-first-after-rule` (unlike the
+      // unconditional parbreak skip) because a bare `space` node is not
+      // always decorative — line-wrapped paragraph text from Pandoc is
+      // split into alternating `text`/`space` siblings at each wrap point,
+      // and those `space` nodes are real inter-word spaces that must render
+      // normally once the flag has already been consumed by the paragraph's
+      // first `text` sibling.
       i += 1
     } else if k.func() == heading and k.at("depth") == 2 {
       let title-node = k
@@ -243,10 +296,25 @@
       }
       let meta-node = if i < n and kids.at(i).func() == emph { kids.at(i) } else { none }
       if meta-node != none { i += 1 }
-      render-entry(title-node, meta-node, font, header-font, show-logos, accent-list, is-first: is-first-entry)
-      is-first-entry = false
+      let above = if is-first-after-rule { 0pt } else { space-entry }
+      render-entry(title-node, meta-node, font, header-font, show-logos, accent-list, above)
+      is-first-after-rule = false
     } else {
-      k
+      if is-first-after-rule {
+        // `set par(spacing: 0pt)` here is load-bearing, not decorative: a
+        // bare paragraph nested in `block(above: 0pt, ...)` still asserts
+        // its own ambient `par.spacing` above itself — measured as a
+        // second, independent leak source into the gap that `above: 0pt`
+        // was supposed to zero out (on top of the parbreak issue above).
+        // Scoping the paragraph's own spacing to 0pt here removes it.
+        block(above: 0pt, below: space-paragraph, {
+          set par(spacing: 0pt)
+          k
+        })
+        is-first-after-rule = false
+      } else {
+        k
+      }
       i += 1
     }
   }
@@ -269,18 +337,32 @@
       message: "section heading \"" + raw-text + "\" is outside the closed vocabulary (design-cyber §7.2) — rename it or extend section-vocabulary deliberately",
     )
     section-accent-counter.step()
-    context {
-      let idx = section-accent-counter.get().at(0) - 1
-      let color = section-color-at(idx, accent-list)
-      let hf = resolve-font(header-font, weight: type-scale.section-header.weight)
-      let display = upper(raw-text)
-      let heading-text = if accent-scope == "first3" and display.len() > 3 {
-        text(fill: color)[#display.slice(0, 3)] + text(fill: fg)[#display.slice(3)]
-      } else {
-        text(fill: color)[#display]
-      }
-      block(above: space-section, below: space-rule-to-entry, breakable: false,
-        stack(dir: ttb, spacing: space-rule-to-entry / 2,
+    let hf = resolve-font(header-font, weight: type-scale.section-header.weight)
+    let display = upper(raw-text)
+    // `block(...)` must be the outermost call here, with `context` nested
+    // as its sole child — not the reverse (`context { block(...) }`, this
+    // function's previous shape). Empirically, a `context`-wrapped block's
+    // own `below:` still governs the gap to its *own* following sibling
+    // correctly, but a block *returned from inside* a context stops
+    // participating in the normal max()-collapse for whatever comes right
+    // after it: measured via a minimal reproduction (render-entry's
+    // `above: 0pt` after this rule) that the gap grew by a large fraction
+    // of the ambient `space-paragraph` value even with `above: 0pt`
+    // explicit — a leak that vanished entirely once `block(...)` was moved
+    // outside the `context`. Root cause not fully diagnosed beyond that
+    // (a Typst layout-vs-context interaction, not this package's spacing
+    // model), but the outside-block shape is verified leak-free and
+    // produces identical visual output otherwise.
+    block(above: space-header-to-section, below: space-rule-to-content, breakable: false,
+      context {
+        let idx = section-accent-counter.get().at(0) - 1
+        let color = section-color-at(idx, accent-list)
+        let heading-text = if accent-scope == "first3" and display.len() > 3 {
+          text(fill: color)[#display.slice(0, 3)] + text(fill: fg)[#display.slice(3)]
+        } else {
+          text(fill: color)[#display]
+        }
+        stack(dir: ttb, spacing: space-section-to-rule / 2,
           {
             if draw-marks {
               place(dx: -mark-gutter, marks.chevron(color, header-font, type-scale.section-header.size))
@@ -289,8 +371,8 @@
           },
           marks.rule(color),
         )
-      )
-    }
+      }
+    )
   })
 }
 
@@ -310,9 +392,41 @@
     let marker-width = measure(
       text(font: bf.family, weight: bf.weight, size: type-scale.body.size)[•]
     ).width
-    block(above: space-bullet, below: space-entry, pad(left: body-indent + marker-width,
+    block(above: space-paragraph, below: space-paragraph, pad(left: body-indent + marker-width,
       text(font: hf.family, weight: hf.weight, size: type-scale.tech-line.size, fill: muted)[#it.text]
     ))
+  })
+}
+
+// A blockquote immediately after a bullet — an author's expanded-detail
+// comment on that bullet (spec's Master CV idea, simplified here: it
+// renders unconditionally whenever present, no config flag). `fill: muted`
+// and `type-scale.tech-line.size` reuse the tech line's own "secondary
+// annotation" styling rather than adding a new token. Structurally mirrors
+// tech-line-rule above: same marker-width measurement so the comment's left
+// edge lines up with the bullet's own text (not just its marker), and the
+// same explicit `space-paragraph` above/below rather than relying on
+// block-collapse with the neighbouring list — measured empirically that
+// collapse-based spacing here produced an almost-invisible gap (Typst's
+// "tight list" behaviour, no blank lines between `-` items in this
+// document's source, doesn't hand the list's outer edge the `space-bullet`
+// token's literal value the way a naive collapse would suggest).
+// No `leading` override here — a wrapped comment's own line-to-line
+// spacing uses the same ambient 0.6em set document-wide (resume.typ's
+// `set par(..., leading: 0.6em, ...)`), the one leading value this
+// document already uses for every other piece of body-ish text, rather
+// than a bespoke third value.
+#let comment-rule(font) = {
+  (it => context {
+    let bf = resolve-font(font, weight: type-scale.body.weight)
+    let marker-width = measure(
+      text(font: bf.family, weight: bf.weight, size: type-scale.body.size)[•]
+    ).width
+    block(above: space-paragraph, below: space-paragraph, breakable: false,
+      pad(left: body-indent + marker-width,
+        text(font: bf.family, size: type-scale.tech-line.size, fill: muted)[#it.body]
+      )
+    )
   })
 }
 
@@ -328,16 +442,64 @@
   if node.func() == block { node.at("body") } else { node }
 }
 
-#let skills-row-rule(font, header-font, accent-list) = {
-  (it => context {
-    let hf = resolve-font(header-font, weight: type-scale.skills-label.weight)
-    let bf = resolve-font(font, weight: type-scale.body.weight)
-    let idx = section-accent-counter.get().at(0) - 1
-    let label-color = section-color-at(idx, accent-list)
-    block(above: 0pt, below: space-bullet, {
-      box(width: 38mm,
+// Recursively collects every `terms.item` node's raw `term` field found
+// anywhere inside `node`. Walks the same shape of raw content tree as
+// `content-to-string`/`extract-logo` above.
+//
+// This exists (rather than `query(terms)` from inside the show rule below)
+// because `query()` for an element type can't resolve from within the show
+// rule that produces that very element's realized children: showing a
+// `terms.item` is part of what expanding its parent `terms` element means,
+// so a query for `terms` issued mid-expansion has nothing finished to find
+// yet and silently returns empty forever (verified — the query-based
+// version rendered every label at ~0 width, overlapping the description
+// text). Walking the pre-show raw tree sidesteps that: `.term` is static
+// source data, available before any show rule runs.
+#let collect-skill-labels(node) = {
+  if node.func() == terms.item {
+    (node.at("term"),)
+  } else if node.has("children") {
+    node.children.map(collect-skill-labels).flatten()
+  } else if node.has("body") {
+    collect-skill-labels(node.at("body"))
+  } else {
+    ()
+  }
+}
+
+// Measures the widest skills-label term in `body` up front, so the column
+// can be sized once, before rendering, rather than per-row (see
+// collect-skill-labels for why per-row query() doesn't work). Must be
+// called from within an existing `context` (measure() requires one) — the
+// call site is resume.typ's cv-resume, alongside the show-rule setup.
+//
+// The closed section vocabulary only ever produces one skills-style
+// (terms) section per CV, so measuring every label document-wide is
+// equivalent to measuring per-section in practice.
+#let skills-label-width(body, font, header-font) = {
+  let hf = resolve-font(header-font, weight: type-scale.skills-label.weight)
+  // 4mm gutter matches render-entry's logo-cell column-gutter (line 211) —
+  // same "space after a fixed first column" relationship.
+  calc.max(0pt, ..collect-skill-labels(body).map(term => measure(
+    text(font: hf.family, weight: hf.weight, size: type-scale.skills-label.size)[#term]
+  ).width)) + 4mm
+}
+
+// `block(...)` is the outermost call, `context` nested as its sole child —
+// same leak-avoiding shape as section-heading-rule (see that function's
+// comment); a `context { block(...) }` here measurably let this row's
+// `above: 0pt` leak against a section-heading-rule's `below:` for the
+// first SKILLS row.
+#let skills-row-rule(font, header-font, accent-list, label-width) = {
+  (it => block(above: 0pt, below: space-paragraph,
+    context {
+      let hf = resolve-font(header-font, weight: type-scale.skills-label.weight)
+      let bf = resolve-font(font, weight: type-scale.body.weight)
+      let idx = section-accent-counter.get().at(0) - 1
+      let label-color = section-color-at(idx, accent-list)
+      box(width: label-width,
         text(font: hf.family, weight: hf.weight, size: type-scale.skills-label.size, fill: label-color)[#it.term])
       text(font: bf.family, weight: bf.weight, size: type-scale.body.size, fill: fg)[#unwrap-block(it.description)]
-    })
-  })
+    }
+  ))
 }

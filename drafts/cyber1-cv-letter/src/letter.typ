@@ -47,7 +47,7 @@
   // Date line, marked with the drawn prompt chevron — the letter's one
   // header-like line (design-cyber Appendix A).
   let df = resolve-font(header-font, weight: type-scale.dates.weight)
-  block(above: 0pt, below: space-section, {
+  block(above: 0pt, below: space-header-to-section, {
     if show-marks {
       place(dx: -mark-gutter, marks.chevron(accent-list.at(0), header-font, type-scale.body.size))
     }

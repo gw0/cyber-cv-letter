@@ -38,17 +38,20 @@
   // document, instead of adding to it — see the spacing-convention note in
   // tokens.typ.
   block(above: 0pt, below: space-header-to-section, {
+    let lines = ()
+
     // Line 1 — name, always first (design-cyber §6.3's hardest rule).
-    text(font: nf.family, weight: nf.weight, size: type-scale.name.size, tracking: 0.04em, fill: fg)[#upper(author.name)]
-    if show-marks {
-      h(0.3em)
-      marks.cursor(accent-color, header-font, type-scale.name.size)
-    }
+    lines.push({
+      text(font: nf.family, weight: nf.weight, size: type-scale.name.size, tracking: 0.04em, fill: fg)[#upper(author.name)]
+      if show-marks {
+        h(0.3em)
+        marks.cursor(accent-color, header-font, type-scale.name.size)
+      }
+    })
 
     // Line 2 — tagline.
     if "tagline" in author {
-      linebreak()
-      text(font: tf.family, weight: tf.weight, size: type-scale.tagline.size, fill: muted)[#author.tagline]
+      lines.push(text(font: tf.family, weight: tf.weight, size: type-scale.tagline.size, fill: muted)[#author.tagline])
     }
 
     // Line 3 — contact: email · location · phone.
@@ -66,26 +69,28 @@
       contact-items.push(if show-icons { icon-image("phone", "phone") + h(3pt) + node } else { node })
     }
     if contact-items.len() > 0 {
-      linebreak()
-      text(font: cf.family, weight: cf.weight, size: type-scale.contact.size, fill: fg)[
+      lines.push(text(font: cf.family, weight: cf.weight, size: type-scale.contact.size, fill: fg)[
         #contact-items.join([ #h(1pt)·#h(1pt) ])
-      ]
+      ])
     }
 
     // Line 4 — links, bare (no scheme), hyperlinked.
     if "links" in author and author.links.len() > 0 {
-      linebreak()
       let link-items = author.links.map(url => {
         let kind = if "github.com" in url { "github.com" } else if "linkedin.com" in url { "linkedin.com" } else { "link" }
         let node = link("https://" + url)[#url]
         if show-icons { icon-image(kind, kind) + h(3pt) + node } else { node }
       })
-      text(font: cf.family, weight: cf.weight, size: type-scale.contact.size, fill: fg)[
+      lines.push(text(font: cf.family, weight: cf.weight, size: type-scale.contact.size, fill: fg)[
         #link-items.join([ #h(1pt)·#h(1pt) ])
-      ]
+      ])
     }
 
-    v(space-rule-to-entry)
+    // Same spacing/pattern as markup.typ's entry title↔meta stack
+    // (header-stack) — see space-header-line's definition in tokens.typ.
+    stack(dir: ttb, spacing: space-header-line, ..lines)
+
+    v(space-section-to-rule)
     marks.rule(accent-color, weight: 1.2pt)
   })
 }
@@ -152,16 +157,35 @@
 
   let bf = resolve-font(font, weight: type-scale.body.weight)
   set text(font: bf.family, weight: bf.weight, size: type-scale.body.size, fill: fg, lang: "en")
-  // 0.65em matches Typst's own par-leading default — pinned explicitly
-  // rather than left implicit, since a larger custom value here was the
-  // original "huge gap between wrapped lines" bug.
-  set par(justify: false, leading: 0.65em, spacing: space-entry)
+  // Tightened below Typst's own 0.65em par-leading default (empirically,
+  // see git history — the original "huge gap between wrapped lines" bug was
+  // a larger custom value here, not this default). Stays in `em`, not on
+  // tokens.typ's `u` grid: `u` exists to stop the *same* token silently
+  // resolving to different physical lengths across independent call sites
+  // (tokens.typ:68-75's body-indent/tech-line-pad example). `leading` has
+  // only one call site, document-wide, and always resolves against the one
+  // ambient body-text size this `set par` already sits under — and unlike
+  // block-to-block gaps, line-height is conventionally font-size-relative
+  // so it tracks body size if that ever changes, rather than needing to be
+  // decoupled from it.
+  set par(justify: false, leading: 0.6em, spacing: space-paragraph)
+  // list's own `spacing:` is bullet-to-bullet only — the gap above/below
+  // the whole list still comes from `par`'s `spacing:` above, unchanged
+  // (tokens.typ's space-bullet comment explains why these are split).
   set list(marker: [•], indent: 0pt, body-indent: body-indent, spacing: space-bullet)
 
   show heading.where(level: 1): markup.section-heading-rule(accent-list, accent-scope, header-font, draw-marks: show-marks)
   show raw: markup.tech-line-rule(header-font, font)
-  show terms.item: markup.skills-row-rule(font, header-font, accent-list)
+  show quote: markup.comment-rule(font)
 
   header-block(author, accent-list.at(0), font, header-font, show-icons, show-marks)
-  markup.render-body(body, font: font, header-font: header-font, show-logos: show-logos, accent-list: accent-list)
+  // The skills label column's width must be measured before any terms.item
+  // is shown (markup.skills-label-width's comment explains why a per-row
+  // query() from inside the show rule itself can't resolve) — computed
+  // here, in the one `context` that wraps both the show-rule setup and the
+  // render-body call it applies to.
+  context {
+    show terms.item: markup.skills-row-rule(font, header-font, accent-list, markup.skills-label-width(body, font, header-font))
+    markup.render-body(body, font: font, header-font: header-font, show-logos: show-logos, accent-list: accent-list)
+  }
 }
