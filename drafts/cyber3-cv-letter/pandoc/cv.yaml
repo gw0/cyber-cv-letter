@@ -1,0 +1,43 @@
+# Pandoc "defaults" file for cv(). Use as `pandoc mycv.md -d pandoc/cv.yaml
+# -o mycv.pdf` — one command, no intermediate .typ file. See README.md and
+# specs/20260901-redesign.md (Markdown/Pandoc workflow) for the full
+# single-step rationale — not cited by section number, since spec section
+# numbers shift as the document evolves and nothing mechanically keeps a
+# numbered code reference in sync with them.
+#
+# This is the dev/CI copy: pdf-engine and --package-path point at this
+# repo's own .venv/.typst-packages. An external user without a local clone
+# should copy this file and adjust pdf-engine/--package-path for their own
+# environment (once published, --package-path drops out entirely, since
+# @preview/cyber-cv-letter auto-resolves).
+from: markdown-blank_before_blockquote
+to: typst
+standalone: true
+template: pandoc/cv-template.typ
+# Pandoc must itself fetch/embed every referenced image before handing off
+# to an external --pdf-engine (unlike its own native writers, which can
+# just emit the path as a string). It resolves image paths against the
+# working directory, not the source .md's own directory, so a relative
+# `logos/cyberdyne.png` in examples/markdown/cv.md needs this explicit
+# resource-path — set it to wherever your own CV's images actually live.
+resource-path:
+  - examples/markdown
+pdf-engine: .venv/bin/typst
+pdf-engine-opts:
+  - --package-path
+  - .typst-packages
+  - --font-path
+  - fonts
+  - --pdf-standard
+  - ua-1
+  # Pandoc's own pre-render step resolves and extracts every referenced
+  # image to an OS-absolute temp path before Typst ever runs, and always
+  # writes that absolute path (not a relative one) into the generated
+  # Typst source. A leading "/" there is Typst's project-root-relative
+  # syntax, so root must be the OS root for it to resolve — safe for this
+  # package specifically because icon paths live inside the @local/@preview
+  # package (governed by that package's own root, not the document's),
+  # while the logo image node Pandoc re-emits lives in the main document
+  # body and needs exactly this global --root to resolve.
+  - --root
+  - /

@@ -1,0 +1,6 @@
+# typst binary (downloaded separately by `make setup`, not installed via pip):
+# https://github.com/typst/typst/releases/tag/v0.15.1 — keep in sync with typst.toml's `compiler` field.
+pypandoc_binary==1.17
+pypdf==6.16.2
+pymupdf==1.28.2
+pytest==9.1.1

@@ -1,0 +1,29 @@
+# Lives at .github2/workflows/test.yml instead of the usual
+# .github/workflows/test.yml because .github/ is unavailable in this
+# repo's current environment (see README's "Repository layout note").
+# Rename the .github2/ directory to .github/ once that's no longer true —
+# GitHub only picks up workflows under .github/workflows/.
+name: test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: make setup
+        run: make setup
+
+      - name: make examples
+        run: make examples
+
+      - name: make test
+        run: make test
