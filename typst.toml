@@ -1,0 +1,17 @@
+[package]
+name = "cyber-cv-letter"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["gw0"]
+license = "AGPL-3.0-or-later"
+description = "Terminal/hacker-themed CV and cover letter template — Typst and Markdown+Pandoc, ATS-conformant by construction."
+repository = "https://github.com/gw0/cyber-cv-letter"
+keywords = ["cv", "resume", "cover-letter", "ats"]
+categories = ["office"]
+compiler = "0.15.1"
+exclude = [".github/", ".typst-packages/", ".venv/", "Makefile", "requirements.txt", "pytest.ini", "drafts/", "specs/", "tests/"]
+thumbnail = "thumbnails/cv.png"
+
+[template]
+path = "examples/typst"
+entrypoint = "cv.typ"
