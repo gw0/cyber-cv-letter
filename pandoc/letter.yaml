@@ -1,0 +1,17 @@
+# Pandoc "defaults" file for letter(). Use as `pandoc myletter.md -d
+# pandoc/letter.yaml -o myletter.pdf`. See pandoc/cv.yaml for the full
+# rationale (identical mechanism, different template).
+from: markdown-blank_before_blockquote
+to: typst
+standalone: true
+template: pandoc/letter-template.typ
+pdf-engine: .venv/bin/typst
+pdf-engine-opts:
+  - --package-path
+  - .typst-packages
+  - --font-path
+  - fonts
+  - --pdf-standard
+  - ua-1
+  - --root
+  - /
