@@ -57,385 +57,385 @@
   [
    0,
    68.03,
-   152.55,
+   154.15,
    "AI security engineer with six years spanning applied machine learning, security engineering, and "
   ],
   [
    0,
    68.03,
-   166.18,
+   167.78,
    "detection engineering. Builds defenses against adversarial and prompt-injection attacks on "
   ],
   [
    0,
    68.03,
-   179.81,
+   181.41,
    "production ML systems, and leads red-team exercises against internal LLM deployments."
   ],
   [
    0,
    68.03,
-   206.05,
+   207.65,
    "EXPERIENCE"
   ],
   [
    0,
    68.03,
-   228.59,
+   231.79,
    "Senior AI Security Engineer"
   ],
   [
    0,
    468.65,
-   230.93,
+   234.13,
    "2023 \u2013 Present"
   ],
   [
    0,
    68.03,
-   243.49,
+   246.69,
    "Cyberdyne Systems"
   ],
   [
    0,
    473.73,
-   243.49,
+   246.69,
    "Austin, TX (US)"
   ],
   [
    0,
    68.03,
-   258.82,
+   263.62,
    "Leading red-team engagements against internal LLM-powered products before launch."
   ],
   [
    0,
    68.03,
-   274.15,
+   280.55,
    "\u2022"
   ],
   [
    0,
    72.19,
-   274.15,
+   280.55,
    " "
   ],
   [
    0,
    78.59,
-   274.15,
+   280.55,
    "Built an automated prompt-injection fuzzing harness that surfaced 40+ high-severity jailbreaks "
   ],
   [
    0,
    78.59,
-   287.78,
+   294.18,
    "across 6 production LLM features prior to release."
   ],
   [
    0,
    68.03,
-   301.51,
+   307.91,
    "\u2022"
   ],
   [
    0,
    72.19,
-   301.51,
+   307.91,
    " "
   ],
   [
    0,
    78.59,
-   301.51,
+   307.91,
    "Led adversarial robustness reviews for a fraud-detection model serving 2M inference requests/day, "
   ],
   [
    0,
    78.59,
-   315.13,
+   321.53,
    "reducing evasion success rate from 18% to under 2%."
   ],
   [
    0,
    68.03,
-   328.86,
+   335.26,
    "\u2022"
   ],
   [
    0,
    72.19,
-   328.86,
+   335.26,
    " "
   ],
   [
    0,
    78.59,
-   328.86,
+   335.26,
    "Designed and shipped a model-extraction detection pipeline (query-pattern anomaly scoring) now "
   ],
   [
    0,
    78.59,
-   342.49,
+   348.89,
    "running across all customer-facing inference endpoints."
   ],
   [
    0,
    78.59,
-   357.94,
+   365.94,
    "Python \u00b7 PyTorch \u00b7 Burp Suite \u00b7 Kubernetes \u00b7 OPA/Gatekeeper"
   ],
   [
    0,
    68.03,
-   376.78,
+   384.78,
    "Security Engineer, Applied ML"
   ],
   [
    0,
    484.85,
-   379.12,
+   387.12,
    "2021 \u2013 2023"
   ],
   [
    0,
    68.03,
-   391.68,
+   399.68,
    "Skynet Analytics"
   ],
   [
    0,
    484.74,
-   391.68,
+   399.68,
    "Remote (US)"
   ],
   [
    0,
    68.03,
-   407.01,
+   416.61,
    "Owned the security review process for the ML platform team\u2019s model deployment pipeline."
   ],
   [
    0,
    68.03,
-   422.34,
+   433.54,
    "\u2022"
   ],
   [
    0,
    72.19,
-   422.34,
+   433.54,
    " "
   ],
   [
    0,
    78.59,
-   422.34,
+   433.54,
    "Authored the org\u2019s first threat model for LLM-integrated services, adopted as the standard review "
   ],
   [
    0,
    78.59,
-   435.97,
+   447.17,
    "template company-wide."
   ],
   [
    0,
    68.03,
-   449.7,
+   460.9,
    "\u2022"
   ],
   [
    0,
    72.19,
-   449.7,
+   460.9,
    " "
   ],
   [
    0,
    78.59,
-   449.7,
+   460.9,
    "Cut mean time to patch critical model-serving CVEs from 21 days to 4 by embedding security "
   ],
   [
    0,
    78.59,
-   463.32,
+   474.52,
    "gating directly into the MLOps CI/CD pipeline."
   ],
   [
    0,
    68.03,
-   477.05,
+   488.25,
    "\u2022"
   ],
   [
    0,
    72.19,
-   477.05,
+   488.25,
    " "
   ],
   [
    0,
    78.59,
-   477.05,
+   488.25,
    "Ran quarterly red-team exercises against internal chatbots, discovering data-exfiltration paths "
   ],
   [
    0,
    78.59,
-   490.68,
+   501.88,
    "later closed via output filtering and scoped tool permissions."
   ],
   [
    0,
    78.59,
-   506.13,
+   518.93,
    "Terraform \u00b7 AWS \u00b7 MLflow \u00b7 Semgrep \u00b7 Snyk"
   ],
   [
    0,
    68.03,
-   524.97,
+   537.77,
    "Machine Learning Engineer"
   ],
   [
    0,
    484.85,
-   527.31,
+   540.11,
    "2019 \u2013 2021"
   ],
   [
    0,
    68.03,
-   539.87,
+   552.67,
    "Tyrell ML"
   ],
   [
    0,
    433.67,
-   539.87,
+   552.67,
    "Ljubljana, Slovenia (EU)"
   ],
   [
    0,
    68.03,
-   555.2,
+   569.6,
    "Built and shipped machine learning models powering fraud detection and demand forecasting for a "
   ],
   [
    0,
    68.03,
-   568.83,
+   583.23,
    "fast-growing fintech product."
   ],
   [
    0,
    68.03,
-   584.16,
+   600.16,
    "\u2022"
   ],
   [
    0,
    72.19,
-   584.16,
+   600.16,
    " "
   ],
   [
    0,
    78.59,
-   584.16,
+   600.16,
    "Built and shipped fraud-detection models into production, reducing false-positive rates by 25% "
   ],
   [
    0,
    78.59,
-   597.79,
+   613.79,
    "across the company\u2019s core payments pipeline."
   ],
   [
    0,
    68.03,
-   611.51,
+   627.51,
    "\u2022"
   ],
   [
    0,
    72.19,
-   611.51,
+   627.51,
    " "
   ],
   [
    0,
    78.59,
-   611.51,
+   627.51,
    "Designed the team\u2019s first automated retraining pipeline, cutting model refresh time from weeks to "
   ],
   [
    0,
    78.59,
-   625.14,
+   641.14,
    "days."
   ],
   [
    0,
    78.59,
-   640.6,
+   658.2,
    "TensorFlow \u00b7 scikit-learn \u00b7 Docker"
   ],
   [
    0,
    68.03,
-   665.67,
+   683.27,
    "SKILLS"
   ],
   [
    0,
    68.03,
-   689.5,
+   708.7,
    "Security    "
   ],
   [
    0,
    132.83,
-   688.33,
+   707.53,
    "Threat modeling, Burp Suite, Nmap, Metasploit"
   ],
   [
    0,
    68.03,
-   703.23,
+   722.43,
    "ML/AI       "
   ],
   [
    0,
    132.83,
-   702.06,
+   721.26,
    "PyTorch, vLLM, adversarial robustness, prompt-injection defense"
   ],
   [
    0,
    68.03,
-   716.95,
+   736.15,
    "Infra       "
   ],
   [
    0,
    132.83,
-   715.78,
+   734.98,
    "Kubernetes, Terraform, AWS, CI/CD pipeline hardening"
   ],
   [
    0,
    68.03,
-   730.68,
+   749.88,
    "Practice    "
   ],
   [
    0,
    132.83,
-   729.51,
+   748.71,
    "Incident response, vulnerability research, red-team exercise design"
   ],
   [
@@ -459,133 +459,133 @@
   [
    1,
    68.03,
-   66.74,
+   68.34,
    "M.S. Computer Security"
   ],
   [
    1,
    522.65,
-   69.08,
+   70.68,
    "2023"
   ],
   [
    1,
    68.03,
-   81.64,
+   83.24,
    "Stanford University"
   ],
   [
    1,
    485.19,
-   81.64,
+   83.24,
    "Stanford, CA"
   ],
   [
    1,
    68.03,
-   101.65,
+   103.25,
    "B.S. Computer Science"
   ],
   [
    1,
    522.65,
-   103.99,
+   105.59,
    "2019"
   ],
   [
    1,
    68.03,
-   116.55,
+   118.15,
    "University of Ljubljana"
   ],
   [
    1,
    433.67,
-   116.55,
+   118.15,
    "Ljubljana, Slovenia (EU)"
   ],
   [
    1,
    68.03,
-   142.79,
+   144.39,
    "PROJECTS"
   ],
   [
    1,
    68.03,
-   165.32,
+   168.52,
    "promptfirewall"
   ],
   [
    1,
    522.65,
-   167.66,
+   170.86,
    "2023"
   ],
   [
    1,
    68.03,
-   180.22,
+   183.42,
    "github.com/sconnor/promptfirewall"
   ],
   [
    1,
    68.03,
-   206.47,
+   209.67,
    "CERTIFICATIONS, AWARDS & PUBLICATIONS"
   ],
   [
    1,
    68.03,
-   229.0,
+   233.8,
    "OSCP \u2013 Offensive Security Certified Professional"
   ],
   [
    1,
    522.65,
-   231.34,
+   236.14,
    "2019"
   ],
   [
    1,
    68.03,
-   243.9,
+   248.7,
    "Offensive Security"
   ],
   [
    1,
    68.03,
-   263.91,
+   268.71,
    "AI Village CTF \u2013 1st Place"
   ],
   [
    1,
    522.65,
-   266.25,
+   271.05,
    "2024"
   ],
   [
    1,
    68.03,
-   278.81,
+   283.61,
    "DEF CON"
   ],
   [
    1,
    68.03,
-   298.81,
+   303.61,
    "Detecting Prompt Injection at Scale"
   ],
   [
    1,
    522.65,
-   301.15,
+   305.95,
    "2024"
   ],
   [
    1,
    68.03,
-   313.71,
+   318.51,
    "arxiv.org/abs/2403.09217"
   ],
   [
@@ -635,523 +635,523 @@
   [
    0,
    68.03,
-   147.12,
+   148.72,
    "AI security engineer with six years spanning applied machine learning, security engineering, and "
   ],
   [
    0,
    68.03,
-   160.75,
+   162.35,
    "detection engineering. Builds defenses against adversarial and prompt-injection attacks on "
   ],
   [
    0,
    68.03,
-   174.38,
+   175.98,
    "production ML systems, and leads red-team exercises against internal LLM deployments."
   ],
   [
    0,
    68.03,
-   200.62,
+   202.22,
    "EXPERIENCE"
   ],
   [
    0,
    68.03,
-   223.15,
+   226.35,
    "Senior AI Security Engineer"
   ],
   [
    0,
    468.65,
-   225.49,
+   228.69,
    "2023 \u2013 Present"
   ],
   [
    0,
    68.03,
-   238.05,
+   241.25,
    "Cyberdyne Systems"
   ],
   [
    0,
    473.73,
-   238.05,
+   241.25,
    "Austin, TX (US)"
   ],
   [
    0,
    68.03,
-   253.38,
+   258.18,
    "Leading red-team engagements against internal LLM-powered products before launch."
   ],
   [
    0,
    68.03,
-   268.71,
+   275.11,
    "\u2022"
   ],
   [
    0,
    72.19,
-   268.71,
+   275.11,
    " "
   ],
   [
    0,
    78.59,
-   268.71,
+   275.11,
    "Built an automated prompt-injection fuzzing harness that surfaced 40+ high-severity jailbreaks "
   ],
   [
    0,
    78.59,
-   282.34,
+   288.74,
    "across 6 production LLM features prior to release."
   ],
   [
    0,
    68.03,
-   296.07,
+   302.47,
    "\u2022"
   ],
   [
    0,
    72.19,
-   296.07,
+   302.47,
    " "
   ],
   [
    0,
    78.59,
-   296.07,
+   302.47,
    "Led adversarial robustness reviews for a fraud-detection model serving 2M inference requests/day, "
   ],
   [
    0,
    78.59,
-   309.7,
+   316.1,
    "reducing evasion success rate from 18% to under 2%."
   ],
   [
    0,
    68.03,
-   323.43,
+   329.83,
    "\u2022"
   ],
   [
    0,
    72.19,
-   323.43,
+   329.83,
    " "
   ],
   [
    0,
    78.59,
-   323.43,
+   329.83,
    "Designed and shipped a model-extraction detection pipeline (query-pattern anomaly scoring) now "
   ],
   [
    0,
    78.59,
-   337.06,
+   343.46,
    "running across all customer-facing inference endpoints."
   ],
   [
    0,
    78.59,
-   352.51,
+   360.51,
    "Python \u00b7 PyTorch \u00b7 Burp Suite \u00b7 Kubernetes \u00b7 OPA/Gatekeeper"
   ],
   [
    0,
    68.03,
-   371.34,
+   379.34,
    "Security Engineer, Applied ML"
   ],
   [
    0,
    484.85,
-   373.68,
+   381.68,
    "2021 \u2013 2023"
   ],
   [
    0,
    68.03,
-   386.24,
+   394.24,
    "Skynet Analytics"
   ],
   [
    0,
    484.74,
-   386.24,
+   394.24,
    "Remote (US)"
   ],
   [
    0,
    68.03,
-   401.57,
+   411.17,
    "Owned the security review process for the ML platform team\u2019s model deployment pipeline."
   ],
   [
    0,
    68.03,
-   416.9,
+   428.1,
    "\u2022"
   ],
   [
    0,
    72.19,
-   416.9,
+   428.1,
    " "
   ],
   [
    0,
    78.59,
-   416.9,
+   428.1,
    "Authored the org\u2019s first threat model for LLM-integrated services, adopted as the standard review "
   ],
   [
    0,
    78.59,
-   430.53,
+   441.73,
    "template company-wide."
   ],
   [
    0,
    68.03,
-   444.26,
+   455.46,
    "\u2022"
   ],
   [
    0,
    72.19,
-   444.26,
+   455.46,
    " "
   ],
   [
    0,
    78.59,
-   444.26,
+   455.46,
    "Cut mean time to patch critical model-serving CVEs from 21 days to 4 by embedding security "
   ],
   [
    0,
    78.59,
-   457.89,
+   469.09,
    "gating directly into the MLOps CI/CD pipeline."
   ],
   [
    0,
    68.03,
-   471.62,
+   482.82,
    "\u2022"
   ],
   [
    0,
    72.19,
-   471.62,
+   482.82,
    " "
   ],
   [
    0,
    78.59,
-   471.62,
+   482.82,
    "Ran quarterly red-team exercises against internal chatbots, discovering data-exfiltration paths "
   ],
   [
    0,
    78.59,
-   485.25,
+   496.45,
    "later closed via output filtering and scoped tool permissions."
   ],
   [
    0,
    78.59,
-   500.7,
+   513.5,
    "Terraform \u00b7 AWS \u00b7 MLflow \u00b7 Semgrep \u00b7 Snyk"
   ],
   [
    0,
    68.03,
-   519.53,
+   532.33,
    "Machine Learning Engineer"
   ],
   [
    0,
    484.85,
-   521.87,
+   534.67,
    "2019 \u2013 2021"
   ],
   [
    0,
    68.03,
-   534.43,
+   547.23,
    "Tyrell ML"
   ],
   [
    0,
    433.67,
-   534.43,
+   547.23,
    "Ljubljana, Slovenia (EU)"
   ],
   [
    0,
    68.03,
-   549.76,
+   564.16,
    "Built and shipped machine learning models powering fraud detection and demand forecasting for a "
   ],
   [
    0,
    68.03,
-   563.39,
+   577.79,
    "fast-growing fintech product."
   ],
   [
    0,
    68.03,
-   578.72,
+   594.72,
    "\u2022"
   ],
   [
    0,
    72.19,
-   578.72,
+   594.72,
    " "
   ],
   [
    0,
    78.59,
-   578.72,
+   594.72,
    "Built and shipped fraud-detection models into production, reducing false-positive rates by 25% "
   ],
   [
    0,
    78.59,
-   592.35,
+   608.35,
    "across the company\u2019s core payments pipeline."
   ],
   [
    0,
    68.03,
-   606.08,
+   622.08,
    "\u2022"
   ],
   [
    0,
    72.19,
-   606.08,
+   622.08,
    " "
   ],
   [
    0,
    78.59,
-   606.08,
+   622.08,
    "Designed the team\u2019s first automated retraining pipeline, cutting model refresh time from weeks to "
   ],
   [
    0,
    78.59,
-   619.71,
+   635.71,
    "days."
   ],
   [
    0,
    78.59,
-   635.16,
+   652.76,
    "TensorFlow \u00b7 scikit-learn \u00b7 Docker"
   ],
   [
    0,
    68.03,
-   660.23,
+   677.83,
    "SKILLS"
   ],
   [
    0,
    68.03,
-   684.06,
+   703.26,
    "Security    "
   ],
   [
    0,
    132.83,
-   682.89,
+   702.09,
    "Threat modeling, Burp Suite, Nmap, Metasploit"
   ],
   [
    0,
    68.03,
-   697.79,
+   716.99,
    "ML/AI       "
   ],
   [
    0,
    132.83,
-   696.62,
+   715.82,
    "PyTorch, vLLM, adversarial robustness, prompt-injection defense"
   ],
   [
    0,
    68.03,
-   711.52,
+   730.72,
    "Infra       "
   ],
   [
    0,
    132.83,
-   710.35,
+   729.55,
    "Kubernetes, Terraform, AWS, CI/CD pipeline hardening"
   ],
   [
    0,
    68.03,
-   725.25,
+   744.45,
    "Practice    "
   ],
   [
    0,
    132.83,
-   724.08,
+   743.28,
    "Incident response, vulnerability research, red-team exercise design"
   ],
   [
-   0,
+   1,
    68.03,
-   750.32,
+   44.21,
    "EDUCATION"
   ],
   [
-   0,
+   1,
    68.03,
-   772.86,
+   68.34,
    "M.S. Computer Security"
   ],
   [
-   0,
+   1,
    522.65,
-   775.2,
+   70.68,
    "2023"
   ],
   [
-   0,
+   1,
    68.03,
-   787.75,
+   83.24,
    "Stanford University"
   ],
   [
-   0,
+   1,
    485.19,
-   787.75,
+   83.24,
    "Stanford, CA"
   ],
   [
    1,
    68.03,
-   44.37,
+   103.25,
    "B.S. Computer Science"
   ],
   [
    1,
    522.65,
-   46.71,
+   105.59,
    "2019"
   ],
   [
    1,
    68.03,
-   59.27,
+   118.15,
    "University of Ljubljana"
   ],
   [
    1,
    433.67,
-   59.27,
+   118.15,
    "Ljubljana, Slovenia (EU)"
   ],
   [
    1,
    68.03,
-   85.51,
+   144.39,
    "PROJECTS"
   ],
   [
    1,
    68.03,
-   108.05,
+   168.52,
    "promptfirewall"
   ],
   [
    1,
    522.65,
-   110.39,
+   170.86,
    "2023"
   ],
   [
    1,
    68.03,
-   122.95,
+   183.42,
    "github.com/sconnor/promptfirewall"
   ],
   [
    1,
    68.03,
-   149.19,
+   209.67,
    "CERTIFICATIONS, AWARDS & PUBLICATIONS"
   ],
   [
    1,
    68.03,
-   171.72,
+   233.8,
    "OSCP \u2013 Offensive Security Certified Professional"
   ],
   [
    1,
    522.65,
-   174.06,
+   236.14,
    "2019"
   ],
   [
    1,
    68.03,
-   186.62,
+   248.7,
    "Offensive Security"
   ],
   [
    1,
    68.03,
-   206.63,
+   268.71,
    "AI Village CTF \u2013 1st Place"
   ],
   [
    1,
    522.65,
-   208.97,
+   271.05,
    "2024"
   ],
   [
    1,
    68.03,
-   221.53,
+   283.61,
    "DEF CON"
   ],
   [
    1,
    68.03,
-   241.53,
+   303.61,
    "Detecting Prompt Injection at Scale"
   ],
   [
    1,
    522.65,
-   243.87,
+   305.95,
    "2024"
   ],
   [
    1,
    68.03,
-   256.43,
+   318.51,
    "arxiv.org/abs/2403.09217"
   ]
  ],
@@ -1219,422 +1219,404 @@
   [
    0,
    68.03,
-   152.55,
+   154.15,
    "AI security engineer with six years spanning applied machine learning, security engineering, and "
   ],
   [
    0,
    68.03,
-   166.18,
+   167.78,
    "detection engineering. Builds defenses against adversarial and prompt-injection attacks on "
   ],
   [
    0,
    68.03,
-   179.81,
+   181.41,
    "production ML systems, and leads red-team exercises against internal LLM deployments."
   ],
   [
    0,
    68.03,
-   206.05,
+   207.65,
    "EXP"
   ],
   [
    0,
    93.23,
-   206.05,
+   207.65,
    "ERIENCE"
   ],
   [
    0,
    117.63,
-   228.59,
+   231.79,
    "Senior AI Security Engineer"
   ],
   [
    0,
    468.65,
-   230.93,
+   234.13,
    "2023 \u2013 Present"
   ],
   [
    0,
    117.63,
-   243.49,
+   246.69,
    "Cyberdyne Systems"
   ],
   [
    0,
    473.73,
-   243.49,
+   246.69,
    "Austin, TX (US)"
   ],
   [
    0,
    68.03,
-   258.82,
+   263.62,
    "Leading red-team engagements against internal LLM-powered products before launch."
   ],
   [
    0,
    68.03,
-   274.15,
+   280.55,
    "\u2022"
   ],
   [
    0,
    72.19,
-   274.15,
+   280.55,
    " "
   ],
   [
    0,
    78.59,
-   274.15,
+   280.55,
    "Built an automated prompt-injection fuzzing harness that surfaced 40+ high-severity jailbreaks "
   ],
   [
    0,
    78.59,
-   287.78,
+   294.18,
    "across 6 production LLM features prior to release."
   ],
   [
    0,
    78.59,
-   303.19,
-   "Custom mutation engine over a 12k-seed corpus, wired into the release-gate CI job; findings triaged weekly "
+   308.11,
+   "Custom mutation engine over a 12k-seed corpus, wired into the release-gate CI job; findings triaged weekly with the app-sec "
   ],
   [
    0,
    78.59,
-   315.52,
-   "with the app-sec team."
+   318.49,
+   "team."
   ],
   [
    0,
    68.03,
-   328.47,
+   330.27,
    "\u2022"
   ],
   [
    0,
    72.19,
-   328.47,
+   330.27,
    " "
   ],
   [
    0,
    78.59,
-   328.47,
+   330.27,
    "Led adversarial robustness reviews for a fraud-detection model serving 2M inference requests/day, "
   ],
   [
    0,
    78.59,
-   342.1,
+   343.9,
    "reducing evasion success rate from 18% to under 2%."
   ],
   [
    0,
    78.59,
-   357.51,
-   "Combined gradient-based attack simulation with a red-team-authored adversarial test suite; findings drove a "
+   357.84,
+   "Combined gradient-based attack simulation with a red-team-authored adversarial test suite; findings drove a retraining cycle with "
   ],
   [
    0,
    78.59,
-   369.84,
-   "retraining cycle with hardened features."
+   368.22,
+   "hardened features."
   ],
   [
    0,
    68.03,
-   382.79,
+   380.0,
    "\u2022"
   ],
   [
    0,
    72.19,
-   382.79,
+   380.0,
    " "
   ],
   [
    0,
    78.59,
-   382.79,
+   380.0,
    "Designed and shipped a model-extraction detection pipeline (query-pattern anomaly scoring) now "
   ],
   [
    0,
    78.59,
-   396.42,
+   393.63,
    "running across all customer-facing inference endpoints."
   ],
   [
    0,
    78.59,
-   411.87,
+   410.68,
    "Python \u00b7 PyTorch \u00b7 Burp Suite \u00b7 Kubernetes \u00b7 OPA/Gatekeeper"
   ],
   [
    0,
    117.63,
-   430.7,
+   429.52,
    "Security Engineer, Applied ML"
   ],
   [
    0,
    484.85,
-   433.04,
+   431.86,
    "2021 \u2013 2023"
   ],
   [
    0,
    117.63,
-   445.6,
+   444.42,
    "Skynet Analytics"
   ],
   [
    0,
    484.74,
-   445.6,
+   444.42,
    "Remote (US)"
   ],
   [
    0,
    68.03,
-   460.93,
+   458.35,
+   "Promoted from IC to owning the security review process org-wide within eight months."
+  ],
+  [
+   0,
+   68.03,
+   470.13,
    "Owned the security review process for the ML platform team\u2019s model deployment pipeline."
   ],
   [
    0,
    68.03,
-   476.26,
+   487.06,
    "\u2022"
   ],
   [
    0,
    72.19,
-   476.26,
+   487.06,
    " "
   ],
   [
    0,
    78.59,
-   476.26,
+   487.06,
    "Authored the org\u2019s first threat model for LLM-integrated services, adopted as the standard review "
   ],
   [
    0,
    78.59,
-   489.89,
+   500.69,
    "template company-wide."
   ],
   [
    0,
    68.03,
-   503.62,
+   514.42,
    "\u2022"
   ],
   [
    0,
    72.19,
-   503.62,
+   514.42,
    " "
   ],
   [
    0,
    78.59,
-   503.62,
+   514.42,
    "Cut mean time to patch critical model-serving CVEs from 21 days to 4 by embedding security "
   ],
   [
    0,
    78.59,
-   517.25,
+   528.04,
    "gating directly into the MLOps CI/CD pipeline."
   ],
   [
    0,
    68.03,
-   530.98,
+   541.77,
    "\u2022"
   ],
   [
    0,
    72.19,
-   530.98,
+   541.77,
    " "
   ],
   [
    0,
    78.59,
-   530.98,
+   541.77,
    "Ran quarterly red-team exercises against internal chatbots, discovering data-exfiltration paths "
   ],
   [
    0,
    78.59,
-   544.61,
+   555.4,
    "later closed via output filtering and scoped tool permissions."
   ],
   [
    0,
    78.59,
-   560.06,
+   572.45,
    "Terraform \u00b7 AWS \u00b7 MLflow \u00b7 Semgrep \u00b7 Snyk"
   ],
   [
    0,
    117.63,
-   578.89,
+   591.29,
    "Machine Learning Engineer"
   ],
   [
    0,
    484.85,
-   581.23,
+   593.63,
    "2019 \u2013 2021"
   ],
   [
    0,
    117.63,
-   593.79,
+   606.19,
    "Tyrell ML"
   ],
   [
    0,
    433.67,
-   593.79,
+   606.19,
    "Ljubljana, Slovenia (EU)"
   ],
   [
    0,
    68.03,
-   609.12,
+   623.12,
    "Built and shipped machine learning models powering fraud detection and demand forecasting for a "
   ],
   [
    0,
    68.03,
-   622.75,
+   636.75,
    "fast-growing fintech product."
   ],
   [
    0,
    68.03,
-   638.08,
+   653.68,
    "\u2022"
   ],
   [
    0,
    72.19,
-   638.08,
+   653.68,
    " "
   ],
   [
    0,
    78.59,
-   638.08,
+   653.68,
    "Built and shipped fraud-detection models into production, reducing false-positive rates by 25% "
   ],
   [
    0,
    78.59,
-   651.71,
+   667.31,
    "across the company\u2019s core payments pipeline."
   ],
   [
    0,
    68.03,
-   665.44,
+   681.03,
    "\u2022"
   ],
   [
    0,
    72.19,
-   665.44,
+   681.03,
    " "
   ],
   [
    0,
    78.59,
-   665.44,
+   681.03,
    "Designed the team\u2019s first automated retraining pipeline, cutting model refresh time from weeks to "
   ],
   [
    0,
    78.59,
-   679.07,
+   694.66,
    "days."
   ],
   [
    0,
    78.59,
-   694.52,
+   711.72,
    "TensorFlow \u00b7 scikit-learn \u00b7 Docker"
   ],
   [
    0,
    68.03,
-   719.59,
+   736.79,
    "SKI"
   ],
   [
    0,
    93.23,
-   719.59,
+   736.79,
    "LLS"
   ],
   [
    0,
    68.03,
-   743.42,
+   762.22,
    "Security    "
   ],
   [
    0,
    132.83,
-   742.25,
+   761.05,
    "Threat modeling, Burp Suite, Nmap, Metasploit"
   ],
   [
    0,
    68.03,
-   757.15,
+   775.95,
    "ML/AI       "
   ],
   [
    0,
    132.83,
-   755.98,
+   774.78,
    "PyTorch, vLLM, adversarial robustness, prompt-injection defense"
-  ],
-  [
-   0,
-   68.03,
-   770.88,
-   "Infra       "
-  ],
-  [
-   0,
-   132.83,
-   769.71,
-   "Kubernetes, Terraform, AWS, CI/CD pipeline hardening"
-  ],
-  [
-   0,
-   68.03,
-   784.61,
-   "Practice    "
-  ],
-  [
-   0,
-   132.83,
-   783.44,
-   "Incident response, vulnerability research, red-team exercise design"
   ],
   [
    0,
@@ -1651,157 +1633,181 @@
   [
    1,
    68.03,
-   44.21,
+   45.66,
+   "Infra       "
+  ],
+  [
+   1,
+   132.83,
+   44.49,
+   "Kubernetes, Terraform, AWS, CI/CD pipeline hardening"
+  ],
+  [
+   1,
+   68.03,
+   59.39,
+   "Practice    "
+  ],
+  [
+   1,
+   132.83,
+   58.22,
+   "Incident response, vulnerability research, red-team exercise design"
+  ],
+  [
+   1,
+   68.03,
+   84.46,
    "EDU"
   ],
   [
    1,
    93.23,
-   44.21,
+   84.46,
    "CATION"
   ],
   [
    1,
    117.63,
-   66.74,
+   108.6,
    "M.S. Computer Security"
   ],
   [
    1,
    522.65,
-   69.08,
+   110.94,
    "2023"
   ],
   [
    1,
    117.63,
-   81.64,
+   123.5,
    "Stanford University"
   ],
   [
    1,
    485.19,
-   81.64,
+   123.5,
    "Stanford, CA"
   ],
   [
    1,
    117.63,
-   101.65,
+   143.51,
    "B.S. Computer Science"
   ],
   [
    1,
    522.65,
-   103.99,
+   145.85,
    "2019"
   ],
   [
    1,
    117.63,
-   116.55,
+   158.4,
    "University of Ljubljana"
   ],
   [
    1,
    433.67,
-   116.55,
+   158.4,
    "Ljubljana, Slovenia (EU)"
   ],
   [
    1,
    68.03,
-   142.79,
+   184.65,
    "PRO"
   ],
   [
    1,
    93.23,
-   142.79,
+   184.65,
    "JECTS"
   ],
   [
    1,
    117.63,
-   165.32,
+   208.78,
    "promptfirewall"
   ],
   [
    1,
    522.65,
-   167.66,
+   211.12,
    "2023"
   ],
   [
    1,
    117.63,
-   180.22,
+   223.68,
    "github.com/sconnor/promptfirewall"
   ],
   [
    1,
    68.03,
-   206.47,
+   249.92,
    "CER"
   ],
   [
    1,
    93.23,
-   206.47,
+   249.92,
    "TIFICATIONS, AWARDS & PUBLICATIONS"
   ],
   [
    1,
    117.63,
-   229.0,
+   274.06,
    "OSCP \u2013 Offensive Security Certified Professional"
   ],
   [
    1,
    522.65,
-   231.34,
+   276.4,
    "2019"
   ],
   [
    1,
    117.63,
-   243.9,
+   288.96,
    "Offensive Security"
   ],
   [
    1,
    117.63,
-   263.91,
+   308.96,
    "AI Village CTF \u2013 1st Place"
   ],
   [
    1,
    522.65,
-   266.25,
+   311.3,
    "2024"
   ],
   [
    1,
    117.63,
-   278.81,
+   323.86,
    "DEF CON"
   ],
   [
    1,
    117.63,
-   298.81,
+   343.87,
    "Detecting Prompt Injection at Scale"
   ],
   [
    1,
    522.65,
-   301.15,
+   346.21,
    "2024"
   ],
   [
    1,
    117.63,
-   313.71,
+   358.77,
    "arxiv.org/abs/2403.09217"
   ],
   [
@@ -2033,385 +2039,385 @@
   [
    0,
    68.03,
-   152.55,
+   154.15,
    "AI security engineer with six years spanning applied machine learning, security engineering, and "
   ],
   [
    0,
    68.03,
-   166.18,
+   167.78,
    "detection engineering. Builds defenses against adversarial and prompt-injection attacks on "
   ],
   [
    0,
    68.03,
-   179.81,
+   181.41,
    "production ML systems, and leads red-team exercises against internal LLM deployments."
   ],
   [
    0,
    68.03,
-   206.05,
+   207.65,
    "EXPERIENCE"
   ],
   [
    0,
    68.03,
-   228.59,
+   231.79,
    "Senior AI Security Engineer"
   ],
   [
    0,
    468.65,
-   230.93,
+   234.13,
    "2023 \u2013 Present"
   ],
   [
    0,
    68.03,
-   243.49,
+   246.69,
    "Cyberdyne Systems"
   ],
   [
    0,
    473.73,
-   243.49,
+   246.69,
    "Austin, TX (US)"
   ],
   [
    0,
    68.03,
-   258.82,
+   263.62,
    "Leading red-team engagements against internal LLM-powered products before launch."
   ],
   [
    0,
    68.03,
-   274.15,
+   280.55,
    "\u2022"
   ],
   [
    0,
    72.19,
-   274.15,
+   280.55,
    " "
   ],
   [
    0,
    78.59,
-   274.15,
+   280.55,
    "Built an automated prompt-injection fuzzing harness that surfaced 40+ high-severity jailbreaks "
   ],
   [
    0,
    78.59,
-   287.78,
+   294.18,
    "across 6 production LLM features prior to release."
   ],
   [
    0,
    68.03,
-   301.51,
+   307.91,
    "\u2022"
   ],
   [
    0,
    72.19,
-   301.51,
+   307.91,
    " "
   ],
   [
    0,
    78.59,
-   301.51,
+   307.91,
    "Led adversarial robustness reviews for a fraud-detection model serving 2M inference requests/day, "
   ],
   [
    0,
    78.59,
-   315.13,
+   321.53,
    "reducing evasion success rate from 18% to under 2%."
   ],
   [
    0,
    68.03,
-   328.86,
+   335.26,
    "\u2022"
   ],
   [
    0,
    72.19,
-   328.86,
+   335.26,
    " "
   ],
   [
    0,
    78.59,
-   328.86,
+   335.26,
    "Designed and shipped a model-extraction detection pipeline (query-pattern anomaly scoring) now "
   ],
   [
    0,
    78.59,
-   342.49,
+   348.89,
    "running across all customer-facing inference endpoints."
   ],
   [
    0,
    78.59,
-   357.94,
+   365.94,
    "Python \u00b7 PyTorch \u00b7 Burp Suite \u00b7 Kubernetes \u00b7 OPA/Gatekeeper"
   ],
   [
    0,
    68.03,
-   376.78,
+   384.78,
    "Security Engineer, Applied ML"
   ],
   [
    0,
    484.85,
-   379.12,
+   387.12,
    "2021 \u2013 2023"
   ],
   [
    0,
    68.03,
-   391.68,
+   399.68,
    "Skynet Analytics"
   ],
   [
    0,
    484.74,
-   391.68,
+   399.68,
    "Remote (US)"
   ],
   [
    0,
    68.03,
-   407.01,
+   416.61,
    "Owned the security review process for the ML platform team\u2019s model deployment pipeline."
   ],
   [
    0,
    68.03,
-   422.34,
+   433.54,
    "\u2022"
   ],
   [
    0,
    72.19,
-   422.34,
+   433.54,
    " "
   ],
   [
    0,
    78.59,
-   422.34,
+   433.54,
    "Authored the org\u2019s first threat model for LLM-integrated services, adopted as the standard review "
   ],
   [
    0,
    78.59,
-   435.97,
+   447.17,
    "template company-wide."
   ],
   [
    0,
    68.03,
-   449.7,
+   460.9,
    "\u2022"
   ],
   [
    0,
    72.19,
-   449.7,
+   460.9,
    " "
   ],
   [
    0,
    78.59,
-   449.7,
+   460.9,
    "Cut mean time to patch critical model-serving CVEs from 21 days to 4 by embedding security "
   ],
   [
    0,
    78.59,
-   463.32,
+   474.52,
    "gating directly into the MLOps CI/CD pipeline."
   ],
   [
    0,
    68.03,
-   477.05,
+   488.25,
    "\u2022"
   ],
   [
    0,
    72.19,
-   477.05,
+   488.25,
    " "
   ],
   [
    0,
    78.59,
-   477.05,
+   488.25,
    "Ran quarterly red-team exercises against internal chatbots, discovering data-exfiltration paths "
   ],
   [
    0,
    78.59,
-   490.68,
+   501.88,
    "later closed via output filtering and scoped tool permissions."
   ],
   [
    0,
    78.59,
-   506.13,
+   518.93,
    "Terraform \u00b7 AWS \u00b7 MLflow \u00b7 Semgrep \u00b7 Snyk"
   ],
   [
    0,
    68.03,
-   524.97,
+   537.77,
    "Machine Learning Engineer"
   ],
   [
    0,
    484.85,
-   527.31,
+   540.11,
    "2019 \u2013 2021"
   ],
   [
    0,
    68.03,
-   539.87,
+   552.67,
    "Tyrell ML"
   ],
   [
    0,
    433.67,
-   539.87,
+   552.67,
    "Ljubljana, Slovenia (EU)"
   ],
   [
    0,
    68.03,
-   555.2,
+   569.6,
    "Built and shipped machine learning models powering fraud detection and demand forecasting for a "
   ],
   [
    0,
    68.03,
-   568.83,
+   583.23,
    "fast-growing fintech product."
   ],
   [
    0,
    68.03,
-   584.16,
+   600.16,
    "\u2022"
   ],
   [
    0,
    72.19,
-   584.16,
+   600.16,
    " "
   ],
   [
    0,
    78.59,
-   584.16,
+   600.16,
    "Built and shipped fraud-detection models into production, reducing false-positive rates by 25% "
   ],
   [
    0,
    78.59,
-   597.79,
+   613.79,
    "across the company\u2019s core payments pipeline."
   ],
   [
    0,
    68.03,
-   611.51,
+   627.51,
    "\u2022"
   ],
   [
    0,
    72.19,
-   611.51,
+   627.51,
    " "
   ],
   [
    0,
    78.59,
-   611.51,
+   627.51,
    "Designed the team\u2019s first automated retraining pipeline, cutting model refresh time from weeks to "
   ],
   [
    0,
    78.59,
-   625.14,
+   641.14,
    "days."
   ],
   [
    0,
    78.59,
-   640.6,
+   658.2,
    "TensorFlow \u00b7 scikit-learn \u00b7 Docker"
   ],
   [
    0,
    68.03,
-   665.67,
+   683.27,
    "SKILLS"
   ],
   [
    0,
    68.03,
-   689.5,
+   708.7,
    "Security    "
   ],
   [
    0,
    132.83,
-   688.33,
+   707.53,
    "Threat modeling, Burp Suite, Nmap, Metasploit"
   ],
   [
    0,
    68.03,
-   703.23,
+   722.43,
    "ML/AI       "
   ],
   [
    0,
    132.83,
-   702.06,
+   721.26,
    "PyTorch, vLLM, adversarial robustness, prompt-injection defense"
   ],
   [
    0,
    68.03,
-   716.95,
+   736.15,
    "Infra       "
   ],
   [
    0,
    132.83,
-   715.78,
+   734.98,
    "Kubernetes, Terraform, AWS, CI/CD pipeline hardening"
   ],
   [
    0,
    68.03,
-   730.68,
+   749.88,
    "Practice    "
   ],
   [
    0,
    132.83,
-   729.51,
+   748.71,
    "Incident response, vulnerability research, red-team exercise design"
   ],
   [
@@ -2435,133 +2441,133 @@
   [
    1,
    68.03,
-   66.74,
+   68.34,
    "M.S. Computer Security"
   ],
   [
    1,
    522.65,
-   69.08,
+   70.68,
    "2023"
   ],
   [
    1,
    68.03,
-   81.64,
+   83.24,
    "Stanford University"
   ],
   [
    1,
    485.19,
-   81.64,
+   83.24,
    "Stanford, CA"
   ],
   [
    1,
    68.03,
-   101.65,
+   103.25,
    "B.S. Computer Science"
   ],
   [
    1,
    522.65,
-   103.99,
+   105.59,
    "2019"
   ],
   [
    1,
    68.03,
-   116.55,
+   118.15,
    "University of Ljubljana"
   ],
   [
    1,
    433.67,
-   116.55,
+   118.15,
    "Ljubljana, Slovenia (EU)"
   ],
   [
    1,
    68.03,
-   142.79,
+   144.39,
    "PROJECTS"
   ],
   [
    1,
    68.03,
-   165.32,
+   168.52,
    "promptfirewall"
   ],
   [
    1,
    522.65,
-   167.66,
+   170.86,
    "2023"
   ],
   [
    1,
    68.03,
-   180.22,
+   183.42,
    "github.com/sconnor/promptfirewall"
   ],
   [
    1,
    68.03,
-   206.47,
+   209.67,
    "CERTIFICATIONS, AWARDS & PUBLICATIONS"
   ],
   [
    1,
    68.03,
-   229.0,
+   233.8,
    "OSCP \u2013 Offensive Security Certified Professional"
   ],
   [
    1,
    522.65,
-   231.34,
+   236.14,
    "2019"
   ],
   [
    1,
    68.03,
-   243.9,
+   248.7,
    "Offensive Security"
   ],
   [
    1,
    68.03,
-   263.91,
+   268.71,
    "AI Village CTF \u2013 1st Place"
   ],
   [
    1,
    522.65,
-   266.25,
+   271.05,
    "2024"
   ],
   [
    1,
    68.03,
-   278.81,
+   283.61,
    "DEF CON"
   ],
   [
    1,
    68.03,
-   298.81,
+   303.61,
    "Detecting Prompt Injection at Scale"
   ],
   [
    1,
    522.65,
-   301.15,
+   305.95,
    "2024"
   ],
   [
    1,
    68.03,
-   313.71,
+   318.51,
    "arxiv.org/abs/2403.09217"
   ],
   [
@@ -2611,523 +2617,523 @@
   [
    0,
    68.03,
-   147.12,
+   148.72,
    "AI security engineer with six years spanning applied machine learning, security engineering, and "
   ],
   [
    0,
    68.03,
-   160.75,
+   162.35,
    "detection engineering. Builds defenses against adversarial and prompt-injection attacks on "
   ],
   [
    0,
    68.03,
-   174.38,
+   175.98,
    "production ML systems, and leads red-team exercises against internal LLM deployments."
   ],
   [
    0,
    68.03,
-   200.62,
+   202.22,
    "EXPERIENCE"
   ],
   [
    0,
    68.03,
-   223.15,
+   226.35,
    "Senior AI Security Engineer"
   ],
   [
    0,
    468.65,
-   225.49,
+   228.69,
    "2023 \u2013 Present"
   ],
   [
    0,
    68.03,
-   238.05,
+   241.25,
    "Cyberdyne Systems"
   ],
   [
    0,
    473.73,
-   238.05,
+   241.25,
    "Austin, TX (US)"
   ],
   [
    0,
    68.03,
-   253.38,
+   258.18,
    "Leading red-team engagements against internal LLM-powered products before launch."
   ],
   [
    0,
    68.03,
-   268.71,
+   275.11,
    "\u2022"
   ],
   [
    0,
    72.19,
-   268.71,
+   275.11,
    " "
   ],
   [
    0,
    78.59,
-   268.71,
+   275.11,
    "Built an automated prompt-injection fuzzing harness that surfaced 40+ high-severity jailbreaks "
   ],
   [
    0,
    78.59,
-   282.34,
+   288.74,
    "across 6 production LLM features prior to release."
   ],
   [
    0,
    68.03,
-   296.07,
+   302.47,
    "\u2022"
   ],
   [
    0,
    72.19,
-   296.07,
+   302.47,
    " "
   ],
   [
    0,
    78.59,
-   296.07,
+   302.47,
    "Led adversarial robustness reviews for a fraud-detection model serving 2M inference requests/day, "
   ],
   [
    0,
    78.59,
-   309.7,
+   316.1,
    "reducing evasion success rate from 18% to under 2%."
   ],
   [
    0,
    68.03,
-   323.43,
+   329.83,
    "\u2022"
   ],
   [
    0,
    72.19,
-   323.43,
+   329.83,
    " "
   ],
   [
    0,
    78.59,
-   323.43,
+   329.83,
    "Designed and shipped a model-extraction detection pipeline (query-pattern anomaly scoring) now "
   ],
   [
    0,
    78.59,
-   337.06,
+   343.46,
    "running across all customer-facing inference endpoints."
   ],
   [
    0,
    78.59,
-   352.51,
+   360.51,
    "Python \u00b7 PyTorch \u00b7 Burp Suite \u00b7 Kubernetes \u00b7 OPA/Gatekeeper"
   ],
   [
    0,
    68.03,
-   371.34,
+   379.34,
    "Security Engineer, Applied ML"
   ],
   [
    0,
    484.85,
-   373.68,
+   381.68,
    "2021 \u2013 2023"
   ],
   [
    0,
    68.03,
-   386.24,
+   394.24,
    "Skynet Analytics"
   ],
   [
    0,
    484.74,
-   386.24,
+   394.24,
    "Remote (US)"
   ],
   [
    0,
    68.03,
-   401.57,
+   411.17,
    "Owned the security review process for the ML platform team\u2019s model deployment pipeline."
   ],
   [
    0,
    68.03,
-   416.9,
+   428.1,
    "\u2022"
   ],
   [
    0,
    72.19,
-   416.9,
+   428.1,
    " "
   ],
   [
    0,
    78.59,
-   416.9,
+   428.1,
    "Authored the org\u2019s first threat model for LLM-integrated services, adopted as the standard review "
   ],
   [
    0,
    78.59,
-   430.53,
+   441.73,
    "template company-wide."
   ],
   [
    0,
    68.03,
-   444.26,
+   455.46,
    "\u2022"
   ],
   [
    0,
    72.19,
-   444.26,
+   455.46,
    " "
   ],
   [
    0,
    78.59,
-   444.26,
+   455.46,
    "Cut mean time to patch critical model-serving CVEs from 21 days to 4 by embedding security "
   ],
   [
    0,
    78.59,
-   457.89,
+   469.09,
    "gating directly into the MLOps CI/CD pipeline."
   ],
   [
    0,
    68.03,
-   471.62,
+   482.82,
    "\u2022"
   ],
   [
    0,
    72.19,
-   471.62,
+   482.82,
    " "
   ],
   [
    0,
    78.59,
-   471.62,
+   482.82,
    "Ran quarterly red-team exercises against internal chatbots, discovering data-exfiltration paths "
   ],
   [
    0,
    78.59,
-   485.25,
+   496.45,
    "later closed via output filtering and scoped tool permissions."
   ],
   [
    0,
    78.59,
-   500.7,
+   513.5,
    "Terraform \u00b7 AWS \u00b7 MLflow \u00b7 Semgrep \u00b7 Snyk"
   ],
   [
    0,
    68.03,
-   519.53,
+   532.33,
    "Machine Learning Engineer"
   ],
   [
    0,
    484.85,
-   521.87,
+   534.67,
    "2019 \u2013 2021"
   ],
   [
    0,
    68.03,
-   534.43,
+   547.23,
    "Tyrell ML"
   ],
   [
    0,
    433.67,
-   534.43,
+   547.23,
    "Ljubljana, Slovenia (EU)"
   ],
   [
    0,
    68.03,
-   549.76,
+   564.16,
    "Built and shipped machine learning models powering fraud detection and demand forecasting for a "
   ],
   [
    0,
    68.03,
-   563.39,
+   577.79,
    "fast-growing fintech product."
   ],
   [
    0,
    68.03,
-   578.72,
+   594.72,
    "\u2022"
   ],
   [
    0,
    72.19,
-   578.72,
+   594.72,
    " "
   ],
   [
    0,
    78.59,
-   578.72,
+   594.72,
    "Built and shipped fraud-detection models into production, reducing false-positive rates by 25% "
   ],
   [
    0,
    78.59,
-   592.35,
+   608.35,
    "across the company\u2019s core payments pipeline."
   ],
   [
    0,
    68.03,
-   606.08,
+   622.08,
    "\u2022"
   ],
   [
    0,
    72.19,
-   606.08,
+   622.08,
    " "
   ],
   [
    0,
    78.59,
-   606.08,
+   622.08,
    "Designed the team\u2019s first automated retraining pipeline, cutting model refresh time from weeks to "
   ],
   [
    0,
    78.59,
-   619.71,
+   635.71,
    "days."
   ],
   [
    0,
    78.59,
-   635.16,
+   652.76,
    "TensorFlow \u00b7 scikit-learn \u00b7 Docker"
   ],
   [
    0,
    68.03,
-   660.23,
+   677.83,
    "SKILLS"
   ],
   [
    0,
    68.03,
-   684.06,
+   703.26,
    "Security    "
   ],
   [
    0,
    132.83,
-   682.89,
+   702.09,
    "Threat modeling, Burp Suite, Nmap, Metasploit"
   ],
   [
    0,
    68.03,
-   697.79,
+   716.99,
    "ML/AI       "
   ],
   [
    0,
    132.83,
-   696.62,
+   715.82,
    "PyTorch, vLLM, adversarial robustness, prompt-injection defense"
   ],
   [
    0,
    68.03,
-   711.52,
+   730.72,
    "Infra       "
   ],
   [
    0,
    132.83,
-   710.35,
+   729.55,
    "Kubernetes, Terraform, AWS, CI/CD pipeline hardening"
   ],
   [
    0,
    68.03,
-   725.25,
+   744.45,
    "Practice    "
   ],
   [
    0,
    132.83,
-   724.08,
+   743.28,
    "Incident response, vulnerability research, red-team exercise design"
   ],
   [
-   0,
+   1,
    68.03,
-   750.32,
+   44.21,
    "EDUCATION"
   ],
   [
-   0,
+   1,
    68.03,
-   772.86,
+   68.34,
    "M.S. Computer Security"
   ],
   [
-   0,
+   1,
    522.65,
-   775.2,
+   70.68,
    "2023"
   ],
   [
-   0,
+   1,
    68.03,
-   787.75,
+   83.24,
    "Stanford University"
   ],
   [
-   0,
+   1,
    485.19,
-   787.75,
+   83.24,
    "Stanford, CA"
   ],
   [
    1,
    68.03,
-   44.37,
+   103.25,
    "B.S. Computer Science"
   ],
   [
    1,
    522.65,
-   46.71,
+   105.59,
    "2019"
   ],
   [
    1,
    68.03,
-   59.27,
+   118.15,
    "University of Ljubljana"
   ],
   [
    1,
    433.67,
-   59.27,
+   118.15,
    "Ljubljana, Slovenia (EU)"
   ],
   [
    1,
    68.03,
-   85.51,
+   144.39,
    "PROJECTS"
   ],
   [
    1,
    68.03,
-   108.05,
+   168.52,
    "promptfirewall"
   ],
   [
    1,
    522.65,
-   110.39,
+   170.86,
    "2023"
   ],
   [
    1,
    68.03,
-   122.95,
+   183.42,
    "github.com/sconnor/promptfirewall"
   ],
   [
    1,
    68.03,
-   149.19,
+   209.67,
    "CERTIFICATIONS, AWARDS & PUBLICATIONS"
   ],
   [
    1,
    68.03,
-   171.72,
+   233.8,
    "OSCP \u2013 Offensive Security Certified Professional"
   ],
   [
    1,
    522.65,
-   174.06,
+   236.14,
    "2019"
   ],
   [
    1,
    68.03,
-   186.62,
+   248.7,
    "Offensive Security"
   ],
   [
    1,
    68.03,
-   206.63,
+   268.71,
    "AI Village CTF \u2013 1st Place"
   ],
   [
    1,
    522.65,
-   208.97,
+   271.05,
    "2024"
   ],
   [
    1,
    68.03,
-   221.53,
+   283.61,
    "DEF CON"
   ],
   [
    1,
    68.03,
-   241.53,
+   303.61,
    "Detecting Prompt Injection at Scale"
   ],
   [
    1,
    522.65,
-   243.87,
+   305.95,
    "2024"
   ],
   [
    1,
    68.03,
-   256.43,
+   318.51,
    "arxiv.org/abs/2403.09217"
   ]
  ],
@@ -3195,422 +3201,404 @@
   [
    0,
    68.03,
-   152.55,
+   154.15,
    "AI security engineer with six years spanning applied machine learning, security engineering, and "
   ],
   [
    0,
    68.03,
-   166.18,
+   167.78,
    "detection engineering. Builds defenses against adversarial and prompt-injection attacks on "
   ],
   [
    0,
    68.03,
-   179.81,
+   181.41,
    "production ML systems, and leads red-team exercises against internal LLM deployments."
   ],
   [
    0,
    68.03,
-   206.05,
+   207.65,
    "EXP"
   ],
   [
    0,
    93.23,
-   206.05,
+   207.65,
    "ERIENCE"
   ],
   [
    0,
    117.63,
-   228.59,
+   231.79,
    "Senior AI Security Engineer"
   ],
   [
    0,
    468.65,
-   230.93,
+   234.13,
    "2023 \u2013 Present"
   ],
   [
    0,
    117.63,
-   243.49,
+   246.69,
    "Cyberdyne Systems"
   ],
   [
    0,
    473.73,
-   243.49,
+   246.69,
    "Austin, TX (US)"
   ],
   [
    0,
    68.03,
-   258.82,
+   263.62,
    "Leading red-team engagements against internal LLM-powered products before launch."
   ],
   [
    0,
    68.03,
-   274.15,
+   280.55,
    "\u2022"
   ],
   [
    0,
    72.19,
-   274.15,
+   280.55,
    " "
   ],
   [
    0,
    78.59,
-   274.15,
+   280.55,
    "Built an automated prompt-injection fuzzing harness that surfaced 40+ high-severity jailbreaks "
   ],
   [
    0,
    78.59,
-   287.78,
+   294.18,
    "across 6 production LLM features prior to release."
   ],
   [
    0,
    78.59,
-   303.19,
-   "Custom mutation engine over a 12k-seed corpus, wired into the release-gate CI job; findings triaged weekly "
+   308.11,
+   "Custom mutation engine over a 12k-seed corpus, wired into the release-gate CI job; findings triaged weekly with the app-sec "
   ],
   [
    0,
    78.59,
-   315.52,
-   "with the app-sec team."
+   318.49,
+   "team."
   ],
   [
    0,
    68.03,
-   328.47,
+   330.27,
    "\u2022"
   ],
   [
    0,
    72.19,
-   328.47,
+   330.27,
    " "
   ],
   [
    0,
    78.59,
-   328.47,
+   330.27,
    "Led adversarial robustness reviews for a fraud-detection model serving 2M inference requests/day, "
   ],
   [
    0,
    78.59,
-   342.1,
+   343.9,
    "reducing evasion success rate from 18% to under 2%."
   ],
   [
    0,
    78.59,
-   357.51,
-   "Combined gradient-based attack simulation with a red-team-authored adversarial test suite; findings drove a "
+   357.84,
+   "Combined gradient-based attack simulation with a red-team-authored adversarial test suite; findings drove a retraining cycle with "
   ],
   [
    0,
    78.59,
-   369.84,
-   "retraining cycle with hardened features."
+   368.22,
+   "hardened features."
   ],
   [
    0,
    68.03,
-   382.79,
+   380.0,
    "\u2022"
   ],
   [
    0,
    72.19,
-   382.79,
+   380.0,
    " "
   ],
   [
    0,
    78.59,
-   382.79,
+   380.0,
    "Designed and shipped a model-extraction detection pipeline (query-pattern anomaly scoring) now "
   ],
   [
    0,
    78.59,
-   396.42,
+   393.63,
    "running across all customer-facing inference endpoints."
   ],
   [
    0,
    78.59,
-   411.87,
+   410.68,
    "Python \u00b7 PyTorch \u00b7 Burp Suite \u00b7 Kubernetes \u00b7 OPA/Gatekeeper"
   ],
   [
    0,
    117.63,
-   430.7,
+   429.52,
    "Security Engineer, Applied ML"
   ],
   [
    0,
    484.85,
-   433.04,
+   431.86,
    "2021 \u2013 2023"
   ],
   [
    0,
    117.63,
-   445.6,
+   444.42,
    "Skynet Analytics"
   ],
   [
    0,
    484.74,
-   445.6,
+   444.42,
    "Remote (US)"
   ],
   [
    0,
    68.03,
-   460.93,
+   458.35,
+   "Promoted from IC to owning the security review process org-wide within eight months."
+  ],
+  [
+   0,
+   68.03,
+   470.13,
    "Owned the security review process for the ML platform team\u2019s model deployment pipeline."
   ],
   [
    0,
    68.03,
-   476.26,
+   487.06,
    "\u2022"
   ],
   [
    0,
    72.19,
-   476.26,
+   487.06,
    " "
   ],
   [
    0,
    78.59,
-   476.26,
+   487.06,
    "Authored the org\u2019s first threat model for LLM-integrated services, adopted as the standard review "
   ],
   [
    0,
    78.59,
-   489.89,
+   500.69,
    "template company-wide."
   ],
   [
    0,
    68.03,
-   503.62,
+   514.42,
    "\u2022"
   ],
   [
    0,
    72.19,
-   503.62,
+   514.42,
    " "
   ],
   [
    0,
    78.59,
-   503.62,
+   514.42,
    "Cut mean time to patch critical model-serving CVEs from 21 days to 4 by embedding security "
   ],
   [
    0,
    78.59,
-   517.25,
+   528.04,
    "gating directly into the MLOps CI/CD pipeline."
   ],
   [
    0,
    68.03,
-   530.98,
+   541.77,
    "\u2022"
   ],
   [
    0,
    72.19,
-   530.98,
+   541.77,
    " "
   ],
   [
    0,
    78.59,
-   530.98,
+   541.77,
    "Ran quarterly red-team exercises against internal chatbots, discovering data-exfiltration paths "
   ],
   [
    0,
    78.59,
-   544.61,
+   555.4,
    "later closed via output filtering and scoped tool permissions."
   ],
   [
    0,
    78.59,
-   560.06,
+   572.45,
    "Terraform \u00b7 AWS \u00b7 MLflow \u00b7 Semgrep \u00b7 Snyk"
   ],
   [
    0,
    117.63,
-   578.89,
+   591.29,
    "Machine Learning Engineer"
   ],
   [
    0,
    484.85,
-   581.23,
+   593.63,
    "2019 \u2013 2021"
   ],
   [
    0,
    117.63,
-   593.79,
+   606.19,
    "Tyrell ML"
   ],
   [
    0,
    433.67,
-   593.79,
+   606.19,
    "Ljubljana, Slovenia (EU)"
   ],
   [
    0,
    68.03,
-   609.12,
+   623.12,
    "Built and shipped machine learning models powering fraud detection and demand forecasting for a "
   ],
   [
    0,
    68.03,
-   622.75,
+   636.75,
    "fast-growing fintech product."
   ],
   [
    0,
    68.03,
-   638.08,
+   653.68,
    "\u2022"
   ],
   [
    0,
    72.19,
-   638.08,
+   653.68,
    " "
   ],
   [
    0,
    78.59,
-   638.08,
+   653.68,
    "Built and shipped fraud-detection models into production, reducing false-positive rates by 25% "
   ],
   [
    0,
    78.59,
-   651.71,
+   667.31,
    "across the company\u2019s core payments pipeline."
   ],
   [
    0,
    68.03,
-   665.44,
+   681.03,
    "\u2022"
   ],
   [
    0,
    72.19,
-   665.44,
+   681.03,
    " "
   ],
   [
    0,
    78.59,
-   665.44,
+   681.03,
    "Designed the team\u2019s first automated retraining pipeline, cutting model refresh time from weeks to "
   ],
   [
    0,
    78.59,
-   679.07,
+   694.66,
    "days."
   ],
   [
    0,
    78.59,
-   694.52,
+   711.72,
    "TensorFlow \u00b7 scikit-learn \u00b7 Docker"
   ],
   [
    0,
    68.03,
-   719.59,
+   736.79,
    "SKI"
   ],
   [
    0,
    93.23,
-   719.59,
+   736.79,
    "LLS"
   ],
   [
    0,
    68.03,
-   743.42,
+   762.22,
    "Security    "
   ],
   [
    0,
    132.83,
-   742.25,
+   761.05,
    "Threat modeling, Burp Suite, Nmap, Metasploit"
   ],
   [
    0,
    68.03,
-   757.15,
+   775.95,
    "ML/AI       "
   ],
   [
    0,
    132.83,
-   755.98,
+   774.78,
    "PyTorch, vLLM, adversarial robustness, prompt-injection defense"
-  ],
-  [
-   0,
-   68.03,
-   770.88,
-   "Infra       "
-  ],
-  [
-   0,
-   132.83,
-   769.71,
-   "Kubernetes, Terraform, AWS, CI/CD pipeline hardening"
-  ],
-  [
-   0,
-   68.03,
-   784.61,
-   "Practice    "
-  ],
-  [
-   0,
-   132.83,
-   783.44,
-   "Incident response, vulnerability research, red-team exercise design"
   ],
   [
    0,
@@ -3627,157 +3615,181 @@
   [
    1,
    68.03,
-   44.21,
+   45.66,
+   "Infra       "
+  ],
+  [
+   1,
+   132.83,
+   44.49,
+   "Kubernetes, Terraform, AWS, CI/CD pipeline hardening"
+  ],
+  [
+   1,
+   68.03,
+   59.39,
+   "Practice    "
+  ],
+  [
+   1,
+   132.83,
+   58.22,
+   "Incident response, vulnerability research, red-team exercise design"
+  ],
+  [
+   1,
+   68.03,
+   84.46,
    "EDU"
   ],
   [
    1,
    93.23,
-   44.21,
+   84.46,
    "CATION"
   ],
   [
    1,
    117.63,
-   66.74,
+   108.6,
    "M.S. Computer Security"
   ],
   [
    1,
    522.65,
-   69.08,
+   110.94,
    "2023"
   ],
   [
    1,
    117.63,
-   81.64,
+   123.5,
    "Stanford University"
   ],
   [
    1,
    485.19,
-   81.64,
+   123.5,
    "Stanford, CA"
   ],
   [
    1,
    117.63,
-   101.65,
+   143.51,
    "B.S. Computer Science"
   ],
   [
    1,
    522.65,
-   103.99,
+   145.85,
    "2019"
   ],
   [
    1,
    117.63,
-   116.55,
+   158.4,
    "University of Ljubljana"
   ],
   [
    1,
    433.67,
-   116.55,
+   158.4,
    "Ljubljana, Slovenia (EU)"
   ],
   [
    1,
    68.03,
-   142.79,
+   184.65,
    "PRO"
   ],
   [
    1,
    93.23,
-   142.79,
+   184.65,
    "JECTS"
   ],
   [
    1,
    117.63,
-   165.32,
+   208.78,
    "promptfirewall"
   ],
   [
    1,
    522.65,
-   167.66,
+   211.12,
    "2023"
   ],
   [
    1,
    117.63,
-   180.22,
+   223.68,
    "github.com/sconnor/promptfirewall"
   ],
   [
    1,
    68.03,
-   206.47,
+   249.92,
    "CER"
   ],
   [
    1,
    93.23,
-   206.47,
+   249.92,
    "TIFICATIONS, AWARDS & PUBLICATIONS"
   ],
   [
    1,
    117.63,
-   229.0,
+   274.06,
    "OSCP \u2013 Offensive Security Certified Professional"
   ],
   [
    1,
    522.65,
-   231.34,
+   276.4,
    "2019"
   ],
   [
    1,
    117.63,
-   243.9,
+   288.96,
    "Offensive Security"
   ],
   [
    1,
    117.63,
-   263.91,
+   308.96,
    "AI Village CTF \u2013 1st Place"
   ],
   [
    1,
    522.65,
-   266.25,
+   311.3,
    "2024"
   ],
   [
    1,
    117.63,
-   278.81,
+   323.86,
    "DEF CON"
   ],
   [
    1,
    117.63,
-   298.81,
+   343.87,
    "Detecting Prompt Injection at Scale"
   ],
   [
    1,
    522.65,
-   301.15,
+   346.21,
    "2024"
   ],
   [
    1,
    117.63,
-   313.71,
+   358.77,
    "arxiv.org/abs/2403.09217"
   ],
   [
