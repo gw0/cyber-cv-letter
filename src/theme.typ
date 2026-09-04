@@ -1,6 +1,11 @@
-// Design tokens: palette, accent presets, spacing, page geometry, font weights.
-// No type-scale dict here — each visual role's (font, weight, size) is a
-// literal at its one owning call site (see entries.typ / cv.typ).
+// Design tokens: palette, accent presets, spacing, page geometry, font
+// weights, type scale. Font family and weight stay call-site literals/
+// params (see entries.typ / cv.typ) — family is a per-document choice
+// (font-chrome/font-body), not a per-role one, and weight has only four
+// values with no drift risk. Font *size* is the one axis where the same
+// literal was independently reused across unrelated call sites with
+// nothing forcing them to move together, so it gets the small `size-*`
+// scale below — see specs/20260902-simplify.md §9.
 
 #let bg = rgb("#ffffff")
 #let fg = rgb("#3c3836")
@@ -86,12 +91,18 @@
 #let logo-gutter = 1.75 * u
 #let logo-column = logo-width + logo-gutter
 
-// Size of a code line / inline code span. Unlike every other type size in
-// this package, which is a literal at its one owning call site, this one is
-// a token because two places must agree on it: cv()'s `show raw: set
-// text(...)`, and the paragraph-rule test that recognises a code line by the
-// ambient that show-set leaves behind (see entries.typ).
-#let size-code = 9pt
+// Type scale. Each token backs 2+ call sites that must move together (see
+// specs/20260902-simplify.md §9) — a size used at exactly one call site
+// stays a literal there, same as font family/weight.
+#let size-header-name = 20pt // header name (cv.typ)
+#let size-section-header = 14pt // section header / H1 (entries.typ)
+#let size-entry-title = 12pt // entry title / H2, and its logo-overhang measure() (entries.typ)
+#let size-body = 10.5pt // ambient/base text, tagline, meta line, skills description (cv.typ, letter.typ, entries.typ)
+// Also the code-line size: cv()'s `show raw` set and entries.typ's
+// ambient-is-code test both compare against this token, so they can't
+// drift apart from each other.
+#let size-small = 9pt // contact, links, entry date, skills label, letter date, code line — supporting text, independent of font family (cv.typ, entries.typ, letter.typ)
+#let size-footer = 8pt // page footer and note — the two least-essential roles on the page (cv.typ, entries.typ)
 
 // Width of the skills label column, in characters of the monospace chrome
 // font. A fixed column rather than a per-section max over the labels: the

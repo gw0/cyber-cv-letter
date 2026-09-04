@@ -18,7 +18,7 @@
 // See specs/20260902-simplify.md.
 
 #import "content.typ": flatten-text, split-last, get-children
-#import "theme.typ": fg, muted, accent-at, resolve-font, space-paragraph, space-bullet, space-entry, space-section-to-rule, space-rule-to-content, space-header-to-section, space-header-line, space-code-indent, size-code, mark-gutter, logo-width, logo-height, logo-column, skills-label-chars
+#import "theme.typ": fg, muted, accent-at, resolve-font, space-paragraph, space-bullet, space-entry, space-section-to-rule, space-rule-to-content, space-header-to-section, space-header-line, space-code-indent, size-section-header, size-entry-title, size-body, size-small, size-footer, mark-gutter, logo-width, logo-height, logo-column, skills-label-chars
 #import "marks.typ": draw-chevron, draw-rule, draw-placeholder-logo
 #import "ats.typ": artifact
 
@@ -45,13 +45,13 @@
 // leaves behind — i.e. this paragraph is nothing but a raw span. Only
 // meaningful inside `context`. Both font *and* size are checked because the
 // chrome font alone is not unique to code: a section heading sets it too (at
-// 14pt), and that set lands in the heading's own paragraph ambient just the
-// same. Typst normalises font names to lowercase and may hand back either a
-// single name or a fallback list.
+// size-section-header), and that set lands in the heading's own paragraph
+// ambient just the same. Typst normalises font names to lowercase and may
+// hand back either a single name or a fallback list.
 #let ambient-is-code(family) = {
   let f = text.font
   let name = if type(f) == str { f } else { f.at(0, default: "") }
-  lower(name) == lower(family) and text.size == size-code
+  lower(name) == lower(family) and text.size == size-small
 }
 
 // ---- section header (H1) ---------------------------------------------
@@ -73,7 +73,7 @@
       // heading line and nothing else — so the alignment needs no measured
       // or hand-tuned vertical offset.
       place(left + horizon, dx: -mark-gutter, draw-chevron(color))
-      set text(..resolve-font(font-chrome, weight: "bold"), size: 14pt)
+      set text(..resolve-font(font-chrome, weight: "bold"), size: size-section-header)
       if accent-scope == "first3" and name.len() > 3 {
         text(fill: color, name.slice(0, 3)) + text(fill: fg, name.slice(3))
       } else {
@@ -109,11 +109,11 @@
       sticky: true,
       inset: (left: if show-logos { logo-column } else { 0pt }),
       {
-        set text(..resolve-font(font-body, weight: "semibold"), size: 12pt, fill: fg)
+        set text(..resolve-font(font-body, weight: "semibold"), size: size-entry-title, fill: fg)
         title
         if date != none {
           h(1fr)
-          text(..resolve-font(font-chrome, weight: "regular"), size: 9pt, fill: color, date)
+          text(..resolve-font(font-chrome, weight: "regular"), size: size-small, fill: color, date)
         }
       },
     )
@@ -178,7 +178,7 @@
     // block wrapper and the gap below.
     let line = {
       if show-logos { h(logo-column) }
-      set text(..resolve-font(font-body, weight: "regular"), size: 10.5pt, fill: muted)
+      set text(..resolve-font(font-body, weight: "regular"), size: size-body, fill: muted)
       if meta.org != none { meta.org }
       if meta.location != none { h(1fr); meta.location }
     }
@@ -203,7 +203,7 @@
       // from an explicit text style, never the ambient one — the ambient
       // here is the meta line's, not the title's. Known limitation: a title
       // that wraps to two lines is not accounted for.
-      let title-height = measure(block(text(..resolve-font(font-body, weight: "semibold"), size: 12pt)[Ag])).height
+      let title-height = measure(block(text(..resolve-font(font-body, weight: "semibold"), size: size-entry-title)[Ag])).height
       place(dx: 0pt, dy: -(space-header-line + title-height), logo-content)
       line
     }
@@ -240,7 +240,7 @@
   block(above: 0pt, below: space-bullet, {
     // At least one space, so an over-long label still separates from its
     // description instead of failing on a negative repeat count.
-    text(..resolve-font(font-chrome, weight: "medium"), size: 9pt, fill: color, label + " " * calc.max(skills-label-chars - label.len(), 1))
-    text(..resolve-font(font-body, weight: "regular"), size: 10.5pt, fill: fg, desc)
+    text(..resolve-font(font-chrome, weight: "medium"), size: size-small, fill: color, label + " " * calc.max(skills-label-chars - label.len(), 1))
+    text(..resolve-font(font-body, weight: "regular"), size: size-body, fill: fg, desc)
   })
 }

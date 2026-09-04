@@ -1,4 +1,4 @@
-#import "theme.typ": fg, muted, resolve-font, resolve-accent, page-geometry, space-header-line, space-section-to-rule, space-paragraph, space-bullet, body-indent, size-code
+#import "theme.typ": fg, muted, resolve-font, resolve-accent, page-geometry, space-header-line, space-section-to-rule, space-paragraph, space-bullet, body-indent, size-header-name, size-body, size-small, size-footer
 #import "marks.typ": draw-cursor, draw-rule
 #import "fonts.typ": default-font-chrome, default-font-body
 #import "icons.typ": icon-path, icon-for-link, icon-kind-for-link
@@ -11,14 +11,14 @@
 #let text-of(v) = if v == none { none } else { flatten-text(v) }
 
 // Gap before the cursor mark, em-relative so it scales with local text size
-// at each call site (the 20pt name line, the 8pt footer prompt) — sized
-// generously enough that the footer's smaller absolute gap doesn't read as
-// cramped.
+// at each call site (the size-header-name name line, the size-footer footer
+// prompt) — sized generously enough that the footer's smaller absolute gap
+// doesn't read as cramped.
 #let cursor-gap = 0.3em
 
 #let header-block(author, color, font-chrome, font-body, show-icons) = {
   let name-line = {
-    set text(..resolve-font(font-chrome, weight: "bold"), size: 20pt, fill: fg)
+    set text(..resolve-font(font-chrome, weight: "bold"), size: size-header-name, fill: fg)
     author.name
     h(cursor-gap)
     draw-cursor(color)
@@ -26,7 +26,7 @@
 
   let tagline-line = if author.at("tagline", default: none) != none {
     block(above: 0pt, below: 0pt, {
-      set text(..resolve-font(font-body, weight: "regular"), size: 10.5pt, fill: muted)
+      set text(..resolve-font(font-body, weight: "regular"), size: size-body, fill: muted)
       author.tagline
     })
   } else { none }
@@ -38,7 +38,7 @@
 
   let contact-line = if contact-parts.len() > 0 {
     block(above: 0pt, below: 0pt, {
-      set text(..resolve-font(font-chrome, weight: "regular"), size: 9pt, fill: fg)
+      set text(..resolve-font(font-chrome, weight: "regular"), size: size-small, fill: fg)
       for (i, part) in contact-parts.enumerate() {
         if i > 0 { [ · ] }
         if show-icons { box(image(icon-path(part.at(0)), height: 9pt, alt: part.at(0)), baseline: 1pt); h(2pt) }
@@ -50,7 +50,7 @@
   let links = author.at("links", default: ())
   let links-line = if links.len() > 0 {
     block(above: 0pt, below: 0pt, {
-      set text(..resolve-font(font-chrome, weight: "regular"), size: 9pt, fill: fg)
+      set text(..resolve-font(font-chrome, weight: "regular"), size: size-small, fill: fg)
       for (i, link) in links.enumerate() {
         if i > 0 { [ · ] }
         if show-icons {
@@ -78,7 +78,7 @@
   } else {
     lower(flatten-text(author.name)).replace(" ", ".") + "@cyber-cv-letter"
   }
-  set text(..resolve-font(font-chrome, weight: "regular"), size: 8pt, fill: muted)
+  set text(..resolve-font(font-chrome, weight: "regular"), size: size-footer, fill: muted)
   let prompt = prompt-id + ":~$"
   let page-num = str(counter(page).get().first())
   let total = str(counter(page).final().first())
@@ -120,7 +120,7 @@
     margin: geo.margin,
     footer: if show-footer { footer-block(author, font-chrome) } else { none },
   )
-  set text(font: font-body, size: 10.5pt, fill: fg, lang: "en")
+  set text(..resolve-font(font-body, weight: "regular"), size: size-body, fill: fg, lang: "en")
   set par(justify: false, leading: 0.6em, spacing: space-paragraph)
   set heading(numbering: none, outlined: true, bookmarked: true)
   set list(indent: 0pt, body-indent: body-indent, spacing: space-bullet, marker: [•])
@@ -132,10 +132,11 @@
   header-block(author, accent-list.at(0), font-chrome, font-body, show-icons)
 
   // Replaces Typst's built-in `raw` defaults, and doubles as the ambient
-  // paragraph-rule (entries.typ) reads to detect a code line. Don't add a
-  // show-set for headings here — it would land in a section heading's own
-  // ambient too, and paragraph-rule would misread it as code.
-  show raw: set text(..resolve-font(font-chrome, weight: "regular"), size: size-code, fill: muted)
+  // paragraph-rule (entries.typ) reads to detect a code line — both must
+  // agree on size-small. Don't add a show-set for headings here — it would
+  // land in a section heading's own ambient too, and paragraph-rule would
+  // misread it as code.
+  show raw: set text(..resolve-font(font-chrome, weight: "regular"), size: size-small, fill: muted)
 
   show heading.where(level: 1): section-header-rule(accent-list, accent-scope, font-chrome)
   show heading.where(level: 2): entry-heading-rule(accent-list, font-body, font-chrome, show-logos)
