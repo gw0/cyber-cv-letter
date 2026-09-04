@@ -27,21 +27,22 @@ AI security engineer with six years spanning applied machine learning, security 
 
 == Senior AI Security Engineer | 2023 -- Present
 
-_#box(image("logos/cyberdyne.png", alt: "Cyberdyne Systems logo")) Cyberdyne Systems | Austin, TX (US)_
+_#box(image("logos/cyberdyne.png", alt: "Cyberdyne Systems logo")) Cyberdyne Systems | Austin, USA_
 
 Leading red-team engagements against internal LLM-powered products before launch.
 
 - Built an automated prompt-injection fuzzing harness that surfaced 40+ high-severity jailbreaks across 6 production LLM features prior to release.
   #quote(block: true)[Custom mutation engine over a 12k-seed corpus, wired into the release-gate CI job; findings triaged weekly with the app-sec team.]
 - Led adversarial robustness reviews for a fraud-detection model serving 2M inference requests/day, reducing evasion success rate from 18% to under 2%.
-  #quote(block: true)[Combined gradient-based attack simulation with a red-team-authored adversarial test suite; findings drove a retraining cycle with hardened features.]
 - Designed and shipped a model-extraction detection pipeline (query-pattern anomaly scoring) now running across all customer-facing inference endpoints.
 
 `Python · PyTorch · Burp Suite · Kubernetes · OPA/Gatekeeper`
 
 == Security Engineer, Applied ML | 2021 -- 2023
 
-_Skynet Analytics | Remote (US)_
+_Skynet Analytics | Remote_
+
+#quote(block: true)[Promoted from IC to owning the security review process org-wide within eight months.]
 
 Owned the security review process for the ML platform team's model deployment pipeline.
 
@@ -53,7 +54,7 @@ Owned the security review process for the ML platform team's model deployment pi
 
 == Machine Learning Engineer | 2019 -- 2021
 
-_Tyrell ML | Ljubljana, Slovenia (EU)_
+_Tyrell ML | Ljubljana, Slovenia_
 
 Built and shipped machine learning models powering fraud detection and demand forecasting for a fast-growing fintech product.
 
@@ -73,11 +74,11 @@ Built and shipped machine learning models powering fraud detection and demand fo
 
 == M.S. Computer Security | 2023
 
-_#box(image("logos/stanford.svg", alt: "Stanford University logo")) Stanford University | Stanford, CA_
+_#box(image("logos/stanford.svg", alt: "Stanford University logo")) Stanford University | Stanford, USA_
 
 == B.S. Computer Science | 2019
 
-_University of Ljubljana | Ljubljana, Slovenia (EU)_
+_University of Ljubljana | Ljubljana, Slovenia_
 
 = PROJECTS
 
