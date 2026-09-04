@@ -44,12 +44,12 @@
 // (see specs/20260902-simplify.md).
 #let u = 6.4pt
 
-#let space-paragraph = 1.25 * u // ambient bare-paragraph gap; also the gap below a whole bullet list (see entries.typ's list-rule)
+#let space-paragraph = 1.5 * u // ambient bare-paragraph gap; also the gap below a whole bullet list (see entries.typ's list-rule)
 #let space-letter-paragraph = 2 * u // letter-only paragraph gap
 #let space-bullet = 1 * u
 #let space-entry = 2 * u
 #let space-section-to-rule = 0.625 * u
-#let space-rule-to-content = 1.25 * u // section rule to what follows it; at least space-paragraph
+#let space-rule-to-content = 1.5 * u // section rule to what follows it; at least space-paragraph
 #let space-header-to-section = 3 * u // above every section header, including the first
 #let space-header-line = 1 * u // line-to-line within the identity block; reused for entry title<->meta
 #let body-indent = 1 * u

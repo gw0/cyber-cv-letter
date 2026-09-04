@@ -122,20 +122,28 @@
 
 // ---- notes ---------------------------------------------------------------
 
-// A Markdown blockquote immediately following a bullet — the muted
-// annotation line, rendered only when show-notes is true. The quote already
-// sits inside the bullet's own body, so restyling it in place is enough; it
-// never needs to know anything about the enclosing list.item.
+// A Markdown blockquote immediately following a bullet, or directly under
+// an entry's meta line — the muted annotation line, rendered only when
+// show-notes is true. The quote already sits inside its parent's own body,
+// so restyling it in place is enough; it never needs to know anything about
+// the enclosing element (list item or meta line).
 #let note-rule(font-body, show-notes) = it => {
   if not show-notes {
     none
   } else {
-    // .trim() matters here: Pandoc's blockquote-in-list-item output carries
-    // a leading "space" run before the actual text, which flatten-text
-    // renders literally — visibly shifting this line right of the bullet
-    // text it is supposed to align with.
-    block(above: space-bullet, below: 0pt, {
-      set text(..resolve-font(font-body, weight: "regular"), size: 9.5pt, fill: muted)
+    // Block spacing collapses via max(), so the preceding paragraph's
+    // larger `below` wins; negative space here compensates, pulling the
+    // gap down to match this block's own below.
+    v(-(space-paragraph - space-bullet))
+    // .trim() matters here: Pandoc's blockquote output carries a leading
+    // "space" run before the actual text, which flatten-text renders
+    // literally — visibly shifting this line right of the text it is
+    // supposed to align with.
+    block(above: 0pt, below: space-bullet, {
+      // size-footer, not a dedicated note size: a note is opt-in annotation
+      // content (show-notes: true), the same "least essential text on the
+      // page" tier as the page footer — see specs/20260902-simplify.md §9.
+      set text(..resolve-font(font-body, weight: "regular"), size: size-footer, fill: muted)
       flatten-text(it.body).trim()
     })
   }
@@ -204,7 +212,15 @@
       // here is the meta line's, not the title's. Known limitation: a title
       // that wraps to two lines is not accounted for.
       let title-height = measure(block(text(..resolve-font(font-body, weight: "semibold"), size: size-entry-title)[Ag])).height
-      place(dx: 0pt, dy: -(space-header-line + title-height), logo-content)
+      let meta-line-height = measure(block(text(..resolve-font(font-body, weight: "regular"), size: size-body)[Ag])).height
+      // logo-height doesn't equal title-height + space-header-line +
+      // meta-line-height (a fixed token vs. font-metric-derived heights, no
+      // reason they'd match) — split the leftover evenly above and below so
+      // the logo overhangs the title/meta group by the same amount on both
+      // ends, rather than flush on one side and off by the full remainder on
+      // the other.
+      let overhang = logo-height - (title-height + space-header-line + meta-line-height)
+      place(dx: 0pt, dy: -(space-header-line + title-height) - overhang / 2, logo-content)
       line
     }
   }
@@ -214,7 +230,7 @@
 
 #let paragraph-rule(font-chrome) = it => context {
   if ambient-is-code(font-chrome) {
-    block(above: 0pt, below: 0pt, inset: (left: space-code-indent), it.body)
+    block(above: 0pt, below: space-bullet, inset: (left: space-code-indent), it.body)
   } else {
     block(above: 0pt, below: space-paragraph, it.body)
   }
