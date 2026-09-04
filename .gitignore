@@ -1,4 +1,5 @@
 .*
 _*
+dist/
 !.github/
 !.github/**

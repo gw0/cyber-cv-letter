@@ -1,4 +1,8 @@
-.PHONY: all setup examples test thumbnails clean
+.PHONY: all setup examples test thumbnails publish clean
+
+PKG_NAME := cyber-cv-letter
+PKG_VERSION := $(shell grep '^version' typst.toml | sed 's/.*"\(.*\)".*/\1/')
+DIST := dist/preview/$(PKG_NAME)/$(PKG_VERSION)
 
 TYPST_VERSION := 0.15.1
 TYPST_ARCHIVE := typst-x86_64-unknown-linux-musl
@@ -27,10 +31,10 @@ all: examples test
 # system-wide; everything lives under .venv/.
 # ---------------------------------------------------------------------------
 
-setup: .typst-packages/local/cyber-cv-letter/0.1.0 $(PANDOC) $(TYPST)
+setup: .typst-packages/preview/cyber-cv-letter/0.1.0 $(PANDOC) $(TYPST)
 
-.typst-packages/local/cyber-cv-letter/0.1.0:
-	mkdir -p .typst-packages/local/cyber-cv-letter
+.typst-packages/preview/cyber-cv-letter/0.1.0:
+	mkdir -p .typst-packages/preview/cyber-cv-letter
 	ln -sfn "$(CURDIR)" $@
 
 $(PYTHON):
@@ -125,5 +129,27 @@ thumbnails: examples
 	$(TYPST) compile examples/typst/cv.typ thumbnails/cv-friggeri.png $(TYPST_PNG_FLAGS) $(FRIGGERI_FLAGS) --format png --ppi 150 --pages 1
 	$(TYPST) compile examples/typst/letter.typ thumbnails/letter.png $(TYPST_PNG_FLAGS) --format png --ppi 150 --pages 1
 
+
+# ---------------------------------------------------------------------------
+# publish — stages a Typst Universe submission at $(DIST) (dev-only paths
+# and fonts excluded, per README's "Known limitations") and prints the
+# remaining manual steps to submit it to typst/packages.
+# ---------------------------------------------------------------------------
+
+publish: examples thumbnails
+	rm -rf dist
+	mkdir -p $(DIST)
+	git ls-files \
+		| grep -vE '^(\.github|fonts|pandoc|drafts|specs|tests)/|^(Makefile|requirements\.txt|pytest\.ini|\.gitignore)$$' \
+		| rsync -a --files-from=- . $(DIST)/
+	@echo "Staged at $(DIST)."
+	@echo "To submit to Typst Universe:"
+	@echo "  1. cp -r $(DIST) /path/to/packages-fork/packages/preview/$(PKG_NAME)/"
+	@echo "  2. cd /path/to/packages-fork && git checkout -b $(PKG_NAME)-$(PKG_VERSION)"
+	@echo "  3. git add packages/preview/$(PKG_NAME)/$(PKG_VERSION) && git commit -m 'Add $(PKG_NAME):$(PKG_VERSION)'"
+	@echo "  4. git push -u origin $(PKG_NAME)-$(PKG_VERSION), then open a PR against"
+	@echo "     https://github.com/typst/packages (see docs/README.md for guidelines)"
+
 clean:
 	rm -f examples/typst/*.pdf examples/markdown/*.pdf thumbnails/*.png
+	rm -rf dist

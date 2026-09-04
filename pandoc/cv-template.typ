@@ -6,10 +6,9 @@
 // flattens these back to plain text internally where a plain string is
 // needed (PDF metadata, footer prompt).
 //
-// This is the dev/CI copy — imports @local/cyber-cv-letter:0.1.0, resolved
-// via --package-path .typst-packages. A copy distributed for external/
-// published use would import @preview/cyber-cv-letter:<version> instead.
-#import "@local/cyber-cv-letter:0.1.0": cv
+// Resolved via --package-path .typst-packages locally (see Makefile); the
+// same import string works unchanged once the package is published.
+#import "@preview/cyber-cv-letter:0.1.0": cv
 
 #show: cv.with(
   author: (

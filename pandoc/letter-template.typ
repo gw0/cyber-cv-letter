@@ -1,6 +1,6 @@
 // Pandoc --template target for letter(). Same content-interpolation
 // rationale as cv-template.typ.
-#import "@local/cyber-cv-letter:0.1.0": letter
+#import "@preview/cyber-cv-letter:0.1.0": letter
 
 #show: letter.with(
   author: (

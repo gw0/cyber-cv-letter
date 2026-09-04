@@ -1,4 +1,4 @@
-#import "@local/cyber-cv-letter:0.1.0": cv
+#import "@preview/cyber-cv-letter:0.1.0": cv
 
 #show: cv.with(
   author: (

@@ -2,8 +2,9 @@
 
 [Typst](https://typst.app) and Markdown template for a professional
 cyber/terminal-themed CV and cover-letter. Modern and clean design optimized for
-ATS text-extractors and human reviewers. Togglable features, targets PDF/UA-1,
-and text colors clear WCAG AA contrast.
+ATS text-extractors and human reviewers. Targets PDF/UA-1, text colors clear
+WCAG AA contrast, and togglable style vaiants (icons, footer, accent colors,
+logos, section notes).
 
 Inspired by [brilliant-cv](https://github.com/yunanwg/brilliant-CV) and
 [friggeri-cv-letter](https://github.com/gw0/friggeri-cv-letter).
@@ -73,19 +74,19 @@ $ typst compile mycv.typ
 See complete reference examples `examples/typst/cv.typ` and
 `examples/typst/letter.typ` for available options.
 
-Alternatively, use a local copy of this repo, register it under Typst's `@local`
-namespace, point `--package-path` and `--font-path` at it, and update your CV to
-import from `@local`:
+Alternatively, use a local copy of this repo: register it under a local
+`preview/` package path and point `--package-path`/`--font-path` at it. The
+import stays identical to the published one above:
 
 ```bash
-$ mkdir -p .typst-packages/local/cyber-cv-letter
-$ ln -sfn /path/to/cyber-cv-letter .typst-packages/local/cyber-cv-letter/0.1.0
+$ mkdir -p .typst-packages/preview/cyber-cv-letter
+$ ln -sfn /path/to/cyber-cv-letter .typst-packages/preview/cyber-cv-letter/0.1.0
 $ typst compile mycv.typ --package-path .typst-packages \
-  --font-path .typst-packages/local/cyber-cv-letter/0.1.0/fonts
+  --font-path .typst-packages/preview/cyber-cv-letter/0.1.0/fonts
 ```
 
 ```typst
-#import "@local/cyber-cv-letter:0.1.0": cv
+#import "@preview/cyber-cv-letter:0.1.0": cv
 ```
 
 ### Markdown Workflow
@@ -156,7 +157,12 @@ $ . .venv/bin/activate # puts typst/pandoc/python3 on PATH
 $ make examples   # builds the 8-PDF example matrix (cv/cv-plain/cv-friggeri/letter × typst/markdown)
 $ make test       # contrast, spacing, ATS-extraction, and rendered-layout checks (tests/)
 $ make thumbnails # renders the preview PNGs above
+$ make publish    # stages a Typst Universe submission and prints the remaining steps
 ```
+
+`make publish` prints the exact remaining steps to submit the staged package
+to [typst/packages](https://github.com/typst/packages)
+([submission guidelines](https://github.com/typst/packages/blob/main/docs/README.md)).
 
 ## Known limitations
 
@@ -164,10 +170,12 @@ $ make thumbnails # renders the preview PNGs above
   can split across a page boundary from its first entry/row.
 - A published package can't bundle its own fonts (IBM Plex Mono/Sans) onto
   a consumer's font search path — without them installed, Typst falls back
-  to automatic substitution. This repo's own build passes `--font-path
-  fonts` explicitly.
+  to automatic substitution. Install IBM Plex Mono and IBM Plex Sans
+  system-wide (e.g. from [Google Fonts](https://fonts.google.com)), or
+  clone this repo and pass `--font-path fonts` to `typst compile`, the same
+  way this repo's own build does.
 
 ## License
 
-AGPL-3.0-or-later — see `LICENSE.txt`. Bundled fonts (`fonts/`) and icons
+AGPL-3.0-or-later — see `LICENSE`. Bundled fonts (`fonts/`) and icons
 (`icons/`) carry their own licenses in the same directories.
