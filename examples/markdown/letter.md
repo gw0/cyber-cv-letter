@@ -9,8 +9,8 @@ links:
 accent: red
 accent-scope: full
 paper: a4
-show-icons: false
-show-footer: false
+show-icons: true
+show-footer: true
 keywords:
   - Adversarial ML
   - Red Teaming

@@ -11,8 +11,8 @@
   accent: sys.inputs.at("accent", default: "red"),
   accent-scope: sys.inputs.at("accent-scope", default: "full"),
   paper: sys.inputs.at("paper", default: "a4"),
-  show-icons: sys.inputs.at("show-icons", default: "false") == "true",
-  show-footer: sys.inputs.at("show-footer", default: "false") == "true",
+  show-icons: sys.inputs.at("show-icons", default: "true") == "true",
+  show-footer: sys.inputs.at("show-footer", default: "true") == "true",
   keywords: ("Adversarial ML", "Red Teaming", "LLM Security"),
   // paragraph-spacing: override the letter-only default (space-letter-paragraph, src/theme.typ) if needed.
   date: "1 September 2026",

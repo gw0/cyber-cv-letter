@@ -68,8 +68,6 @@ pandoc_inputs = $(foreach kv,$(1),--pdf-engine-opt=--input --pdf-engine-opt=$(kv
 
 FRIGGERI_INPUTS := accent=friggeri accent-scope=first3 show-logos=true show-notes=true
 FRIGGERI_FLAGS := $(foreach kv,$(FRIGGERI_INPUTS),--input $(kv))
-LETTER_INPUTS := show-icons=true show-footer=true
-LETTER_FLAGS := $(foreach kv,$(LETTER_INPUTS),--input $(kv))
 PLAIN_INPUTS := accent=gray show-icons=false show-footer=false
 PLAIN_FLAGS := $(foreach kv,$(PLAIN_INPUTS),--input $(kv))
 
@@ -87,7 +85,7 @@ examples/typst/cv-friggeri.pdf: examples/typst/cv.typ $(PKG_SOURCES)
 	$(TYPST) compile $< $@ $(TYPST_FLAGS) $(FRIGGERI_FLAGS)
 
 examples/typst/letter.pdf: examples/typst/letter.typ $(PKG_SOURCES)
-	$(TYPST) compile $< $@ $(TYPST_FLAGS) $(LETTER_FLAGS)
+	$(TYPST) compile $< $@ $(TYPST_FLAGS)
 
 examples/markdown/cv.pdf: examples/markdown/cv.md $(PANDOC_CV_SOURCES) $(PKG_SOURCES)
 	$(PANDOC) $< -d pandoc/cv.yaml -o $@
@@ -99,7 +97,7 @@ examples/markdown/cv-friggeri.pdf: examples/markdown/cv.md $(PANDOC_CV_SOURCES) 
 	$(PANDOC) $< -d pandoc/cv.yaml $(call pandoc_inputs,$(FRIGGERI_INPUTS)) -o $@
 
 examples/markdown/letter.pdf: examples/markdown/letter.md $(PANDOC_LETTER_SOURCES) $(PKG_SOURCES)
-	$(PANDOC) $< -d pandoc/letter.yaml $(call pandoc_inputs,$(LETTER_INPUTS)) -o $@
+	$(PANDOC) $< -d pandoc/letter.yaml -o $@
 
 # ---------------------------------------------------------------------------
 # test — contrast + spacing + ATS-extraction + rendered-layout checks, all
@@ -121,7 +119,7 @@ thumbnails: examples
 	$(TYPST) compile examples/typst/cv.typ thumbnails/cv.png $(TYPST_PNG_FLAGS) --format png --ppi 150 --pages 1
 	$(TYPST) compile examples/typst/cv.typ thumbnails/cv-plain.png $(TYPST_PNG_FLAGS) $(PLAIN_FLAGS) --format png --ppi 150 --pages 1
 	$(TYPST) compile examples/typst/cv.typ thumbnails/cv-friggeri.png $(TYPST_PNG_FLAGS) $(FRIGGERI_FLAGS) --format png --ppi 150 --pages 1
-	$(TYPST) compile examples/typst/letter.typ thumbnails/letter.png $(TYPST_PNG_FLAGS) $(LETTER_FLAGS) --format png --ppi 150 --pages 1
+	$(TYPST) compile examples/typst/letter.typ thumbnails/letter.png $(TYPST_PNG_FLAGS) --format png --ppi 150 --pages 1
 
 clean:
 	rm -f examples/typst/*.pdf examples/markdown/*.pdf thumbnails/*.png
