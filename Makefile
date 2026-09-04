@@ -6,9 +6,8 @@ TYPST_ARCHIVE := typst-x86_64-unknown-linux-musl
 TYPST := .venv/bin/typst
 PANDOC := .venv/bin/pandoc
 PYTHON := .venv/bin/python3
-PYLIBS := .venv/pylibs
-
-export PYTHONPATH := $(PYLIBS)
+PIP := .venv/bin/pip
+TMPDIR := /tmp
 
 TYPST_FLAGS := --package-path .typst-packages --font-path fonts --pdf-standard ua-1
 TYPST_PNG_FLAGS := --package-path .typst-packages --font-path fonts
@@ -23,8 +22,9 @@ PANDOC_LETTER_SOURCES := pandoc/letter-template.typ pandoc/letter.yaml
 all: examples test
 
 # ---------------------------------------------------------------------------
-# setup — local package registration + vendored pandoc/typst binaries.
-# Nothing installed system-wide; everything lives under .venv/.
+# setup — a real venv (`. .venv/bin/activate` works) plus local package
+# registration and vendored pandoc/typst binaries. Nothing installed
+# system-wide; everything lives under .venv/.
 # ---------------------------------------------------------------------------
 
 setup: .typst-packages/local/cyber-cv-letter/0.1.0 $(PANDOC) $(TYPST)
@@ -33,17 +33,21 @@ setup: .typst-packages/local/cyber-cv-letter/0.1.0 $(PANDOC) $(TYPST)
 	mkdir -p .typst-packages/local/cyber-cv-letter
 	ln -sfn "$(CURDIR)" $@
 
-$(PYLIBS)/.install-stamp: requirements.txt
-	mkdir -p $(PYLIBS)
-	pip install --target=$(PYLIBS) -r requirements.txt
+$(PYTHON):
+	python3 -m venv .venv
+
+.venv/.install-stamp: $(PYTHON) requirements.txt
+	$(PIP) install -r requirements.txt
 	touch $@
 
-$(PANDOC): $(PYLIBS)/.install-stamp
-	mkdir -p .venv/bin
-	ln -sf "$(CURDIR)/$(PYLIBS)/pypandoc/files/pandoc" $(PANDOC)
+# Resolve the bundled binary directly rather than via pypandoc.get_pandoc_path():
+# that function first probes the bare "pandoc" on $PATH, and its exception
+# handler mistakes this repo's own pandoc/ directory for a broken pandoc
+# executable, logging a spurious [ERROR] traceback on every `make setup`.
+$(PANDOC): | .venv/.install-stamp
+	ln -sf "$$($(PYTHON) -c 'import os, pypandoc; print(os.path.join(os.path.dirname(pypandoc.__file__), "files", "pandoc"))')" $(PANDOC)
 
-$(TYPST):
-	mkdir -p .venv/bin
+$(TYPST): $(PYTHON)
 	curl -sL "https://github.com/typst/typst/releases/download/v$(TYPST_VERSION)/$(TYPST_ARCHIVE).tar.xz" -o "$(TMPDIR)/typst.tar.xz"
 	tar -xJf "$(TMPDIR)/typst.tar.xz" -C "$(TMPDIR)"
 	cp "$(TMPDIR)/$(TYPST_ARCHIVE)/typst" $(TYPST)
