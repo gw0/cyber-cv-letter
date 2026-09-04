@@ -1,10 +1,11 @@
 # cyber-cv-letter
 
-[Typst](https://typst.app)/Markdown template for a professional
+[Typst](https://typst.app) and Markdown template for a professional
 cyber/terminal-themed CV and cover-letter. Modern and clean design optimized for
 ATS text-extractors and human reviewers. Togglable features, targets PDF/UA-1,
-and text colors clear WCAG AA contrast. Inspired by
-[brilliant-cv](https://github.com/yunanwg/brilliant-CV) and
+and text colors clear WCAG AA contrast.
+
+Inspired by [brilliant-cv](https://github.com/yunanwg/brilliant-CV) and
 [friggeri-cv-letter](https://github.com/gw0/friggeri-cv-letter).
 
 ## Preview
@@ -23,11 +24,11 @@ and text colors clear WCAG AA contrast. Inspired by
 
 Install Typst and Pandoc system-wide, or in local `.venv/` dir:
 
-```sh
-git clone https://github.com/gw0/cyber-cv-letter.git
-cd cyber-cv-letter
-make setup      # creates .venv/, vendors pandoc + typst into it
-. .venv/bin/activate # puts typst/pandoc/python3 on PATH
+```bash
+$ git clone https://github.com/gw0/cyber-cv-letter.git
+$ cd cyber-cv-letter
+$ make setup      # creates .venv/, vendors pandoc + typst into it
+$ . .venv/bin/activate # puts typst/pandoc/python3 on PATH
 ```
 
 ### Typst Workflow
@@ -65,21 +66,21 @@ Leading red-team engagements against internal LLM-powered products.
 
 Compile your CV via Typst CLI:
 
-```sh
-typst compile mycv.typ
+```bash
+$ typst compile mycv.typ
 ```
 
-`examples/typst/cv.typ` and `examples/typst/letter.typ` are complete
-reference documents exercising every `cv()`/`letter()` parameter.
+See complete reference examples `examples/typst/cv.typ` and
+`examples/typst/letter.typ` for available options.
 
 Alternatively, use a local copy of this repo, register it under Typst's `@local`
 namespace, point `--package-path` and `--font-path` at it, and update your CV to
 import from `@local`:
 
-```sh
-mkdir -p .typst-packages/local/cyber-cv-letter
-ln -sfn /path/to/cyber-cv-letter .typst-packages/local/cyber-cv-letter/0.1.0
-typst compile mycv.typ --package-path .typst-packages \
+```bash
+$ mkdir -p .typst-packages/local/cyber-cv-letter
+$ ln -sfn /path/to/cyber-cv-letter .typst-packages/local/cyber-cv-letter/0.1.0
+$ typst compile mycv.typ --package-path .typst-packages \
   --font-path .typst-packages/local/cyber-cv-letter/0.1.0/fonts
 ```
 
@@ -122,26 +123,26 @@ Adjust Pandoc settings to your environment (paths are resolved relative to
 working directory, so prefix `template`, `resource-path`, `pdf-engine`,
 `--package-path`, and `--font-path` accordingly):
 
-```sh
-cp /path/to/cyber-cv-letter/pandoc/cv.yaml pandoc-cv.yaml
-cp /path/to/cyber-cv-letter/pandoc/letter.yaml pandoc-letter.yaml
-sed -i 's| ./| /path/to/cyber-cv-letter/|' pandoc-cv.yaml pandoc-letter.yaml
+```bash
+$ cp /path/to/cyber-cv-letter/pandoc/cv.yaml pandoc-cv.yaml
+$ cp /path/to/cyber-cv-letter/pandoc/letter.yaml pandoc-letter.yaml
+$ sed -i 's| ./| /path/to/cyber-cv-letter/|' pandoc-cv.yaml pandoc-letter.yaml
 ```
 
 Compile your CV via Pandoc CLI:
 
-```sh
-pandoc -d pandoc-cv.yaml mycv.md -o mycv.pdf
+```bash
+$ pandoc -d pandoc-cv.yaml mycv.md -o mycv.pdf
 ```
 
-`examples/markdown/cv.md` and `examples/markdown/letter.md` are complete
-reference documents exercising every `cv()`/`letter()` parameter.
+See complete reference examples `examples/markdown/cv.md` and
+`examples/markdown/letter.md` for available options.
 
 Alternatively, compile your CV without adjusting Pandoc settings:
 
-```sh
-cd /path/to/cyber-cv-letter
-pandoc -d pandoc/cv.yaml --resource-path /path/to /path/to/mycv.md -o /path/to/mycv.pdf
+```bash
+$ cd /path/to/cyber-cv-letter
+$ pandoc -d pandoc/cv.yaml --resource-path /path/to /path/to/mycv.md -o /path/to/mycv.pdf
 ```
 
 ## Development
@@ -149,12 +150,12 @@ pandoc -d pandoc/cv.yaml --resource-path /path/to /path/to/mycv.md -o /path/to/m
 This repo builds and tests its own examples locally; nothing is installed
 system-wide:
 
-```sh
-make setup      # creates .venv/, vendors pandoc + typst into it
-. .venv/bin/activate # puts typst/pandoc/python3 on PATH
-make examples   # builds the 8-PDF example matrix (cv/cv-plain/cv-friggeri/letter × typst/markdown)
-make test       # contrast, spacing, ATS-extraction, and rendered-layout checks (tests/)
-make thumbnails # renders the preview PNGs above
+```bash
+$ make setup      # creates .venv/, vendors pandoc + typst into it
+$ . .venv/bin/activate # puts typst/pandoc/python3 on PATH
+$ make examples   # builds the 8-PDF example matrix (cv/cv-plain/cv-friggeri/letter × typst/markdown)
+$ make test       # contrast, spacing, ATS-extraction, and rendered-layout checks (tests/)
+$ make thumbnails # renders the preview PNGs above
 ```
 
 ## Known limitations
