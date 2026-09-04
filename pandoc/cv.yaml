@@ -10,7 +10,7 @@
 from: markdown-blank_before_blockquote
 to: typst
 standalone: true
-template: pandoc/cv-template.typ
+template: ./pandoc/cv-template.typ
 # Pandoc must itself fetch/embed every referenced image before handing off
 # to an external --pdf-engine (unlike its own native writers, which can
 # just emit the path as a string). It resolves image paths against the
@@ -18,13 +18,13 @@ template: pandoc/cv-template.typ
 # `logos/cyberdyne.png` in examples/markdown/cv.md needs this explicit
 # resource-path — set it to wherever your own CV's images actually live.
 resource-path:
-  - examples/markdown
-pdf-engine: .venv/bin/typst
+  - ./examples/markdown
+pdf-engine: ./.venv/bin/typst
 pdf-engine-opts:
   - --package-path
-  - .typst-packages
+  - ./.typst-packages
   - --font-path
-  - fonts
+  - ./fonts
   - --pdf-standard
   - ua-1
   # Pandoc's own pre-render step resolves and extracts every referenced
