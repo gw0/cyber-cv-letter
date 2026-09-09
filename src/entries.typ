@@ -235,6 +235,10 @@
 #let paragraph-rule(font-chrome) = it => context {
   if ambient-is-code(font-chrome) {
     block(above: 0pt, below: space-bullet, inset: (left: space-code-indent), it.body)
+  } else if it.hanging-indent != 0pt {
+    // A skills row: it.body would drop the hanging-indent, so pass it
+    // unmodified, as list-rule below does, to avoid re-matching itself.
+    block(above: 0pt, below: space-bullet, it)
   } else {
     block(above: 0pt, below: space-paragraph, it.body)
   }
@@ -257,10 +261,11 @@
   let color = accent-at(accent-list, section-counter.get().first() - 1)
   let label = flatten-text(it.term).trim()
   let desc = flatten-text(unwrap-block(it.description)).trim()
-  block(above: 0pt, below: space-bullet, {
-    // At least one space, so an over-long label still separates from its
-    // description instead of failing on a negative repeat count.
-    text(..resolve-font(font-chrome, weight: "medium"), size: size-small, fill: color, label + " " * calc.max(skills-label-chars - label.len(), 1))
+  // At least one space, so an over-long label still separates from its
+  // description instead of failing on a negative repeat count.
+  let padded-label = text(..resolve-font(font-chrome, weight: "medium"), size: size-small, fill: color, label + " " * calc.max(skills-label-chars - label.len(), 1))
+  par(hanging-indent: measure(padded-label).width, {
+    padded-label
     text(..resolve-font(font-body, weight: "regular"), size: size-body, fill: fg, desc)
   })
 }
