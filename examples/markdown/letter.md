@@ -1,20 +1,22 @@
 ---
 name: Sarah Connor
 tagline: AI Security Engineer · Adversarial ML & Red Teaming
-email: sarah@sconnor.dev
-location: Austin, TX (US)
+email: "[sarah@sconnor.dev](mailto:sarah@sconnor.dev)"
+location: "[Austin, USA](https://maps.app.goo.gl/AcRNXA7hRTrGzohv6)"
+phone: "+1 123 456 7890"
 links:
-  - github.com/sconnor
-  - linkedin.com/in/sarahconnor
+  - "[github.com/sconnor](https://github.com/sconnor)"
+  - "[linkedin.com/in/sarahconnor](https://linkedin.com/in/sarahconnor)"
+  - "[sconnor.dev](https://sconnor.dev)"
+keywords:
+  - Adversarial ML
+  - Red Teaming
+  - LLM Security
 accent: red
 accent-scope: full
 paper: a4
 show-icons: true
 show-footer: true
-keywords:
-  - Adversarial ML
-  - Red Teaming
-  - LLM Security
 date: 1 September 2026
 ---
 

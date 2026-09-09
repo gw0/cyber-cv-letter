@@ -27,7 +27,7 @@ SECTION_ORDER = [
     "PROJECTS",
     "CERTIFICATIONS, AWARDS & PUBLICATIONS",
 ]
-CONTACT_STRINGS = ["sarah@sconnor.dev", "Austin, TX (US)"]
+CONTACT_STRINGS = ["sarah@sconnor.dev", "Austin, USA"]
 
 # Decorative glyphs that must never leak into the extracted text stream —
 # every decorative mark (chevron/cursor/rule) is drawn geometry wrapped in

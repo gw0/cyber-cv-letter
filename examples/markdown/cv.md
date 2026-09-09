@@ -1,13 +1,17 @@
 ---
 name: Sarah Connor
 tagline: AI Security Engineer · Adversarial ML & Red Teaming
-email: sarah@sconnor.dev
-location: Austin, TX (US)
+email: "[sarah@sconnor.dev](mailto:sarah@sconnor.dev)"
+location: "[Austin, USA](https://maps.app.goo.gl/AcRNXA7hRTrGzohv6)"
 phone: "+1 123 456 7890"
 links:
-  - github.com/sconnor
-  - linkedin.com/in/sarahconnor
-  - sconnor.dev
+  - "[github.com/sconnor](https://github.com/sconnor)"
+  - "[linkedin.com/in/sarahconnor](https://linkedin.com/in/sarahconnor)"
+  - "[sconnor.dev](https://sconnor.dev)"
+keywords:
+  - Adversarial ML
+  - Red Teaming
+  - LLM Security
 accent: red
 accent-scope: full
 paper: a4
@@ -15,10 +19,6 @@ show-icons: true
 show-footer: true
 show-logos: false
 show-notes: false
-keywords:
-  - Adversarial ML
-  - Red Teaming
-  - LLM Security
 ---
 
 # SUMMARY
@@ -28,7 +28,6 @@ AI security engineer with six years spanning applied machine learning, security 
 # EXPERIENCE
 
 ## Senior AI Security Engineer | 2023 -- Present
-
 *![Cyberdyne Systems logo](logos/cyberdyne.png) Cyberdyne Systems | Austin, USA*
 
 Leading red-team engagements against internal LLM-powered products before launch.
@@ -41,7 +40,6 @@ Leading red-team engagements against internal LLM-powered products before launch
 `Python · PyTorch · Burp Suite · Kubernetes · OPA/Gatekeeper`
 
 ## Security Engineer, Applied ML | 2021 -- 2023
-
 *Skynet Analytics | Remote*
 
 > Promoted from IC to owning the security review process org-wide within eight months.
@@ -55,7 +53,6 @@ Owned the security review process for the ML platform team's model deployment pi
 `Terraform · AWS · MLflow · Semgrep · Snyk`
 
 ## Machine Learning Engineer | 2019 -- 2021
-
 *Tyrell ML | Ljubljana, Slovenia*
 
 Built and shipped machine learning models powering fraud detection and demand forecasting for a fast-growing fintech product.
@@ -82,29 +79,23 @@ Practice
 # EDUCATION
 
 ## M.S. Computer Security | 2023
-
 *![Stanford University logo](logos/stanford.svg) Stanford University | Stanford, USA*
 
 ## B.S. Computer Science | 2019
-
 *University of Ljubljana | Ljubljana, Slovenia*
 
 # PROJECTS
 
-## promptfirewall | 2023
-
-*github.com/sconnor/promptfirewall*
+## Prompt Injection Firewall | 2023
+*[github.com/sconnor/promptfirewall](https://github.com/sconnor/promptfirewall)*
 
 # CERTIFICATIONS, AWARDS & PUBLICATIONS
 
 ## OSCP -- Offensive Security Certified Professional | 2019
-
 *Offensive Security*
 
 ## AI Village CTF -- 1st Place | 2024
-
-*DEF CON*
+*DEF CON 24, Las Vegas, USA*
 
 ## Detecting Prompt Injection at Scale | 2024
-
-*arxiv.org/abs/2403.09217*
+*[arxiv.org/abs/2404.16244](https://arxiv.org/abs/2404.16244)*

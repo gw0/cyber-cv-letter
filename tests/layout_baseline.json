@@ -22,11 +22,11 @@
    0,
    198.03,
    83.22,
-   "Austin, TX (US) \u00b7 "
+   "Austin, USA \u00b7 "
   ],
   [
    0,
-   306.23,
+   284.63,
    83.22,
    "+1 123 456 7890"
   ],
@@ -98,9 +98,9 @@
   ],
   [
    0,
-   473.73,
+   488.96,
    246.69,
-   "Austin, TX (US)"
+   "Austin, USA"
   ],
   [
    0,
@@ -206,9 +206,9 @@
   ],
   [
    0,
-   484.74,
+   507.47,
    399.68,
-   "Remote (US)"
+   "Remote"
   ],
   [
    0,
@@ -314,9 +314,9 @@
   ],
   [
    0,
-   433.67,
+   456.42,
    552.67,
-   "Ljubljana, Slovenia (EU)"
+   "Ljubljana, Slovenia"
   ],
   [
    0,
@@ -476,9 +476,9 @@
   ],
   [
    1,
-   485.19,
+   478.49,
    83.24,
-   "Stanford, CA"
+   "Stanford, USA"
   ],
   [
    1,
@@ -500,9 +500,9 @@
   ],
   [
    1,
-   433.67,
+   456.42,
    118.15,
-   "Ljubljana, Slovenia (EU)"
+   "Ljubljana, Slovenia"
   ],
   [
    1,
@@ -514,7 +514,7 @@
    1,
    68.03,
    168.52,
-   "promptfirewall"
+   "Prompt Injection Firewall"
   ],
   [
    1,
@@ -568,7 +568,7 @@
    1,
    68.03,
    283.61,
-   "DEF CON"
+   "DEF CON 24, Las Vegas, USA"
   ],
   [
    1,
@@ -586,7 +586,7 @@
    1,
    68.03,
    318.51,
-   "arxiv.org/abs/2403.09217"
+   "arxiv.org/abs/2404.16244"
   ],
   [
    1,
@@ -618,7 +618,7 @@
    0,
    68.03,
    81.51,
-   "sarah@sconnor.dev \u00b7 Austin, TX (US) \u00b7 +1 123 456 7890"
+   "sarah@sconnor.dev \u00b7 Austin, USA \u00b7 +1 123 456 7890"
   ],
   [
    0,
@@ -676,9 +676,9 @@
   ],
   [
    0,
-   473.73,
+   488.96,
    241.25,
-   "Austin, TX (US)"
+   "Austin, USA"
   ],
   [
    0,
@@ -784,9 +784,9 @@
   ],
   [
    0,
-   484.74,
+   507.47,
    394.24,
-   "Remote (US)"
+   "Remote"
   ],
   [
    0,
@@ -892,9 +892,9 @@
   ],
   [
    0,
-   433.67,
+   456.42,
    547.23,
-   "Ljubljana, Slovenia (EU)"
+   "Ljubljana, Slovenia"
   ],
   [
    0,
@@ -1042,9 +1042,9 @@
   ],
   [
    1,
-   485.19,
+   478.49,
    83.24,
-   "Stanford, CA"
+   "Stanford, USA"
   ],
   [
    1,
@@ -1066,9 +1066,9 @@
   ],
   [
    1,
-   433.67,
+   456.42,
    118.15,
-   "Ljubljana, Slovenia (EU)"
+   "Ljubljana, Slovenia"
   ],
   [
    1,
@@ -1080,7 +1080,7 @@
    1,
    68.03,
    168.52,
-   "promptfirewall"
+   "Prompt Injection Firewall"
   ],
   [
    1,
@@ -1134,7 +1134,7 @@
    1,
    68.03,
    283.61,
-   "DEF CON"
+   "DEF CON 24, Las Vegas, USA"
   ],
   [
    1,
@@ -1152,7 +1152,7 @@
    1,
    68.03,
    318.51,
-   "arxiv.org/abs/2403.09217"
+   "arxiv.org/abs/2404.16244"
   ]
  ],
  "examples/typst/cv-friggeri.pdf": [
@@ -1178,11 +1178,11 @@
    0,
    198.03,
    83.22,
-   "Austin, TX (US) \u00b7 "
+   "Austin, USA \u00b7 "
   ],
   [
    0,
-   306.23,
+   284.63,
    83.22,
    "+1 123 456 7890"
   ],
@@ -1266,9 +1266,9 @@
   ],
   [
    0,
-   473.73,
+   488.96,
    246.69,
-   "Austin, TX (US)"
+   "Austin, USA"
   ],
   [
    0,
@@ -1338,285 +1338,297 @@
   ],
   [
    0,
-   78.59,
-   357.84,
-   "Combined gradient-based attack simulation with a red-team-authored adversarial test suite; findings drove a retraining cycle with "
-  ],
-  [
-   0,
-   78.59,
-   368.22,
-   "hardened features."
-  ],
-  [
-   0,
    68.03,
-   380.0,
+   357.63,
    "\u2022"
   ],
   [
    0,
    72.19,
-   380.0,
+   357.63,
    " "
   ],
   [
    0,
    78.59,
-   380.0,
+   357.63,
    "Designed and shipped a model-extraction detection pipeline (query-pattern anomaly scoring) now "
   ],
   [
    0,
    78.59,
-   393.63,
+   371.26,
    "running across all customer-facing inference endpoints."
   ],
   [
    0,
    78.59,
-   410.68,
+   388.31,
    "Python \u00b7 PyTorch \u00b7 Burp Suite \u00b7 Kubernetes \u00b7 OPA/Gatekeeper"
   ],
   [
    0,
    117.63,
-   429.52,
+   407.15,
    "Security Engineer, Applied ML"
   ],
   [
    0,
    484.85,
-   431.86,
+   409.49,
    "2021 \u2013 2023"
   ],
   [
    0,
    117.63,
-   444.42,
+   422.05,
    "Skynet Analytics"
   ],
   [
    0,
-   484.74,
-   444.42,
-   "Remote (US)"
+   507.47,
+   422.05,
+   "Remote"
   ],
   [
    0,
    68.03,
-   458.35,
+   435.98,
    "Promoted from IC to owning the security review process org-wide within eight months."
   ],
   [
    0,
    68.03,
-   470.13,
+   447.76,
    "Owned the security review process for the ML platform team\u2019s model deployment pipeline."
   ],
   [
    0,
    68.03,
-   487.06,
+   464.69,
    "\u2022"
   ],
   [
    0,
    72.19,
-   487.06,
+   464.69,
    " "
   ],
   [
    0,
    78.59,
-   487.06,
+   464.69,
    "Authored the org\u2019s first threat model for LLM-integrated services, adopted as the standard review "
   ],
   [
    0,
    78.59,
-   500.69,
+   478.32,
    "template company-wide."
   ],
   [
    0,
    68.03,
-   514.42,
+   492.05,
    "\u2022"
   ],
   [
    0,
    72.19,
-   514.42,
+   492.05,
    " "
   ],
   [
    0,
    78.59,
-   514.42,
+   492.05,
    "Cut mean time to patch critical model-serving CVEs from 21 days to 4 by embedding security "
   ],
   [
    0,
    78.59,
-   528.04,
+   505.68,
    "gating directly into the MLOps CI/CD pipeline."
   ],
   [
    0,
    68.03,
-   541.77,
+   519.41,
    "\u2022"
   ],
   [
    0,
    72.19,
-   541.77,
+   519.41,
    " "
   ],
   [
    0,
    78.59,
-   541.77,
+   519.41,
    "Ran quarterly red-team exercises against internal chatbots, discovering data-exfiltration paths "
   ],
   [
    0,
    78.59,
-   555.4,
+   533.03,
    "later closed via output filtering and scoped tool permissions."
   ],
   [
    0,
    78.59,
-   572.45,
+   550.09,
    "Terraform \u00b7 AWS \u00b7 MLflow \u00b7 Semgrep \u00b7 Snyk"
   ],
   [
    0,
    117.63,
-   591.29,
+   568.92,
    "Machine Learning Engineer"
   ],
   [
    0,
    484.85,
-   593.63,
+   571.26,
    "2019 \u2013 2021"
   ],
   [
    0,
    117.63,
-   606.19,
+   583.82,
    "Tyrell ML"
   ],
   [
    0,
-   433.67,
-   606.19,
-   "Ljubljana, Slovenia (EU)"
+   456.42,
+   583.82,
+   "Ljubljana, Slovenia"
   ],
   [
    0,
    68.03,
-   623.12,
+   600.75,
    "Built and shipped machine learning models powering fraud detection and demand forecasting for a "
   ],
   [
    0,
    68.03,
-   636.75,
+   614.38,
    "fast-growing fintech product."
   ],
   [
    0,
    68.03,
-   653.68,
+   631.31,
    "\u2022"
   ],
   [
    0,
    72.19,
-   653.68,
+   631.31,
    " "
   ],
   [
    0,
    78.59,
-   653.68,
+   631.31,
    "Built and shipped fraud-detection models into production, reducing false-positive rates by 25% "
   ],
   [
    0,
    78.59,
-   667.31,
+   644.94,
    "across the company\u2019s core payments pipeline."
   ],
   [
    0,
    68.03,
-   681.03,
+   658.67,
    "\u2022"
   ],
   [
    0,
    72.19,
-   681.03,
+   658.67,
    " "
   ],
   [
    0,
    78.59,
-   681.03,
+   658.67,
    "Designed the team\u2019s first automated retraining pipeline, cutting model refresh time from weeks to "
   ],
   [
    0,
    78.59,
-   694.66,
+   672.3,
    "days."
   ],
   [
    0,
    78.59,
-   711.72,
+   689.35,
    "TensorFlow \u00b7 scikit-learn \u00b7 Docker"
   ],
   [
    0,
    68.03,
-   736.79,
+   714.42,
    "SKI"
   ],
   [
    0,
    93.23,
-   736.79,
+   714.42,
    "LLS"
   ],
   [
    0,
    68.03,
-   762.22,
+   739.85,
    "Security    "
   ],
   [
    0,
    132.83,
-   761.05,
+   738.68,
    "Threat modeling, Burp Suite, Nmap, Metasploit"
   ],
   [
    0,
    68.03,
-   775.95,
+   753.58,
    "ML/AI       "
   ],
   [
    0,
    132.83,
-   774.78,
+   752.41,
    "PyTorch, vLLM, adversarial robustness, prompt-injection defense"
+  ],
+  [
+   0,
+   68.03,
+   767.31,
+   "Infra       "
+  ],
+  [
+   0,
+   132.83,
+   766.14,
+   "Kubernetes, Terraform, AWS, CI/CD pipeline hardening"
+  ],
+  [
+   0,
+   68.03,
+   781.04,
+   "Practice    "
+  ],
+  [
+   0,
+   132.83,
+   779.87,
+   "Incident response, vulnerability research, red-team exercise design"
   ],
   [
    0,
@@ -1633,182 +1645,158 @@
   [
    1,
    68.03,
-   45.66,
-   "Infra       "
-  ],
-  [
-   1,
-   132.83,
-   44.49,
-   "Kubernetes, Terraform, AWS, CI/CD pipeline hardening"
-  ],
-  [
-   1,
-   68.03,
-   59.39,
-   "Practice    "
-  ],
-  [
-   1,
-   132.83,
-   58.22,
-   "Incident response, vulnerability research, red-team exercise design"
-  ],
-  [
-   1,
-   68.03,
-   84.46,
+   44.21,
    "EDU"
   ],
   [
    1,
    93.23,
-   84.46,
+   44.21,
    "CATION"
   ],
   [
    1,
    117.63,
-   108.6,
+   68.34,
    "M.S. Computer Security"
   ],
   [
    1,
    522.65,
-   110.94,
+   70.68,
    "2023"
   ],
   [
    1,
    117.63,
-   123.5,
+   83.24,
    "Stanford University"
   ],
   [
    1,
-   485.19,
-   123.5,
-   "Stanford, CA"
+   478.49,
+   83.24,
+   "Stanford, USA"
   ],
   [
    1,
    117.63,
-   143.51,
+   103.25,
    "B.S. Computer Science"
   ],
   [
    1,
    522.65,
-   145.85,
+   105.59,
    "2019"
   ],
   [
    1,
    117.63,
-   158.4,
+   118.15,
    "University of Ljubljana"
   ],
   [
    1,
-   433.67,
-   158.4,
-   "Ljubljana, Slovenia (EU)"
+   456.42,
+   118.15,
+   "Ljubljana, Slovenia"
   ],
   [
    1,
    68.03,
-   184.65,
+   144.39,
    "PRO"
   ],
   [
    1,
    93.23,
-   184.65,
+   144.39,
    "JECTS"
   ],
   [
    1,
    117.63,
-   208.78,
-   "promptfirewall"
+   168.52,
+   "Prompt Injection Firewall"
   ],
   [
    1,
    522.65,
-   211.12,
+   170.86,
    "2023"
   ],
   [
    1,
    117.63,
-   223.68,
+   183.42,
    "github.com/sconnor/promptfirewall"
   ],
   [
    1,
    68.03,
-   249.92,
+   209.67,
    "CER"
   ],
   [
    1,
    93.23,
-   249.92,
+   209.67,
    "TIFICATIONS, AWARDS & PUBLICATIONS"
   ],
   [
    1,
    117.63,
-   274.06,
+   233.8,
    "OSCP \u2013 Offensive Security Certified Professional"
   ],
   [
    1,
    522.65,
-   276.4,
+   236.14,
    "2019"
   ],
   [
    1,
    117.63,
-   288.96,
+   248.7,
    "Offensive Security"
   ],
   [
    1,
    117.63,
-   308.96,
+   268.71,
    "AI Village CTF \u2013 1st Place"
   ],
   [
    1,
    522.65,
-   311.3,
+   271.05,
    "2024"
   ],
   [
    1,
    117.63,
-   323.86,
-   "DEF CON"
+   283.61,
+   "DEF CON 24, Las Vegas, USA"
   ],
   [
    1,
    117.63,
-   343.87,
+   303.61,
    "Detecting Prompt Injection at Scale"
   ],
   [
    1,
    522.65,
-   346.21,
+   305.95,
    "2024"
   ],
   [
    1,
    117.63,
-   358.77,
-   "arxiv.org/abs/2403.09217"
+   318.51,
+   "arxiv.org/abs/2404.16244"
   ],
   [
    1,
@@ -1846,7 +1834,13 @@
    0,
    198.03,
    83.22,
-   "Austin, TX (US)"
+   "Austin, USA \u00b7 "
+  ],
+  [
+   0,
+   284.63,
+   83.22,
+   "+1 123 456 7890"
   ],
   [
    0,
@@ -1858,7 +1852,13 @@
    0,
    203.43,
    98.62,
-   "linkedin.com/in/sarahconnor"
+   "linkedin.com/in/sarahconnor \u00b7 "
+  ],
+  [
+   0,
+   376.43,
+   98.62,
+   "sconnor.dev"
   ],
   [
    0,
@@ -2004,11 +2004,11 @@
    0,
    198.03,
    83.22,
-   "Austin, TX (US) \u00b7 "
+   "Austin, USA \u00b7 "
   ],
   [
    0,
-   306.23,
+   284.63,
    83.22,
    "+1 123 456 7890"
   ],
@@ -2080,9 +2080,9 @@
   ],
   [
    0,
-   473.73,
+   488.96,
    246.69,
-   "Austin, TX (US)"
+   "Austin, USA"
   ],
   [
    0,
@@ -2188,9 +2188,9 @@
   ],
   [
    0,
-   484.74,
+   507.47,
    399.68,
-   "Remote (US)"
+   "Remote"
   ],
   [
    0,
@@ -2296,9 +2296,9 @@
   ],
   [
    0,
-   433.67,
+   456.42,
    552.67,
-   "Ljubljana, Slovenia (EU)"
+   "Ljubljana, Slovenia"
   ],
   [
    0,
@@ -2458,9 +2458,9 @@
   ],
   [
    1,
-   485.19,
+   478.49,
    83.24,
-   "Stanford, CA"
+   "Stanford, USA"
   ],
   [
    1,
@@ -2482,9 +2482,9 @@
   ],
   [
    1,
-   433.67,
+   456.42,
    118.15,
-   "Ljubljana, Slovenia (EU)"
+   "Ljubljana, Slovenia"
   ],
   [
    1,
@@ -2496,7 +2496,7 @@
    1,
    68.03,
    168.52,
-   "promptfirewall"
+   "Prompt Injection Firewall"
   ],
   [
    1,
@@ -2550,7 +2550,7 @@
    1,
    68.03,
    283.61,
-   "DEF CON"
+   "DEF CON 24, Las Vegas, USA"
   ],
   [
    1,
@@ -2568,7 +2568,7 @@
    1,
    68.03,
    318.51,
-   "arxiv.org/abs/2403.09217"
+   "arxiv.org/abs/2404.16244"
   ],
   [
    1,
@@ -2600,7 +2600,7 @@
    0,
    68.03,
    81.51,
-   "sarah@sconnor.dev \u00b7 Austin, TX (US) \u00b7 +1 123 456 7890"
+   "sarah@sconnor.dev \u00b7 Austin, USA \u00b7 +1 123 456 7890"
   ],
   [
    0,
@@ -2658,9 +2658,9 @@
   ],
   [
    0,
-   473.73,
+   488.96,
    241.25,
-   "Austin, TX (US)"
+   "Austin, USA"
   ],
   [
    0,
@@ -2766,9 +2766,9 @@
   ],
   [
    0,
-   484.74,
+   507.47,
    394.24,
-   "Remote (US)"
+   "Remote"
   ],
   [
    0,
@@ -2874,9 +2874,9 @@
   ],
   [
    0,
-   433.67,
+   456.42,
    547.23,
-   "Ljubljana, Slovenia (EU)"
+   "Ljubljana, Slovenia"
   ],
   [
    0,
@@ -3024,9 +3024,9 @@
   ],
   [
    1,
-   485.19,
+   478.49,
    83.24,
-   "Stanford, CA"
+   "Stanford, USA"
   ],
   [
    1,
@@ -3048,9 +3048,9 @@
   ],
   [
    1,
-   433.67,
+   456.42,
    118.15,
-   "Ljubljana, Slovenia (EU)"
+   "Ljubljana, Slovenia"
   ],
   [
    1,
@@ -3062,7 +3062,7 @@
    1,
    68.03,
    168.52,
-   "promptfirewall"
+   "Prompt Injection Firewall"
   ],
   [
    1,
@@ -3116,7 +3116,7 @@
    1,
    68.03,
    283.61,
-   "DEF CON"
+   "DEF CON 24, Las Vegas, USA"
   ],
   [
    1,
@@ -3134,7 +3134,7 @@
    1,
    68.03,
    318.51,
-   "arxiv.org/abs/2403.09217"
+   "arxiv.org/abs/2404.16244"
   ]
  ],
  "examples/markdown/cv-friggeri.pdf": [
@@ -3160,11 +3160,11 @@
    0,
    198.03,
    83.22,
-   "Austin, TX (US) \u00b7 "
+   "Austin, USA \u00b7 "
   ],
   [
    0,
-   306.23,
+   284.63,
    83.22,
    "+1 123 456 7890"
   ],
@@ -3248,9 +3248,9 @@
   ],
   [
    0,
-   473.73,
+   488.96,
    246.69,
-   "Austin, TX (US)"
+   "Austin, USA"
   ],
   [
    0,
@@ -3320,285 +3320,297 @@
   ],
   [
    0,
-   78.59,
-   357.84,
-   "Combined gradient-based attack simulation with a red-team-authored adversarial test suite; findings drove a retraining cycle with "
-  ],
-  [
-   0,
-   78.59,
-   368.22,
-   "hardened features."
-  ],
-  [
-   0,
    68.03,
-   380.0,
+   357.63,
    "\u2022"
   ],
   [
    0,
    72.19,
-   380.0,
+   357.63,
    " "
   ],
   [
    0,
    78.59,
-   380.0,
+   357.63,
    "Designed and shipped a model-extraction detection pipeline (query-pattern anomaly scoring) now "
   ],
   [
    0,
    78.59,
-   393.63,
+   371.26,
    "running across all customer-facing inference endpoints."
   ],
   [
    0,
    78.59,
-   410.68,
+   388.31,
    "Python \u00b7 PyTorch \u00b7 Burp Suite \u00b7 Kubernetes \u00b7 OPA/Gatekeeper"
   ],
   [
    0,
    117.63,
-   429.52,
+   407.15,
    "Security Engineer, Applied ML"
   ],
   [
    0,
    484.85,
-   431.86,
+   409.49,
    "2021 \u2013 2023"
   ],
   [
    0,
    117.63,
-   444.42,
+   422.05,
    "Skynet Analytics"
   ],
   [
    0,
-   484.74,
-   444.42,
-   "Remote (US)"
+   507.47,
+   422.05,
+   "Remote"
   ],
   [
    0,
    68.03,
-   458.35,
+   435.98,
    "Promoted from IC to owning the security review process org-wide within eight months."
   ],
   [
    0,
    68.03,
-   470.13,
+   447.76,
    "Owned the security review process for the ML platform team\u2019s model deployment pipeline."
   ],
   [
    0,
    68.03,
-   487.06,
+   464.69,
    "\u2022"
   ],
   [
    0,
    72.19,
-   487.06,
+   464.69,
    " "
   ],
   [
    0,
    78.59,
-   487.06,
+   464.69,
    "Authored the org\u2019s first threat model for LLM-integrated services, adopted as the standard review "
   ],
   [
    0,
    78.59,
-   500.69,
+   478.32,
    "template company-wide."
   ],
   [
    0,
    68.03,
-   514.42,
+   492.05,
    "\u2022"
   ],
   [
    0,
    72.19,
-   514.42,
+   492.05,
    " "
   ],
   [
    0,
    78.59,
-   514.42,
+   492.05,
    "Cut mean time to patch critical model-serving CVEs from 21 days to 4 by embedding security "
   ],
   [
    0,
    78.59,
-   528.04,
+   505.68,
    "gating directly into the MLOps CI/CD pipeline."
   ],
   [
    0,
    68.03,
-   541.77,
+   519.41,
    "\u2022"
   ],
   [
    0,
    72.19,
-   541.77,
+   519.41,
    " "
   ],
   [
    0,
    78.59,
-   541.77,
+   519.41,
    "Ran quarterly red-team exercises against internal chatbots, discovering data-exfiltration paths "
   ],
   [
    0,
    78.59,
-   555.4,
+   533.03,
    "later closed via output filtering and scoped tool permissions."
   ],
   [
    0,
    78.59,
-   572.45,
+   550.09,
    "Terraform \u00b7 AWS \u00b7 MLflow \u00b7 Semgrep \u00b7 Snyk"
   ],
   [
    0,
    117.63,
-   591.29,
+   568.92,
    "Machine Learning Engineer"
   ],
   [
    0,
    484.85,
-   593.63,
+   571.26,
    "2019 \u2013 2021"
   ],
   [
    0,
    117.63,
-   606.19,
+   583.82,
    "Tyrell ML"
   ],
   [
    0,
-   433.67,
-   606.19,
-   "Ljubljana, Slovenia (EU)"
+   456.42,
+   583.82,
+   "Ljubljana, Slovenia"
   ],
   [
    0,
    68.03,
-   623.12,
+   600.75,
    "Built and shipped machine learning models powering fraud detection and demand forecasting for a "
   ],
   [
    0,
    68.03,
-   636.75,
+   614.38,
    "fast-growing fintech product."
   ],
   [
    0,
    68.03,
-   653.68,
+   631.31,
    "\u2022"
   ],
   [
    0,
    72.19,
-   653.68,
+   631.31,
    " "
   ],
   [
    0,
    78.59,
-   653.68,
+   631.31,
    "Built and shipped fraud-detection models into production, reducing false-positive rates by 25% "
   ],
   [
    0,
    78.59,
-   667.31,
+   644.94,
    "across the company\u2019s core payments pipeline."
   ],
   [
    0,
    68.03,
-   681.03,
+   658.67,
    "\u2022"
   ],
   [
    0,
    72.19,
-   681.03,
+   658.67,
    " "
   ],
   [
    0,
    78.59,
-   681.03,
+   658.67,
    "Designed the team\u2019s first automated retraining pipeline, cutting model refresh time from weeks to "
   ],
   [
    0,
    78.59,
-   694.66,
+   672.3,
    "days."
   ],
   [
    0,
    78.59,
-   711.72,
+   689.35,
    "TensorFlow \u00b7 scikit-learn \u00b7 Docker"
   ],
   [
    0,
    68.03,
-   736.79,
+   714.42,
    "SKI"
   ],
   [
    0,
    93.23,
-   736.79,
+   714.42,
    "LLS"
   ],
   [
    0,
    68.03,
-   762.22,
+   739.85,
    "Security    "
   ],
   [
    0,
    132.83,
-   761.05,
+   738.68,
    "Threat modeling, Burp Suite, Nmap, Metasploit"
   ],
   [
    0,
    68.03,
-   775.95,
+   753.58,
    "ML/AI       "
   ],
   [
    0,
    132.83,
-   774.78,
+   752.41,
    "PyTorch, vLLM, adversarial robustness, prompt-injection defense"
+  ],
+  [
+   0,
+   68.03,
+   767.31,
+   "Infra       "
+  ],
+  [
+   0,
+   132.83,
+   766.14,
+   "Kubernetes, Terraform, AWS, CI/CD pipeline hardening"
+  ],
+  [
+   0,
+   68.03,
+   781.04,
+   "Practice    "
+  ],
+  [
+   0,
+   132.83,
+   779.87,
+   "Incident response, vulnerability research, red-team exercise design"
   ],
   [
    0,
@@ -3615,182 +3627,158 @@
   [
    1,
    68.03,
-   45.66,
-   "Infra       "
-  ],
-  [
-   1,
-   132.83,
-   44.49,
-   "Kubernetes, Terraform, AWS, CI/CD pipeline hardening"
-  ],
-  [
-   1,
-   68.03,
-   59.39,
-   "Practice    "
-  ],
-  [
-   1,
-   132.83,
-   58.22,
-   "Incident response, vulnerability research, red-team exercise design"
-  ],
-  [
-   1,
-   68.03,
-   84.46,
+   44.21,
    "EDU"
   ],
   [
    1,
    93.23,
-   84.46,
+   44.21,
    "CATION"
   ],
   [
    1,
    117.63,
-   108.6,
+   68.34,
    "M.S. Computer Security"
   ],
   [
    1,
    522.65,
-   110.94,
+   70.68,
    "2023"
   ],
   [
    1,
    117.63,
-   123.5,
+   83.24,
    "Stanford University"
   ],
   [
    1,
-   485.19,
-   123.5,
-   "Stanford, CA"
+   478.49,
+   83.24,
+   "Stanford, USA"
   ],
   [
    1,
    117.63,
-   143.51,
+   103.25,
    "B.S. Computer Science"
   ],
   [
    1,
    522.65,
-   145.85,
+   105.59,
    "2019"
   ],
   [
    1,
    117.63,
-   158.4,
+   118.15,
    "University of Ljubljana"
   ],
   [
    1,
-   433.67,
-   158.4,
-   "Ljubljana, Slovenia (EU)"
+   456.42,
+   118.15,
+   "Ljubljana, Slovenia"
   ],
   [
    1,
    68.03,
-   184.65,
+   144.39,
    "PRO"
   ],
   [
    1,
    93.23,
-   184.65,
+   144.39,
    "JECTS"
   ],
   [
    1,
    117.63,
-   208.78,
-   "promptfirewall"
+   168.52,
+   "Prompt Injection Firewall"
   ],
   [
    1,
    522.65,
-   211.12,
+   170.86,
    "2023"
   ],
   [
    1,
    117.63,
-   223.68,
+   183.42,
    "github.com/sconnor/promptfirewall"
   ],
   [
    1,
    68.03,
-   249.92,
+   209.67,
    "CER"
   ],
   [
    1,
    93.23,
-   249.92,
+   209.67,
    "TIFICATIONS, AWARDS & PUBLICATIONS"
   ],
   [
    1,
    117.63,
-   274.06,
+   233.8,
    "OSCP \u2013 Offensive Security Certified Professional"
   ],
   [
    1,
    522.65,
-   276.4,
+   236.14,
    "2019"
   ],
   [
    1,
    117.63,
-   288.96,
+   248.7,
    "Offensive Security"
   ],
   [
    1,
    117.63,
-   308.96,
+   268.71,
    "AI Village CTF \u2013 1st Place"
   ],
   [
    1,
    522.65,
-   311.3,
+   271.05,
    "2024"
   ],
   [
    1,
    117.63,
-   323.86,
-   "DEF CON"
+   283.61,
+   "DEF CON 24, Las Vegas, USA"
   ],
   [
    1,
    117.63,
-   343.87,
+   303.61,
    "Detecting Prompt Injection at Scale"
   ],
   [
    1,
    522.65,
-   346.21,
+   305.95,
    "2024"
   ],
   [
    1,
    117.63,
-   358.77,
-   "arxiv.org/abs/2403.09217"
+   318.51,
+   "arxiv.org/abs/2404.16244"
   ],
   [
    1,
@@ -3828,7 +3816,13 @@
    0,
    198.03,
    83.22,
-   "Austin, TX (US)"
+   "Austin, USA \u00b7 "
+  ],
+  [
+   0,
+   284.63,
+   83.22,
+   "+1 123 456 7890"
   ],
   [
    0,
@@ -3840,7 +3834,13 @@
    0,
    203.43,
    98.62,
-   "linkedin.com/in/sarahconnor"
+   "linkedin.com/in/sarahconnor \u00b7 "
+  ],
+  [
+   0,
+   376.43,
+   98.62,
+   "sconnor.dev"
   ],
   [
    0,

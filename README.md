@@ -52,7 +52,6 @@ Basic example CV (full example in `examples/typst/cv.typ`):
 = EXPERIENCE
 
 == Senior AI Security Engineer | 2023 -- Present
-
 _Cyberdyne Systems | Austin, USA_
 
 Leading red-team engagements against internal LLM-powered products.
@@ -106,7 +105,6 @@ links:
 # EXPERIENCE
 
 ## Senior AI Security Engineer | 2023 -- Present
-
 *Cyberdyne Systems | Austin, USA*
 
 Leading red-team engagements against internal LLM-powered products.

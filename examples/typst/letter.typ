@@ -4,17 +4,21 @@
   author: (
     name: "Sarah Connor",
     tagline: "AI Security Engineer · Adversarial ML & Red Teaming",
-    email: "sarah@sconnor.dev",
-    location: "Austin, TX (US)",
-    links: ("github.com/sconnor", "linkedin.com/in/sarahconnor"),
+    email: link("mailto:sarah@sconnor.dev")[sarah\@sconnor.dev],
+    location: link("https://maps.app.goo.gl/AcRNXA7hRTrGzohv6")[Austin, USA],
+    phone: "+1 123 456 7890",
+    links: (
+      link("https://github.com/sconnor")[github.com/sconnor],
+      link("https://linkedin.com/in/sarahconnor")[linkedin.com/in/sarahconnor],
+      link("https://sconnor.dev")[sconnor.dev],
+    ),
   ),
+  keywords: ("Adversarial ML", "Red Teaming", "LLM Security"),
   accent: sys.inputs.at("accent", default: "red"),
   accent-scope: sys.inputs.at("accent-scope", default: "full"),
   paper: sys.inputs.at("paper", default: "a4"),
   show-icons: sys.inputs.at("show-icons", default: "true") == "true",
   show-footer: sys.inputs.at("show-footer", default: "true") == "true",
-  keywords: ("Adversarial ML", "Red Teaming", "LLM Security"),
-  // paragraph-spacing: override the letter-only default (space-letter-paragraph, src/theme.typ) if needed.
   date: "1 September 2026",
 )
 
