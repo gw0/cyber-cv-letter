@@ -17,7 +17,7 @@
 // come out italic. A `show emph` replacement is not subject to the toggle.
 // See specs/20260902-simplify.md.
 
-#import "content.typ": flatten-text, split-last, get-children
+#import "content.typ": flatten-text, split-last, split-last-nodes, get-children
 #import "theme.typ": fg, muted, accent-at, resolve-font, space-paragraph, space-bullet, space-entry, space-section-to-rule, space-rule-to-content, space-header-to-section, space-header-line, space-code-indent, size-section-header, size-entry-title, size-body, size-small, size-footer, mark-gutter, logo-width, logo-height, logo-column, skills-label-chars
 #import "marks.typ": draw-chevron, draw-rule, draw-placeholder-logo
 #import "ats.typ": artifact
@@ -96,7 +96,7 @@
 // what a freeform or skills section's first line already gets straight from
 // the section header) and space-entry for every entry after that.
 #let entry-heading-rule(accent-list, font-body, font-chrome, show-logos) = it => {
-  let (title, date) = split-last(flatten-text(it.body), "|")
+  let (title, date) = split-last-nodes(get-children(it.body), "|")
   meta-expected.update(true)
   context {
     let is-first-entry = entry-counter.get().first() == 0
@@ -167,7 +167,7 @@
       text-nodes.push(k)
     }
   }
-  let (org, location) = split-last(text-nodes.map(flatten-text).join("").trim(), "|")
+  let (org, location) = split-last-nodes(text-nodes, "|")
   (logo: logo, org: org, location: location)
 }
 
@@ -187,6 +187,10 @@
     let line = {
       if show-logos { h(logo-column) }
       set text(..resolve-font(font-body, weight: "regular"), size: size-body, fill: muted)
+      // Works around a typst-pdf crash ("expected link ancestor in logical
+      // tree") when a meta line is nothing but a link and paragraph-rule
+      // re-wraps it alone in a block. Upstream bug, not ours.
+      h(0pt)
       if meta.org != none { meta.org }
       if meta.location != none { h(1fr); meta.location }
     }
