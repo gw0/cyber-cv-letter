@@ -36,20 +36,20 @@
   if author.at("location", default: none) != none { contact-parts.push(("location", author.location)) }
   if author.at("phone", default: none) != none { contact-parts.push(("phone", author.phone)) }
 
-  let contact-line = if contact-parts.len() > 0 {
-    block(above: 0pt, below: 0pt, {
+  let contact-content = if contact-parts.len() > 0 {
+    {
       set text(..resolve-font(font-chrome, weight: "regular"), size: size-small, fill: fg)
       for (i, part) in contact-parts.enumerate() {
         if i > 0 { [ · ] }
         if show-icons { box(image(icon-path(part.at(0)), height: 9pt, alt: part.at(0)), baseline: 1pt); h(2pt) }
         part.at(1)
       }
-    })
+    }
   } else { none }
 
   let links = author.at("links", default: ())
-  let links-line = if links.len() > 0 {
-    block(above: 0pt, below: 0pt, {
+  let links-content = if links.len() > 0 {
+    {
       set text(..resolve-font(font-chrome, weight: "regular"), size: size-small, fill: fg)
       for (i, link) in links.enumerate() {
         if i > 0 { [ · ] }
@@ -60,10 +60,38 @@
         }
         link
       }
-    })
+    }
   } else { none }
 
-  let lines = (name-line, tagline-line, contact-line, links-line).filter(l => l != none)
+  // Merge onto one row when it fits, recovering a space-header-line of
+  // vertical space. layout() is contextual on its own; called here in the
+  // page body flow, its size.width is the actual page content width.
+  let contact-links-lines = if contact-content != none and links-content != none {
+    layout(size => {
+      let combined = block(above: 0pt, below: 0pt, {
+        set text(..resolve-font(font-chrome, weight: "regular"), size: size-small, fill: fg)
+        contact-content
+        [ · ]
+        links-content
+      })
+      if measure(combined).width <= size.width {
+        combined
+      } else {
+        stack(
+          dir: ttb,
+          spacing: space-header-line,
+          block(above: 0pt, below: 0pt, contact-content),
+          block(above: 0pt, below: 0pt, links-content),
+        )
+      }
+    })
+  } else if contact-content != none {
+    block(above: 0pt, below: 0pt, contact-content)
+  } else if links-content != none {
+    block(above: 0pt, below: 0pt, links-content)
+  } else { none }
+
+  let lines = (name-line, tagline-line, contact-links-lines).filter(l => l != none)
 
   block(above: 0pt, below: 0pt, {
     stack(dir: ttb, spacing: space-header-line, ..lines)
