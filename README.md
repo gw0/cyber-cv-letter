@@ -160,7 +160,7 @@ $ make publish    # stages a Typst Universe submission and prints the remaining 
 
 `make publish` prints the exact remaining steps to submit the staged package
 to [typst/packages](https://github.com/typst/packages)
-([submission guidelines](https://github.com/typst/packages/blob/main/docs/README.md)).
+([submission guidelines](https://github.com/typst/packages/blob/30a5a142bdda93e304c486e97b0ae0312f511c77/docs/README.md)).
 
 ## Known limitations
 

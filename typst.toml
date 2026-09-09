@@ -8,8 +8,8 @@ description = "Typst/Markdown template for cyber/terminal-themed CV and cover le
 repository = "https://github.com/gw0/cyber-cv-letter"
 keywords = ["cv", "resume", "curriculum-vitae", "cover-letter", "ats", "terminal", "hacker"]
 categories = ["cv", "office"]
-compiler = "0.15.1"
-exclude = [".github/", ".typst-packages/", ".venv/", "Makefile", "requirements.txt", "pytest.ini", "drafts/", "specs/", "tests/", "fonts/", "pandoc/", "thumbnails/", "examples/markdown/", "examples/typst/*.pdf"]
+compiler = "0.15.0"
+exclude = [".github/", ".typst-packages/", ".venv/", "Makefile", "requirements.txt", "pytest.ini", "drafts/", "specs/", "tests/", "fonts/", "pandoc/", "thumbnails/", "examples/markdown/", "examples/*/*.pdf"]
 
 [template]
 path = "examples/typst"

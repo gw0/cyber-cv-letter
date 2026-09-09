@@ -4,7 +4,7 @@ PKG_NAME := cyber-cv-letter
 PKG_VERSION := $(shell grep '^version' typst.toml | sed 's/.*"\(.*\)".*/\1/')
 DIST := dist/preview/$(PKG_NAME)/$(PKG_VERSION)
 
-TYPST_VERSION := 0.15.1
+TYPST_VERSION := 0.15.0
 TYPST_ARCHIVE := typst-x86_64-unknown-linux-musl
 
 TYPST := .venv/bin/typst
@@ -141,6 +141,7 @@ publish: examples thumbnails
 	mkdir -p $(DIST)
 	git ls-files \
 		| grep -vE '^(\.github|fonts|pandoc|drafts|specs|tests)/|^(Makefile|requirements\.txt|pytest\.ini|\.gitignore)$$' \
+		| grep -vE '^examples/[^/]+/.*\.pdf$$' \
 		| rsync -a --files-from=- . $(DIST)/
 	@echo "Staged at $(DIST)."
 	@echo "To submit to Typst Universe:"
