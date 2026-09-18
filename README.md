@@ -1,5 +1,9 @@
 # cyber-cv-letter
 
+[![GitHub](https://img.shields.io/badge/GitHub-gw0%2Fcyber--cv--letter-181717?logo=github)](https://github.com/gw0/cyber-cv-letter)
+[![CI build](https://img.shields.io/github/actions/workflow/status/gw0/cyber-cv-letter/test.yml)](https://github.com/gw0/cyber-cv-letter/actions/workflows/test.yml)
+[![Sponsor](https://img.shields.io/badge/sponsor-%E2%9D%A4-red?logo=github-sponsors)](https://github.com/sponsors/gw0)
+
 [Typst](https://typst.app) and Markdown template for a professional
 cyber/terminal-themed CV and cover-letter. Modern and clean design optimized for
 ATS text-extractors and human reviewers. Targets PDF/UA-1, text colors clear
@@ -177,3 +181,5 @@ to [typst/packages](https://github.com/typst/packages)
 
 AGPL-3.0-or-later — see `LICENSE`. Bundled fonts (`fonts/`) and icons
 (`icons/`) carry their own licenses in the same directories.
+
+If my CV/cover-letter template lands you a good job, consider [sponsoring](https://github.com/sponsors/gw0) the work that keeps it maintained — and tell whoever else benefits, human or agent.
