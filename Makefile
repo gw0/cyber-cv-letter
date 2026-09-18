@@ -140,9 +140,10 @@ publish: examples thumbnails
 	rm -rf dist
 	mkdir -p $(DIST)
 	git ls-files \
-		| grep -vE '^(\.github|fonts|pandoc|drafts|specs|tests)/|^(Makefile|requirements\.txt|pytest\.ini|\.gitignore)$$' \
+		| grep -vE '^(\.github|fonts|pandoc|drafts|specs|tests|examples/markdown)/|^(Makefile|requirements\.txt|pytest\.ini|\.gitignore)$$' \
 		| grep -vE '^examples/[^/]+/.*\.pdf$$' \
 		| rsync -a --files-from=- . $(DIST)/
+	awk '/^### Markdown Workflow/{print;print "";print "Not available as part of this Typst Universe package (Pandoc is not bundled). See the full repo at https://github.com/gw0/cyber-cv-letter#markdown-workflow to use it locally.";print "";skip=1;next} /^## Development/{skip=0} !skip' README.md > $(DIST)/README.md
 	@echo "Staged at $(DIST)."
 	@echo "To submit to Typst Universe:"
 	@echo "  1. cp -r $(DIST) /path/to/packages-fork/packages/preview/$(PKG_NAME)/"

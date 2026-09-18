@@ -4,14 +4,9 @@
 [![CI build](https://img.shields.io/github/actions/workflow/status/gw0/cyber-cv-letter/test.yml)](https://github.com/gw0/cyber-cv-letter/actions/workflows/test.yml)
 [![Sponsor](https://img.shields.io/badge/sponsor-%E2%9D%A4-red?logo=github-sponsors)](https://github.com/sponsors/gw0)
 
-[Typst](https://typst.app) and Markdown template for a professional
-cyber/terminal-themed CV and cover-letter. Modern and clean design optimized for
-ATS text-extractors and human reviewers. Targets PDF/UA-1, text colors clear
-WCAG AA contrast, and togglable style vaiants (icons, footer, accent colors,
-logos, section notes).
+Cyber/terminal-themed professional CV and cover-letter as Typst template with Markdown support. Modern and clean design optimized for ATS text-extractors and human reviewers. Targets PDF/UA-1, text colors clear WCAG AA contrast, and togglable style vaiants (icons, footer, accent colors, logos, section notes).
 
-Inspired by [brilliant-cv](https://github.com/yunanwg/brilliant-CV) and
-[friggeri-cv-letter](https://github.com/gw0/friggeri-cv-letter).
+Inspired by [brilliant-cv](https://github.com/yunanwg/brilliant-CV) and [friggeri-cv-letter](https://github.com/gw0/friggeri-cv-letter).
 
 ## Preview
 
@@ -74,12 +69,9 @@ Compile your CV via Typst CLI:
 $ typst compile mycv.typ
 ```
 
-See complete reference examples `examples/typst/cv.typ` and
-`examples/typst/letter.typ` for available options.
+See complete reference examples `examples/typst/cv.typ` and `examples/typst/letter.typ` for available options.
 
-Alternatively, use a local copy of this repo: register it under a local
-`preview/` package path and point `--package-path`/`--font-path` at it. The
-import stays identical to the published one above:
+Alternatively, use a local copy of this repo: register it under a local `preview/` package path and point `--package-path`/`--font-path` at it. The import stays identical to the published one above:
 
 ```bash
 $ mkdir -p .typst-packages/preview/cyber-cv-letter
@@ -122,9 +114,7 @@ Security
 : Threat modeling, Burp Suite, Nmap
 ```
 
-Adjust Pandoc settings to your environment (paths are resolved relative to
-working directory, so prefix `template`, `resource-path`, `pdf-engine`,
-`--package-path`, and `--font-path` accordingly):
+Adjust Pandoc settings to your environment (paths are resolved relative to working directory, so prefix `template`, `resource-path`, `pdf-engine`, `--package-path`, and `--font-path` accordingly):
 
 ```bash
 $ cp /path/to/cyber-cv-letter/pandoc/cv.yaml pandoc-cv.yaml
@@ -138,8 +128,7 @@ Compile your CV via Pandoc CLI:
 $ pandoc -d pandoc-cv.yaml mycv.md -o mycv.pdf
 ```
 
-See complete reference examples `examples/markdown/cv.md` and
-`examples/markdown/letter.md` for available options.
+See complete reference examples `examples/markdown/cv.md` and `examples/markdown/letter.md` for available options.
 
 Alternatively, compile your CV without adjusting Pandoc settings:
 
@@ -150,8 +139,7 @@ $ pandoc -d pandoc/cv.yaml --resource-path /path/to /path/to/mycv.md -o /path/to
 
 ## Development
 
-This repo builds and tests its own examples locally; nothing is installed
-system-wide:
+This repo builds and tests its own examples locally (nothing is installed system-wide):
 
 ```bash
 $ make setup      # creates .venv/, vendors pandoc + typst into it
@@ -162,24 +150,15 @@ $ make thumbnails # renders the preview PNGs above
 $ make publish    # stages a Typst Universe submission and prints the remaining steps
 ```
 
-`make publish` prints the exact remaining steps to submit the staged package
-to [typst/packages](https://github.com/typst/packages)
-([submission guidelines](https://github.com/typst/packages/blob/30a5a142bdda93e304c486e97b0ae0312f511c77/docs/README.md)).
+`make publish` prints the exact remaining steps to submit the staged package to [typst/packages](https://github.com/typst/packages) ([submission guidelines](https://github.com/typst/packages/blob/30a5a142bdda93e304c486e97b0ae0312f511c77/docs/README.md)).
 
 ## Known limitations
 
-- No cross-page "keep together" grouping: a section header or skills row
-  can split across a page boundary from its first entry/row.
-- A published package can't bundle its own fonts (IBM Plex Mono/Sans) onto
-  a consumer's font search path — without them installed, Typst falls back
-  to automatic substitution. Install IBM Plex Mono and IBM Plex Sans
-  system-wide (e.g. from [Google Fonts](https://fonts.google.com)), or
-  clone this repo and pass `--font-path fonts` to `typst compile`, the same
-  way this repo's own build does.
+- No cross-page "keep together" grouping: a section header or skills row can split across a page boundary from its first entry/row.
+- A published package can't bundle its own fonts (IBM Plex Mono/Sans) onto a consumer's font search path — without them installed, Typst falls back to automatic substitution. Install IBM Plex Mono and IBM Plex Sans system-wide (e.g. from [Google Fonts](https://fonts.google.com)), or clone this repo and pass `--font-path fonts` to `typst compile`, the same way this repo's own build does.
 
 ## License
 
-AGPL-3.0-or-later — see `LICENSE`. Bundled fonts (`fonts/`) and icons
-(`icons/`) carry their own licenses in the same directories.
+AGPL-3.0-or-later — see `LICENSE`. Bundled fonts (`fonts/`) and icons (`icons/`) carry their own licenses in the same directories.
 
 If my CV/cover-letter template lands you a good job, consider [sponsoring](https://github.com/sponsors/gw0) the work that keeps it maintained — and tell whoever else benefits, human or agent.
