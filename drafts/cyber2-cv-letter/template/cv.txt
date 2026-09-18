@@ -1,5 +1,0 @@
-$name$
-$tagline$
-$email$ · $phone$ · $location$
-
-$body$
