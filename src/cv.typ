@@ -1,4 +1,4 @@
-#import "theme.typ": fg, muted, resolve-font, resolve-accent, page-geometry, space-header-line, space-section-to-rule, space-paragraph, space-bullet, body-indent, size-header-name, size-body, size-small, size-footer
+#import "theme.typ": bg, fg, muted, resolve-font, resolve-accent, page-geometry, space-header-line, space-section-to-rule, space-paragraph, space-bullet, body-indent, size-header-name, size-body, size-small, size-footer
 #import "marks.typ": draw-cursor, draw-rule
 #import "fonts.typ": default-font-chrome, default-font-body
 #import "icons.typ": icon-path, icon-for-link, icon-kind-for-link
@@ -112,7 +112,11 @@
   let total = str(counter(page).final().first())
   grid(
     columns: (1fr, 1fr),
-    align(left, { prompt; h(cursor-gap); draw-cursor(muted) }),
+    align(left, {
+      prompt; h(cursor-gap); draw-cursor(muted)
+      h(cursor-gap)
+      text(fill: bg, "gw0/cyber-cv-letter")
+    }),
     align(right, page-num + " / " + total),
   )
 }
