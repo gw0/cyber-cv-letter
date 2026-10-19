@@ -27,7 +27,7 @@ Install Typst and Pandoc system-wide, or in local `.venv/` dir:
 ```bash
 $ git clone https://github.com/gw0/cyber-cv-letter.git
 $ cd cyber-cv-letter
-$ make setup      # creates .venv/, vendors pandoc + typst into it
+$ make venv      # creates .venv/, vendors pandoc + typst into it
 $ . .venv/bin/activate # puts typst/pandoc/python3 on PATH
 ```
 
@@ -142,7 +142,7 @@ $ pandoc -d pandoc/cv.yaml --resource-path /path/to /path/to/mycv.md -o /path/to
 This repo builds and tests its own examples locally (nothing is installed system-wide):
 
 ```bash
-$ make setup      # creates .venv/, vendors pandoc + typst into it
+$ make venv       # creates .venv/, vendors pandoc + typst into it
 $ . .venv/bin/activate # puts typst/pandoc/python3 on PATH
 $ make examples   # builds the 8-PDF example matrix (cv/cv-plain/cv-friggeri/letter × typst/markdown)
 $ make test       # contrast, spacing, ATS-extraction, and rendered-layout checks (tests/)

@@ -26,12 +26,14 @@ PANDOC_LETTER_SOURCES := pandoc/letter-template.typ pandoc/letter.yaml
 all: examples test
 
 # ---------------------------------------------------------------------------
-# setup — a real venv (`. .venv/bin/activate` works) plus local package
+# venv — a real venv (`. .venv/bin/activate` works) plus local package
 # registration and vendored pandoc/typst binaries. Nothing installed
 # system-wide; everything lives under .venv/.
 # ---------------------------------------------------------------------------
 
-setup: .typst-packages/preview/cyber-cv-letter/0.1.0 $(PANDOC) $(TYPST)
+venv: .typst-packages/preview/cyber-cv-letter/0.1.0 $(PANDOC) $(TYPST)
+
+setup: venv
 
 .typst-packages/preview/cyber-cv-letter/0.1.0:
 	mkdir -p .typst-packages/preview/cyber-cv-letter
@@ -47,7 +49,7 @@ $(PYTHON):
 # Resolve the bundled binary directly rather than via pypandoc.get_pandoc_path():
 # that function first probes the bare "pandoc" on $PATH, and its exception
 # handler mistakes this repo's own pandoc/ directory for a broken pandoc
-# executable, logging a spurious [ERROR] traceback on every `make setup`.
+# executable, logging a spurious [ERROR] traceback on every `make venv`.
 $(PANDOC): | .venv/.install-stamp
 	ln -sf "$$($(PYTHON) -c 'import os, pypandoc; print(os.path.join(os.path.dirname(pypandoc.__file__), "files", "pandoc"))')" $(PANDOC)
 

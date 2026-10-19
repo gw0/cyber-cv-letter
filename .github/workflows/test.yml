@@ -14,8 +14,8 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: make setup
-        run: make setup
+      - name: make venv
+        run: make venv
 
       - name: make examples
         run: make examples
